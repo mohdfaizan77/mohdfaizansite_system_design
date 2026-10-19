@@ -63,10 +63,11 @@ const dialog = document.querySelector('.topic-dialog')
 const panel = document.querySelector('.topic-panel')
 const resizeHandle = document.querySelector('.panel-resize-handle')
 const desktopPanel = matchMedia('(min-width: 761px)')
-let sidebarWidth = 520
+let sidebarWidth = window.innerWidth / 2
+let sidebarManuallyResized = false
 let resizeDrag = null
 
-function updateSidebarWidth(width = sidebarWidth) {
+function updateSidebarWidth(width = sidebarManuallyResized ? sidebarWidth : window.innerWidth / 2) {
   if (!desktopPanel.matches) return
   const maximum = window.innerWidth - 48
   sidebarWidth = Math.round(Math.min(maximum, Math.max(360, width)))
@@ -96,6 +97,7 @@ resizeHandle.addEventListener('pointerdown', event => {
 })
 resizeHandle.addEventListener('pointermove', event => {
   if (resizeDrag?.pointerId !== event.pointerId) return
+  sidebarManuallyResized = true
   updateSidebarWidth(resizeDrag.startWidth + resizeDrag.startX - event.clientX)
 })
 for (const eventName of ['pointerup', 'pointercancel', 'lostpointercapture']) {
@@ -107,6 +109,7 @@ resizeHandle.addEventListener('keydown', event => {
   const widths = { ArrowLeft: sidebarWidth + step, ArrowRight: sidebarWidth - step, Home: 360, End: window.innerWidth - 48 }
   if (!(event.key in widths)) return
   event.preventDefault()
+  sidebarManuallyResized = true
   updateSidebarWidth(widths[event.key])
 })
 window.addEventListener('resize', () => {

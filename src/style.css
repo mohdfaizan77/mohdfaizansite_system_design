@@ -118,7 +118,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .journey footer { border-top: 1px solid var(--border); margin: 0 5%; padding: 28px 0; display: flex; justify-content: space-between; gap: 20px; font-size: 11px; color: var(--muted); }
 .journey footer>a:first-child { font: 9px var(--mono); }
 .panel-open { overflow: hidden; }
-.topic-dialog { inset: 0 0 0 auto; margin: 0; height: 100dvh; max-height: 100dvh; width: min(var(--sidebar-width, 520px), 100%); max-width: 100%; padding: 0; border: 0; border-left: 1px solid var(--border); background: var(--surface); color: var(--body); box-shadow: -30px 0 100px color-mix(in srgb, var(--ink) 12%, transparent); }
+.topic-dialog { inset: 0 0 0 auto; margin: 0; height: 100dvh; max-height: 100dvh; width: min(var(--sidebar-width, 50vw), 100%); max-width: 100%; padding: 0; border: 0; border-left: 1px solid var(--border); background: var(--surface); color: var(--body); box-shadow: -30px 0 100px color-mix(in srgb, var(--ink) 12%, transparent); }
 .panel-resize-handle { position: absolute; top: 0; bottom: 0; left: 0; width: 12px; z-index: 3; cursor: ew-resize; touch-action: none; }
 .panel-resize-handle::after { content: ''; position: absolute; left: 3px; top: calc(50% - 24px); width: 3px; height: 48px; background: var(--muted); border-radius: 3px; transition: background .2s; }
 .panel-resize-handle:hover::after, .panel-resize-handle:focus-visible::after, .sidebar-resizing .panel-resize-handle::after { background: var(--accent); }
