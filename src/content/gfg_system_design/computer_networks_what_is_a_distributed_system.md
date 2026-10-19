@@ -1,0 +1,68 @@
+# Introduction to Distributed System
+
+Source: https://www.geeksforgeeks.org/computer-networks/what-is-a-distributed-system/
+
+A distributed system is a group of independent computers, called nodes, that work together as a single system. These nodes communicate over a network to share data, resources, and tasks to achieve a common goal. It ensures coordination between multiple systems while appearing unified to the user.
+- Consists of multiple independent computers (nodes) working together over a network.
+- Nodes communicate and share data, resources, and tasks while appearing as a single system to users.
+
+### Real-World Examples
+These examples show how distributed systems are used in real applications to handle large-scale data, improve performance, and ensure reliability.
+- Online Banking Systems: Banks use distributed systems where branches, ATMs, and servers communicate to process transactions reliably.
+- E-Commerce Platforms: Platforms like Amazon or Flipkart process orders, payments, and inventory across multiple servers to handle high traffic and ensure a smooth user experience.
+- Social Media Platforms: Applications like Facebook, X, and Instagram use multiple data centers to store and process massive amounts of user data efficiently.
+- Online Gaming Systems: Multiplayer games like PUBG use multiple servers to manage game sessions and player data, reducing latency and supporting real-time gameplay.
+
+### Types of Distributed Systems
+Distributed systems can be classified into different types based on how nodes are organized, how they communicate, and how tasks are distributed across the system.
+1. Client-Server Systems
+A client-server system is a distributed system where a central server provides services and multiple clients request those services over a network.
+- Server manages data and processing.
+- Clients send requests and receive responses.
+- Example: Gmail or online banking systems.
+2. Peer-to-Peer (P2P) Systems
+A peer-to-peer system is a distributed system where nodes can act as both clients and servers without relying on a central server.
+- No central server is required.
+- Nodes directly share resources with each other.
+- Example: BitTorrent and blockchain networks.
+3. Clustered Systems
+A clustered system is a group of closely connected computers that work together as a single system to improve performance and reliability.
+- Nodes work together in a tightly connected network.
+- Tasks are distributed among nodes for better performance.
+- Example: Search engine clusters and supercomputers.
+4. Cloud-Based Distributed Systems
+A cloud-based distributed system uses cloud infrastructure where computing resources are distributed across multiple servers and data centers.
+- Resources can be scaled on demand.
+- Services and resources are accessed over a network.
+- Example: AWS, Microsoft Azure, and Google Cloud.
+
+### Working
+A distributed system works by dividing tasks among multiple nodes, which communicate and coordinate over a network to achieve a common goal.
+- Nodes communicate with each other over a network using communication protocols or middleware.
+- Data and tasks are distributed across multiple nodes for parallel processing and resource sharing.
+- Nodes process data locally and share results with other nodes when required.
+- The system coordinates nodes to maintain consistency, reliability, and fault tolerance.
+
+### Advantages
+- Resource Sharing: Allows nodes to share data, files, and resources efficiently.
+- Scalability: Makes it easy to handle increasing workloads by adding more nodes.
+- Reliability: Allows the system to continue operating even when some nodes fail.
+- Performance: Distributes workloads across multiple nodes for faster processing.
+
+### Disadvantages
+- Complexity: Makes designing, managing, and maintaining the system more difficult.
+- Security: Multiple nodes and network connections increase security risks.
+- Network Dependency: System performance depends on network speed, latency, and reliability.
+- Data Consistency: Keeping data synchronized across multiple nodes can be challenging.
+
+### Distributed Systems vs Microservices
+Distributed System	Microservices
+A collection of independent computers or nodes that work together as a single system.	An architectural style that divides an application into small, independent services.
+Focuses on communication and coordination between multiple machines.	Focuses on designing applications as loosely coupled services.
+Improves scalability, performance, and reliability.	Allows services to be developed and deployed independently.
+Can use different architectural approaches, including client-server, P2P, and clusters.	Each service typically handles a specific business functionality.
+Not all distributed systems use microservices.	Microservices typically form a distributed system because services communicate over a network.
+
+### Also Check
+- Centralized system Vs Distributed system
+- Architectures of Distributed systems

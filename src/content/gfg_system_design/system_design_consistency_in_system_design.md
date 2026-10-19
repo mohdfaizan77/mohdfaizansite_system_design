@@ -1,0 +1,84 @@
+# Consistency in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/consistency-in-system-design/
+
+Consistency in system design refers to the guarantees about when and how updates to data become visible across different nodes or clients in a distributed system. The exact guarantees depend on the chosen consistency model.
+- The consistency model determines when users and nodes can observe updated values and whether they may temporarily see stale data.
+- Prevents conflicts or mismatched data across different parts of the system.
+Example: In an online banking system, if money is transferred from one account to another, all servers should immediately show the updated balance so that users always see the correct information.
+
+## Types of Consistency
+Different consistency models provide different guarantees about how updates are observed across distributed nodes.
+
+### 1. Strong Consistency
+Strong consistency provides guarantees that reads observe sufficiently recent writes according to the system's consistency model. Linearizability is a specific strong consistency model that makes operations appear to occur atomically in a single real-time order. Strict consistency is a stronger theoretical property based on real-time ordering and is not generally equivalent to linearizability.
+- Ensures all clients see the same sequence of updates with no stale or outdated data, maintaining a fully consistent system state.
+- Requires synchronization across nodes to keep data aligned, which can increase latency and reduce overall system availability in distributed environments.
+Example: In a database system configured for synchronous replication, a write may be acknowledged only after the required replicas have confirmed it. If reads are directed to replicas that have applied the write, clients can observe the latest committed value. The exact guarantees depend on the database's replication and read-consistency configuration.
+
+### 2. Eventual Consistency
+Eventual consistency ensures that all data replicas will converge to the same value over time, even if they temporarily differ. It relaxes strict consistency to improve system availability and performance.
+- Allows temporary inconsistencies between replicas, but guarantees that all updates will eventually propagate and become consistent across the system.
+- Improves scalability and performance by reducing synchronization requirements, making it suitable for distributed and high-availability systems.
+Example: Amazon DynamoDB supports eventually consistent reads, where a read may return a value that does not yet reflect a recently completed write. The data becomes consistent as updates propagate across the distributed system.
+
+### 3. Causal Consistency
+Causal consistency ensures that related events are seen in the correct order across all nodes, preserving cause-and-effect relationships. It maintains a logically consistent view of operations without requiring full synchronization.
+- Guarantees that if one operation depends on another, all nodes will observe them in the same causal order, preserving application correctness.
+- Allows concurrent independent operations without strict ordering, improving performance while still maintaining meaningful data relationships.
+Example: In a collaborative document editing application, multiple users can edit different parts simultaneously while maintaining correct order of dependent changes. Edits that rely on others are seen in the proper sequence, ensuring a consistent and meaningful document for all users.
+
+### 4. Weak Consistency
+Weak consistency provides fewer guarantees about when updates become visible to clients or replicas. A read may return stale data, and the system may not guarantee a specific time or order for updates to become visible. The exact behavior depends on the implementation and consistency model.
+- May allow stale or inconsistent views for an unspecified period, depending on the system's implementation and guarantees.
+- Supports high availability and fast performance by permitting simultaneous updates without strict synchronization, but may lead to data discrepancies.
+Example: In a distributed caching system, different cache nodes may temporarily contain different values depending on the caching strategy, replication configuration, and update mechanisms. As a result, clients may sometimes read stale data until the cache is updated or invalidated.
+
+### 6. Monotonic Reads Consistency
+Monotonic Reads Consistency ensures that once a client has observed a particular value, subsequent reads will not return an older value.
+- Ensures that a client’s subsequent reads reflect the same or a more recent state than previously observed.
+- Prevents a client from going backward to an older state, providing a consistent view of data over time.
+Example: If a client reads values A → B → C over successive requests, it will not later observe an older state such as A or B after already observing C.
+
+### 7. Monotonic Writes Consistency
+Monotonic Writes Consistency ensures that writes from a single client are applied in the same order in which they were issued.
+- Ensures that all writes from a single client are applied in the same order across replicas, preserving the correct sequence of updates.
+- Prevents a later write from being applied before an earlier write from the same client, avoiding inconsistent or outdated states.
+Example: A client sends writes A → B → C. With monotonic writes, the system ensures that A is applied before B, and B before C, rather than applying them in an order such as B → A → C.
+
+## Importance
+Consistency plays a crucial role in system design for several reasons:
+- Correctness: Consistency guarantees that the information accessible by various system components is always correct and up-to-date.
+- Reliability: Because they lower the possibility of mistakes and inconsistencies that could result in unpredictable behavior or corrupted data, consistent systems are more dependable. Users may rely on the system to deliver reliable and accurate results.
+- Data Integrity: The integrity of the data kept in the system is preserved by consistency. Consistency aids in preventing data loss and corruption by guaranteeing that all changes are applied and distributed appropriately.
+- Concurrency Control: This techniques help manage simultaneous access and updates to shared data, reducing conflicts and ensuring operations follow the required consistency guarantees.
+- User Experience: Because it makes system interaction predictable and smooth, consistency improves the user experience. The system is reliable in providing users with current and logical information, which increases user happiness and usefulness.
+
+## Challenges with maintaining Consistency
+Maintaining consistency in distributed systems can be difficult because data is stored and processed across multiple nodes and locations.
+- Coordination Overhead: Maintaining consistency requires coordination between nodes, which adds overhead and can create scalability bottlenecks
+- Latency: Strong consistency increases latency as operations must wait for acknowledgments from multiple nodes, affecting user experience.
+- Operational Complexity: Ensuring consistency involves complex configurations, where mismanagement can lead to inconsistencies or performance issues.
+- Data Synchronization: Keeping data consistent across platforms is challenging due to network delays, device limits, and asynchronous updates.
+- Concurrency Control: Managing concurrent access to shared data requires careful design to maintain consistency across systems.
+
+## Strategies for achieving Consistency
+In distributed systems, achieving consistency requires the use of a number of strategies, such as best practices, consistency models, design patterns, and dispute resolution methods. The basic outline of each is as follows:
+
+### 1. Design Patterns and Best Practices
+These design practices help maintain data consistency in distributed systems and reduce the chances of conflicting data updates.
+- Single Source of Truth: Design systems with a single authoritative source of truth for critical data. This reduces the potential for inconsistencies arising from multiple conflicting sources.
+- Unchanged Operations: Design operations that can be applied multiple times without changing the result. Idempotent operations are essential for ensuring consistency in the face of network failures and retries.
+- Versioning: Implement versioning mechanisms for data objects to track changes over time. Versioning helps in detecting conflicts and resolving inconsistencies.
+- Asynchronous Updates: Use asynchronous communication patterns to decouple components. By enabling components to handle updates independently, asynchronous updates lower congestion and increase scalability.
+
+### 2. Consistency Models
+Consistency models define how and when updates made to data become visible across different nodes in a distributed system.
+- Eventual Consistency: In situations where instant consistency is not necessary, accept eventual consistency. Allow a brief variation between replicas while guaranteeing their eventual convergence to a consistent state.
+- Strong Consistency: Use strong consistency models when applications require reads to observe the latest committed data according to defined consistency guarantees, such as for certain financial transactions or critical operations.
+- Causal Consistency: Apply causal consistency for preserving causal relationships between events in distributed systems. Ensure that events causally related are observed in the correct order across all replicas.
+
+### 3. Conflict Resolution Techniques
+Conflict resolution techniques help handle situations where multiple updates to the same data occur at the same time.
+- Last-Writer-Wins (LWW): Resolve conflicts by favoring the update with the latest timestamp or version. LWW is a simple conflict resolution strategy but may lead to data loss or inconsistency in some scenarios.
+- Merge Strategies: Use custom merge strategies or conflict resolution algorithms tailored to the specific requirements of the application domain. Merge strategies reconcile conflicting updates based on application-specific semantics and user preferences.

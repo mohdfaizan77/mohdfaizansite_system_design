@@ -1,0 +1,63 @@
+# Serverless Architecture
+
+Source: https://www.geeksforgeeks.org/system-design/serverless-architectures/
+
+Serverless Architecture is a cloud computing model where the cloud provider manages the underlying infrastructure, including server provisioning, scaling, and maintenance. This allows developers to focus more on application logic and deployment.
+- Serverless workloads can run in response to requests, events, schedules, or other triggers depending on the platform.
+- The cloud provider manages infrastructure provisioning, scaling, and resource allocation within configured limits.
+Example: When a user uploads an image, a serverless function can automatically process it without requiring developers to provision or manage the underlying servers.
+
+## Architecture Components
+- Web App: Sends requests to the application through the API Gateway.
+- API Gateway: Acts as the entry point, handling request routing, validation, throttling, and authentication/authorization when required.
+- Authorizer: Verifies the identity and permissions of clients before allowing requests to proceed.
+- Serverless Functions: Execute the application's business logic without requiring developers to manage servers.
+- Managed Services: Serverless functions interact with managed services such as:
+- Database: Stores and retrieves application data.
+- Storage: Stores files, images, documents, and other objects.
+- External APIs: Communicate with third-party services.
+- Event-Driven Triggers: For event-driven workloads, services such as message queues, event streams, or object storage can also directly trigger serverless functions.
+
+## Serverless Application Design Patterns
+Serverless design patterns help build scalable, reliable, and maintainable applications by managing requests, processing events, and handling failures. Common patterns include:
+- API Gateway Pattern: Routes client requests to serverless functions and may handle authentication, authorization, rate limiting, and monitoring.
+- Event Stream Processing: Processes events from streams using serverless functions for real-time analytics, monitoring, and data processing.
+- Aggregator Pattern: Collects responses from multiple services or functions and combines them into a single response for the client.
+- Strangler Fig Pattern: Gradually replaces legacy application components with serverless functions or modern services without requiring a complete rewrite.
+- Circuit Breaker Pattern: Temporarily blocks calls to failing dependencies to prevent cascading failures and allow recovery.
+
+## Scaling and Performance Considerations
+Scaling and performance in serverless architectures depend on workload characteristics, provider limits, runtime behavior, and application design.
+
+### 1. Scaling in Serverless Computing
+- Automatic Scaling: Serverless platforms can increase or decrease function instances based on workload, subject to provider limits and configuration.
+- Throttling: Requests or events that exceed configured concurrency or invocation limits may be delayed, queued, or rejected depending on the platform.
+
+### 2. Performance Optimization Strategies
+- Optimize Function Code: Keep function logic efficient, minimize unnecessary operations, and use asynchronous processing where appropriate.
+- Manage Dependencies: Remove unused libraries and reduce deployment package size where this helps initialization performance.
+- Manage Connections Efficiently: Reuse database or external-service connections where supported, while respecting connection limits and platform behavior.
+
+## Security Best Practices for Serverless Architectures
+Securing serverless applications requires proper access controls, data protection, and API security to prevent unauthorized access and vulnerabilities. Key best practices include:
+- Least Privilege Principle: Grant serverless functions only the permissions required for their tasks to minimize security risks.
+- Secure Application Secrets: Avoid hardcoding API keys, passwords, or tokens. Use managed secret services to store sensitive credentials securely.
+- Input Validation: Validate and sanitize user inputs, along with using appropriate security controls, to prevent SQL injection, XSS, and command injection attacks.
+- Secure API Gateway: Protect serverless endpoints using authentication, authorization, rate limiting, and properly configured CORS policies.
+- Encryption: Use HTTPS/TLS to protect data in transit and encryption at rest for databases, storage, and other sensitive resources.
+
+## Use Cases
+Some common use cases of Serverless Architecture include:
+- Chatbots and Virtual Assistants: Serverless functions can process user requests from messaging or voice interfaces and scale with workload within provider limits.
+- Streaming and Near-Real-Time Data Processing: Serverless functions can process incoming stream events for analytics, monitoring, alerting, and data transformation.
+- Web and Mobile Backends: Serverless platforms can support APIs, authentication flows, and backend application logic for web and mobile applications.
+- Scheduled Tasks and Cron Jobs: Serverless functions can run on predefined schedules for tasks such as report generation, synchronization, cleanup, or maintenance.
+
+## Challenges
+Challenges of Serverless Architecture include:
+- Cold Start Latency: A cold start occurs when the platform initializes a new execution environment before processing a request or event, which can add latency.
+- Execution and Resource Limits: Platforms may impose limits on execution time, memory, concurrency, payload size, and other resources.
+- Debugging and Monitoring Complexity: Distributed serverless applications can be harder to trace and troubleshoot because logic may be spread across functions and managed services.
+- State Management: Functions are typically designed to be stateless, so persistent application state is usually stored in external databases, object storage, or caches.
+- Security and Compliance Challenges: Serverless applications require careful management of permissions, secrets, network access, authentication, and regulatory requirements.
+- Vendor Dependency: Applications may rely on provider-specific runtimes, triggers, APIs, and managed services, which can make migration between cloud providers more difficult.

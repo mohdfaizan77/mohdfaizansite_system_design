@@ -1,0 +1,114 @@
+# Time-To-Live (TTL)
+
+Source: https://www.geeksforgeeks.org/computer-networks/what-is-time-to-live-ttl/
+
+Time-To-Live (TTL) defines how long data remains usable or how far a network packet may travel before it expires. Its exact meaning depends on the system in which TTL is used.
+- In IPv4, TTL is an 8-bit header field used to limit how many router hops a packet can traverse.
+- In DNS and caching, TTL specifies how long cached data can remain valid.
+- TTL helps prevent stale cached data and packets from remaining in a system indefinitely.
+Example: A DNS record with a TTL of 3600 seconds can generally remain cached for up to one hour. In IP networking, a packet with TTL 8 can normally traverse at most eight router hops before being discarded.
+
+## Working
+In IPv4, TTL is an 8-bit field in the IP header. Although its name refers to time, modern IP forwarding uses it primarily as a hop-count limit.
+The process works as follows:
+- The sending host assigns an initial TTL value to the IPv4 packet.
+- Each router that forwards the packet decreases the TTL by at least 1.
+- The router forwards the packet if the remaining TTL permits it.
+- If forwarding would reduce the TTL to 0, the router discards the packet.
+- The router normally sends an ICMP Time Exceeded message back toward the source.
+This prevents packets from circulating indefinitely because of routing loops.
+
+## Example
+Suppose Host A sends a packet to Host B with an initial TTL of 255.
+- Host A sends the packet with TTL = 255.
+- Router A decrements it to 254.
+- Router B decrements it to 253.
+- Router C decrements it to 252.
+- The packet reaches Host B with TTL = 252.
+
+## TTL in DNS
+In DNS, Time-to-Live (TTL) defines how long a DNS record can remain cached before it expires. For example, if example.com has a TTL of 3600 seconds, a DNS resolver can generally reuse the cached record for up to one hour before fetching fresh information.
+
+### Why DNS TTL Matters
+- Longer TTL: Reduces repeated DNS queries and improves caching efficiency.
+- Shorter TTL: Allows DNS record changes to become visible sooner.
+- Balanced TTL: Maintains a balance between faster DNS resolution and updated DNS information.
+Note: TTL values should be selected based on how frequently DNS records change and the application's requirements.
+
+## TTL in HTTP Caching
+HTTP caching uses freshness lifetimes to determine how long a response can be reused without revalidation. These are commonly controlled using the Cache-Control header.
+- max-age=3600: Allows a cached response to remain fresh for 3600 seconds (1 hour), subject to HTTP caching rules.
+- max-age=0: Makes the response immediately stale, normally requiring revalidation before reuse. It does not prevent caching.
+- no-store: Instructs caches not to store the response, making it suitable when caching must be prevented.
+
+### General Guidelines
+- Versioned static assets: Can often use longer freshness periods.
+- Frequently changing content: Usually requires shorter freshness periods or revalidation.
+- Private or personalized data: Requires appropriate cache-control policies and should not be publicly cached unless specifically safe to do so.
+These are design choices rather than universal TTL rules.
+
+## TTL Exceeded
+A TTL Exceeded condition occurs when an IPv4 packet's TTL expires before the packet reaches its destination.
+
+### When this happens
+- A router determines that the packet cannot be forwarded because its TTL would expire.
+- The router discards the packet.
+- An ICMP Time Exceeded message is normally returned toward the sender.
+This behavior is useful for diagnosing network paths.
+
+## Application of TTL
+TTL is used in networking and distributed systems to limit packet propagation, support network diagnostics, and control how long cached or temporary data remains usable.
+
+### 1. Ping
+The ping command checks whether a destination is reachable by sending ICMP Echo Request messages and waiting for replies.
+It commonly provides information such as:
+- Number of replies received
+- Round-trip time
+- Packet loss
+
+### 2. Traceroute / Tracert
+The traceroute or tracert command uses TTL values to identify routers along the path between a source and destination.
+It sends packets with progressively increasing TTL values:
+
+```
+TTL 1 → expires at first router
+TTL 2 → expires at second router
+TTL 3 → expires at third router
+...
+```
+When the TTL expires, the router normally sends an ICMP Time Exceeded message, allowing the tool to identify intermediate hops.
+
+### 3. IP Multicast
+In IPv4 multicast, TTL can limit how many router hops a multicast packet is allowed to traverse.
+- A smaller TTL restricts the packet to fewer routed hops.
+- A larger TTL allows it to travel through more router hops.
+- The actual forwarding behavior also depends on multicast routing configuration.
+TTL should not be mapped to fixed geographic ranges such as site, region, or continent because network hops do not directly represent geographic distance.
+
+### 4. Caching Systems
+TTL is commonly used in DNS, CDNs, application caches, and distributed caches to control how long cached information remains valid. When an entry expires, it may be removed, refreshed, or fetched again depending on the system.
+
+## TTL in IPv4 vs Hop Limit in IPv6
+IPv4 uses the TTL field, while IPv6 uses the equivalent Hop Limit field.
+- Both fields are 8 bits.
+- Routers decrement the value while forwarding packets.
+- Packets are discarded when the forwarding limit expires.
+- Both mechanisms help prevent packets from circulating indefinitely.
+
+## Choosing TTL Values
+There is no universal TTL value suitable for every DNS record or caching system.
+The appropriate value depends on:
+- Data Change Frequency: Frequently changing records usually need shorter TTLs.
+- Freshness Requirements: Systems requiring rapid updates may use shorter TTLs.
+- Cache Efficiency: Longer TTLs reduce repeated lookups and backend traffic.
+- Migration Requirements: TTLs may be reduced before planned DNS changes so cached records expire sooner.
+- Operational Requirements: Different systems may need different trade-offs between performance and freshness.
+Values such as 3600 or 86400 seconds can be used as examples, but they should not be presented as universal recommendations.
+
+## Additional Uses of TTL
+TTL or similar expiration mechanisms are used in several distributed systems.
+- Messaging Systems: Some message brokers allow messages to expire after a configured period so outdated messages are not processed.
+- Peer-to-Peer Networks: TTL or hop-count values may limit how far discovery or search requests propagate.
+- Distributed Caches: Cached entries can expire automatically after a configured lifetime.
+- Service Discovery: Some discovery systems use TTL values to control how long service information can be reused.
+- IoT Systems: Messages or cached data may use expiration times so outdated information is not retained indefinitely.

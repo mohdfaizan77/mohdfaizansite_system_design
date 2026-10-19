@@ -1,0 +1,97 @@
+# Redis Introduction
+
+Source: https://www.geeksforgeeks.org/system-design/introduction-to-redis-server/
+
+Redis (Remote Dictionary Server) is an in-memory data store that provides low-latency data access. It is commonly used for caching, sessions, queues, leaderboards, messaging, counters, and other workloads that require fast data access.
+- Fast Data Access: Stores frequently accessed data in memory for quick retrieval.
+- Rich Data Structures: Supports strings, hashes, lists, sets, sorted sets, streams, and other structures for different application needs.
+Example: An e-commerce website can use Redis to cache frequently accessed product details so product pages can be served with lower latency.
+
+## How Redis Works as a Cache
+Redis can act as a caching layer between an application and its primary database. When a client requests data, the application checks Redis before querying the database.
+The flow works as follows:
+- Request Handling: The client sends a request to the application or API server.
+- Cache Lookup: The application checks Redis for the required data.
+- Cache Hit: If the data is present, Redis returns it without querying the main database.
+- Cache Miss: If the data is not present, the application retrieves it from the database.
+- Cache Update: The retrieved data can be stored in Redis for future requests.
+- Response: The application returns the result to the client.
+
+## Redis Expiration and TTL
+Redis supports Time to Live (TTL), allowing keys to expire automatically after a specified duration. This is useful for temporary data such as OTPs, sessions, and cached results.
+r.set('otp:123', '758421', ex=300)
+This stores the OTP with an expiration time of 300 seconds.
+- Session Expiration: Automatically removes expired session data.
+- Temporary Caching: Prevents cached entries from remaining indefinitely.
+- Rate Limiting: Supports time-based request counters and windows.
+- Verification Codes: Removes temporary authentication values after their validity period.
+
+## Redis Eviction Policies
+Redis eviction policies determine what happens when Redis reaches its configured memory limit and additional memory is required.
+- LRU-Based Eviction: Removes less recently used keys. Redis provides policies that apply LRU eviction to all keys or only keys with expiration times.
+- LFU-Based Eviction: Removes less frequently accessed keys based on usage frequency.
+- TTL-Based Eviction: Removes keys with expiration times, generally favoring keys that are closer to expiration.
+- Random Eviction: Removes keys randomly, either from all keys or only expiring keys depending on the selected policy.
+- No Eviction: Rejects write operations that require additional memory instead of removing existing keys.
+The appropriate eviction policy depends on whether Redis is being used for caching, sessions, temporary data, or another workload.
+
+## Redis Example Using Python
+Before running the following example:
+- Install and start a Redis server.
+- Install the Redis client library for Python.
+We can install the Python client using: pip install redis
+Python Code:
+
+```
+import redis
+
+r = redis.Redis(
+    host='localhost',
+    port=6379,
+    db=0,
+    decode_responses=True
+)
+
+r.set('name', 'Alia')
+print(r.get('name'))
+
+r.set('name', 'Riya')
+print(r.get('name'))
+
+r.delete('name')
+print(r.get('name'))
+
+```
+Output
+Understanding the Example
+- Connect to Redis: redis.Redis() configures a connection to the local Redis server on port 6379.
+- Store Data: set() stores the key name with the value Alia.
+- Retrieve Data: get() retrieves the value associated with the key.
+- Update Data: Calling set() again replaces Alia with Riya.
+- Delete Data: delete() removes the key, so the subsequent get() returns None.
+The decode_responses=True option converts Redis responses from bytes into Python strings.
+
+## Common Redis Data Structures
+Redis supports different data structures for efficiently storing and processing application data.
+- Strings: Store text, numbers, serialized data, counters, and cached values.
+- Hashes: Store field-value pairs, making them useful for user profiles and application objects.
+- Lists: Maintain ordered collections for queues, recent activity, and task lists.
+- Sets: Store unique, unordered values for tags, membership checks, and unique visitors.
+- Sorted Sets: Associate members with numeric scores for leaderboards, rankings, and priority-based data.
+- Streams: Store append-only event records for messaging and event-processing workflows.
+
+## Why Redis Is Fast
+Redis achieves low-latency data access through its memory-oriented design and efficient command processing. Key factors include:
+- In-Memory Storage: Keeps active data in RAM, reducing disk-access latency.
+- Efficient Data Structures: Uses optimized structures for common storage and retrieval operations.
+- Mostly Single-Threaded Command Execution: Reduces synchronization overhead while supporting additional threads for selected operations.
+- Lightweight Protocol: Uses RESP for efficient communication between clients and the Redis server.
+- Efficient Network Handling: Processes large numbers of small requests with optimized network operations.
+
+## Real-World Applications
+Redis is commonly used in applications that require fast data access, real-time processing, and low-latency operations.
+- E-commerce: Caching product information, shopping carts, and session data.
+- Social Media: Managing feeds, notifications, counters, and real-time activity.
+- Gaming: Building leaderboards, storing player state, and managing matchmaking queues.
+- Financial Applications: Supporting rate limiting, real-time counters, and fast-access application data.
+- Web Applications: Managing sessions and caching frequently accessed database results.

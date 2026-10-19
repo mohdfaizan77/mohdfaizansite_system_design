@@ -1,0 +1,36 @@
+# Choosing the Right Scalability Approach
+
+Source: https://www.geeksforgeeks.org/system-design/which-scalability-approach-is-right-for-our-application-system-design/
+
+Choosing the right scalability approach depends on application architecture, workload, traffic patterns, cost, performance requirements, and expected growth. Vertical, horizontal, elastic, and serverless scaling can all be appropriate depending on the system.
+- Vertical Scaling: Increases resources such as CPU, memory, or storage on an existing machine.
+- Horizontal Scaling: Adds more machines or instances to distribute workload.
+Example: A small application may initially scale vertically by increasing server resources, while a high-traffic application may scale horizontally by running multiple instances behind a load balancer.
+
+## Factors That Affect Choosing the Correct Scalability Method
+The appropriate scaling approach depends on several technical and operational factors:
+- Application Architecture: Monolithic applications may be simpler to scale vertically initially, while modular or distributed architectures can make horizontal scaling of individual components easier.
+- Database Requirements: Consider data model, consistency requirements, query patterns, transactions, storage growth, and read/write workload. Both SQL and NoSQL databases can support large-scale systems.
+- Cost: Infrastructure, licensing, networking, cloud pricing, operational overhead, and resource utilization all affect cost. Neither vertical nor horizontal scaling is always cheaper.
+- Availability and Fault Tolerance: Multiple instances can support redundancy, but high availability also requires health checks, failover, replication, and proper failure handling.
+- Latency Requirements: Latency depends on application processing, network distance, caching, database performance, and data placement. Scaling alone does not guarantee low latency.
+- Traffic Patterns: Variable workloads may benefit from autoscaling or serverless platforms that adjust resources based on demand, subject to platform limits.
+- Technology Stack: The application runtime, deployment model, database, and infrastructure determine which scaling approaches are practical.
+
+## Making the Right Choice
+Choosing the appropriate scaling approach depends on workload size, traffic patterns, performance requirements, and infrastructure costs.
+- Small and Predictable Workloads: Vertical scaling is suitable for moderate growth because it increases capacity without major architectural changes, although hardware limits apply.
+- Large and Growing Workloads: Horizontal scaling distributes workloads across multiple servers, providing additional capacity while introducing coordination and operational complexity.
+- Variable Workloads: Elastic scaling or serverless platforms can adjust capacity based on demand, but platform limits, throttling, and cold starts may affect performance.
+- Performance-Sensitive Workloads: Identify the actual bottleneck and consider vertical scaling, horizontal scaling, caching, database optimization, or CDNs as appropriate.
+- Cost-Constrained Systems: Evaluate infrastructure and operational costs. Vertical scaling may be simpler for smaller workloads, while autoscaling can reduce unnecessary resource usage.
+
+## Testing Application Scalability
+Scalability testing helps determine how a system behaves as workload increases.
+- Load Testing: Tests the system under expected and anticipated peak workloads to evaluate response time, throughput, and resource utilization.
+- Stress Testing: Pushes the system beyond expected workload to identify significant degradation, failure points, and recovery behavior.
+- Scaling Validation: Verify that additional instances or resources actually increase capacity as expected.
+- Load Balancer Testing: Check whether traffic is distributed correctly across healthy instances according to the configured balancing strategy.
+- Database Testing: Evaluate database throughput, query latency, connection usage, and storage performance under increasing load.
+- Failure Testing: Simulate instance, service, or dependency failures to verify failover and recovery mechanisms.
+- Monitoring: Track CPU, memory, network, latency, throughput, error rate, saturation, and other relevant metrics during tests and production operation.

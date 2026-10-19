@@ -1,0 +1,35 @@
+# Difference between Concurrency and Parallelism
+
+Source: https://www.geeksforgeeks.org/operating-systems/difference-between-concurrency-and-parallelism/
+
+Concurrency and Parallelism are foundational concepts in computer science, especially in multithreading and distributed systems. While they sound similar, they refer to different ways of managing multiple tasks.
+- Concurrency: Like a single cashier serving multiple customers by switching between them very quickly (switching between tasks)
+- Parallelism: Like multiple cashiers serving multiple customers at the same time (tasks running truly at the same time)
+
+## Concurrency
+Concurrency refers to managing multiple tasks that make progress during overlapping time periods. The tasks may be interleaved on a single processor or may run simultaneously on multiple processors.
+- Tasks execute in overlapping time periods, making progress without waiting for others to complete.
+- On a single processor, the system may switch between tasks using context switching; on multicore systems, some concurrent tasks may also run in parallel.
+Example: A single-core CPU running multiple threads: the CPU rapidly switches between threads so each makes progress.
+Here, first Task 1 is executing then it went to I/O stage, during this Task 2 starts executing and then it also went to I/O stage and then task 3 and so on. Finally task 1 finish its I/O stage and starts executing remaining part, Task 2 follows it and then Task 3.
+Note: Concurrency allows multiple tasks to make progress during overlapping time periods. It can improve responsiveness and resource utilization, especially when some tasks spend time waiting for I/O.
+
+## Parallelism
+Parallelism refers to executing multiple tasks simultaneously using multiple processing units. It improves system throughput and computational speed by dividing work across processors.
+- Tasks are split into smaller subtasks that run in parallel on separate cores or processors.
+- Focuses on true simultaneous execution, commonly used in data processing and high-performance applications.
+Example: A quad-core CPU running four threads: each thread assigned to a separate core and executed truly in parallel.
+This diagram shows parallelism where a task is divided into smaller parts (P1 to P5) and each part is processed at the same time on different processors.
+Instead of taking 5 minutes on a single processor, all parts run simultaneously and complete in just 1 minute.
+Note:
+- Parallelism can improve computational speed by executing multiple tasks or parts of a task simultaneously on multiple processing units.
+- Concurrency allows multiple tasks to make progress during overlapping time periods. On a single processor, this may happen through interleaving, while on multicore systems some concurrent tasks may also execute in parallel.
+
+## Concurrency Vs Parallelism
+Concurrency	Parallelism
+Concurrency manages multiple tasks that make progress during overlapping time periods.	Parallelism executes multiple tasks or parts of a task simultaneously.
+On a single processor, concurrency can be achieved through interleaving and context switching.	Parallelism generally requires multiple processing units or cores for true simultaneous execution.
+Concurrency can work on both single-core and multicore systems.	Parallel execution requires more than one execution resource.
+Mainly improves responsiveness and resource utilization.	Mainly improves throughput and computational speed for suitable workloads.
+Focuses on managing multiple tasks at once.	Focuses on performing multiple computations at the same instant.
+Debugging can be difficult because tasks may interact and execute in different orders.	Debugging can also be difficult because parallel tasks may interact through shared data and synchronization.

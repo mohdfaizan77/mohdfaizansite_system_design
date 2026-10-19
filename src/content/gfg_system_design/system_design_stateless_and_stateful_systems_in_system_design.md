@@ -1,0 +1,99 @@
+# Stateless and Stateful Systems in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/stateless-and-stateful-systems-in-system-design/
+
+Stateless and stateful systems describe how an application manages and maintains user or session information between requests. Choosing between them affects system scalability, reliability, and architecture.
+- Stateless systems process each request independently without storing client session information on the server.
+- Stateful systems maintain information about previous interactions and use it while processing subsequent requests.
+
+## Stateless Systems
+In stateless systems, the server does not store client state between requests. Each request is processed independently, and any required data must be included in the request or retrieved from external storage (such as databases or caches).
+
+### Characteristics
+Statelessness in system design is characterized by several key features:
+- Independence: Each request is self-contained and processed without relying on past interactions, simplifying system design.
+- Scalability: Easy to scale horizontally since no shared state needs to be managed across servers.
+- Fault Tolerance: Requests can be routed to other servers, but reliability depends on retries and consistent backend state.
+- State Transfer: Clients send required state (e.g., tokens) with each request, adding slight overhead.
+- Protocols: Commonly use HTTP, where each request carries all necessary information.
+
+### Stateless Architecture Patterns
+Design approaches that encourage minimizing or externalizing state within individual system components are known as stateless architecture patterns. They can help build systems that are scalable, resilient, and easier to manage.
+- Layered Architecture: Divides the system into separate layers based on responsibilities, promoting modularity and separation of concerns. However, layered architecture itself does not necessarily imply statelessness.
+- Microservices: Splits an application into independently deployable services, each responsible for a specific business capability. Services can be designed to be stateless by storing persistent state in external databases or other state stores, which can improve scalability and simplify deployment.
+- Serverless Computing: Uses short-lived, independently invoked functions that are typically designed to be stateless, with persistent state stored in external services. Functions can scale automatically based on demand.
+- Event-Driven Architecture: Enables components to communicate through events, often asynchronously, promoting loose coupling and independent processing. EDA does not inherently mean components are stateless, since state can be maintained in databases, event stores, or stateful stream-processing components.
+- Immutable Infrastructure: Replaces existing infrastructure instances with new instances rather than modifying them in place. This reduces configuration drift and can improve consistency and resilience. It is related to infrastructure management rather than statelessness itself.
+
+### Use Cases
+Stateless systems are widely used in scenarios where scalability, simplicity, and independent request processing are important.
+- Web APIs: Stateless systems are commonly used for building RESTful APIs. Each request contains the information required for the server to process it, without relying on session state stored on the server.
+- Content Delivery Networks (CDNs): CDNs commonly use distributed caching servers to serve static and cached content closer to users. These servers can process requests independently without maintaining application session state.
+- Serverless Computing: Serverless architectures commonly use stateless functions that execute independently in response to events or requests, with persistent state stored in external services when required.
+- Authentication and Authorization: Stateless authentication mechanisms, such as JSON Web Tokens (JWTs), allow authentication information to be carried with each request, reducing the need for server-side session storage.
+- Load Balancers: Load balancers are often designed to process requests without maintaining application session state, which can simplify scaling. However, some configurations, such as sticky sessions or connection tracking, require the load balancer to maintain state.
+
+### Challenges
+Stateless systems simplify scaling but introduce challenges in managing continuity, security, and complex workflows.
+- Maintaining Context: Since the server does not retain client data, managing multi-step workflows requires passing context in each request or relying on external storage.
+- Handling State Transfer: All required data must be sent with every request, increasing payload size and adding network overhead.
+- Security Concerns: Tokens or sensitive data must be carefully secured (e.g., encryption, HTTPS) to prevent misuse or leakage.
+- Limited Support for Transactions: Handling complex, multi-step operations across requests is difficult and often requires additional coordination mechanisms.
+
+## Stateful Systems
+Stateful systems keep track of client information between requests. The server remembers session data, preferences, and other details to provide a continuous and personalized experience.
+Example: An online shopping website where the server stores a user’s login session and shopping cart. If the user adds items to the cart, the server remembers those items during the session.
+
+### Characteristics
+The characteristics of stateful systems in system design include:
+- Persistence of State: Retain user sessions, application context, or ongoing process data across multiple interactions.
+- Complex Workflows: Well-suited for multi-step operations that depend on information from previous interactions.
+- State Management: Maintain and update application state, which may require synchronization when multiple instances access the same state.
+- Scalability Challenges: Scaling requires careful state management, partitioning, replication, and synchronization.
+- Failure Recovery: Use mechanisms such as checkpointing, replication, and failover to preserve or restore state after failures.
+
+### Stateful Architecture Patterns
+Stateful architecture patterns are design approaches that maintain and manage state across interactions, requests, or processing steps. They are useful when a system needs to retain information about users, processes, workflows, or ongoing operations.
+- Session State Management: Stores user session information, such as login status, preferences, or shopping carts, using server memory, databases, or distributed caches.
+- Database-Centric Architecture: Uses a database as the primary persistent state store, with applications reading and writing data to maintain application state. This approach is common in monolithic and client-server applications.
+- Stateful Replication: Replicates application state across multiple servers or nodes to improve availability and fault tolerance. Techniques include primary-backup replication and quorum-based replication.
+- Stateful Microservices: Some microservices maintain or manage state when required by the application, such as workflow state, session information, or stateful processing. The state may be stored locally or in an external state store.
+- Saga Pattern: Manages long-running distributed business transactions by coordinating a sequence of local transactions and using compensating actions when a step fails.
+
+### Use Cases
+Stateful systems are used in scenarios where maintaining context, continuity, and consistent data across interactions is essential.
+- User Sessions: Store login details, preferences, and shopping carts on the server to provide a continuous and personalized user experience across multiple requests.
+- Databases: Maintain persistent data to ensure consistency, durability, and reliable data retrieval for applications over time.
+- Distributed Systems Coordination: Use stateful components like Raft or Paxos to manage coordination, leader election, and consistency across distributed nodes.
+- Real-time Collaboration: Keep shared state updated to synchronize changes instantly in applications like collaborative editors, chat systems, or live dashboards.
+
+### Challenges
+Stateful systems provide continuity and consistency but introduce complexity in scaling, management, and reliability.
+- Scalability Complexity: Scaling is harder because state must be shared or synchronized across servers, requiring techniques like replication or partitioning.
+- Resource Management: Maintaining sessions and connections consumes more memory and system resources, increasing operational overhead.
+- Consistency Challenges: Keeping data consistent across distributed systems is difficult and often requires coordination mechanisms or consensus algorithms.
+- Security Risks: Storing sensitive session data requires strong security measures like encryption, authentication, and access control.
+
+## Combining Stateless and Stateful Components
+Combining stateless and stateful components within a system is a common architectural practice. Stateless components can improve scalability and simplify deployment, while stateful components can maintain persistent data, session information, or workflow state when required.
+
+### 1. Stateless Frontend, Stateful Data Layer
+- Frontend-facing components, such as web servers or API services, can be designed to process requests without maintaining client-specific state, making them easier to scale horizontally.
+- Stateful data stores, such as databases or session stores, can maintain persistent application data and other information required across requests.
+
+### 2. Stateless Microservices with Stateful Data Stores
+- Microservices can be designed as stateless services, allowing instances to scale independently and process requests without relying on local application state.
+- Stateful data stores, such as databases, distributed caches, or other state stores, can persist and manage the state required by these services.
+
+### 3. Stateless APIs with Stateful or Stateless Authentication
+- APIs can be designed to process requests independently, supporting horizontal scaling.
+- Authentication and authorization can be implemented using either stateful or stateless approaches. For example, traditional server-side sessions require the server to maintain session state, while JWT-based authentication can carry authentication information with each request and avoid server-side session storage.
+- Authorization decisions may also depend on external state, such as user roles, permissions, or policy data stored in a database or other state store.
+
+### 4. Event-Driven Architecture with Stateful Processors
+- Event-driven architectures can use stateless producers and consumers to process events independently and facilitate asynchronous communication.
+- Stateful event processors or workflow engines can maintain processing state when required for long-running workflows, aggregation, ordering, or coordination across multiple events.
+
+### 5. Combining Stateless and Stateful Components in Workflows
+- Complex workflows or transactions may combine stateless and stateful components, with each component handling a specific responsibility.
+- For example, a user registration workflow may use stateless API services to validate input and initiate registration, while a database persists user information and a state store may maintain session or workflow state when required.

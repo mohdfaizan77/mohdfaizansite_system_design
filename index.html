@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#0B1220" />
+    <script>
+      (() => {
+        let theme = 'dark'
+        try {
+          if (localStorage.getItem('theme') === 'light') theme = 'light'
+        } catch { /* Keep the default when browser storage is unavailable. */ }
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#F3F6FC' : '#0B1220'
+      })()
+    </script>
+    <meta name="description" content="A connected learning path through system design. Explore one concept at a time." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Design / Journey</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

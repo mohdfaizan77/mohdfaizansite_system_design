@@ -1,0 +1,60 @@
+# Functional and Non Functional Requirements
+
+Source: https://www.geeksforgeeks.org/software-engineering/functional-vs-non-functional-requirements/
+
+Requirements analysis identifies and documents what a system must do and the conditions under which it must operate. It provides the foundation for making appropriate system design decisions.
+- Functional Requirements: Define the features and operations a system must perform, such as user registration, search, and payments.
+- Non-Functional Requirements: Define system quality attributes and constraints, such as performance, scalability, security, and availability.
+Example: In an online shopping system, user login, product search, and order placement are functional requirements, while response time, security, availability, and scalability are non-functional requirements.
+
+## Functional Requirements
+Functional requirements describe the features, behaviors, and operations that a system must provide.
+They specify how the system should respond to user actions, inputs, or events.
+- User Authentication: Users can register, log in, and log out.
+- Search: Users can search for products or information.
+- Payment Processing: Users can complete payments.
+- Order Management: Users can create, view, or cancel orders.
+- Notifications: The system can notify users about relevant events.
+- Report Generation: The system can generate required reports.
+
+## Non-Functional Requirements
+Non-functional requirements (NFRs) define the quality attributes and constraints of a system.
+They should be expressed using measurable targets wherever possible so that they can be validated.
+- Performance: Defines response-time, latency, or throughput targets.
+- Availability: Defines how often the system should remain accessible.
+- Reliability: Defines expected behavior during failures and recovery.
+- Scalability: Defines how the system should handle increasing traffic, users, or data.
+- Security: Defines requirements for authentication, authorization, encryption, and data protection.
+- Maintainability: Defines expectations for updating, testing, debugging, and modifying the system.
+- Usability: Defines usability or accessibility expectations.
+- Portability: Defines supported environments, platforms, or deployment targets.
+
+## Examples of Requirements: Online Banking System
+
+### Functional Requirements
+- Users can log in to their accounts.
+- Users can view account balances.
+- Users can transfer money between supported accounts.
+- Users receive notifications for selected transactions.
+
+### Non-Functional Requirements
+- 95% of balance requests should complete within 2 seconds under the expected workload.
+- Sensitive data should be encrypted according to defined security requirements.
+- The system should meet its defined availability target.
+- The system should support the anticipated peak transaction workload.
+
+## Functional vs Non-Functional Requirements
+Aspect	Functional Requirements	Non-Functional Requirements
+Main Question	What should the system do?	How well should the system operate?
+Focus	Features and behavior	Quality attributes and constraints
+Examples	Login, search, payment, order placement	Performance, security, availability, scalability
+Validation	Verify expected behavior and outputs	Measure against defined targets or criteria
+Design Impact	Defines required functionality	Strongly influences architecture and technology decisions
+Documentation	Use cases, user stories, workflows, specifications	SLOs, quality targets, constraints, technical requirements
+
+## Common Challenges
+While defining functional and non-functional requirements, teams may face:
+- Ambiguous Requirements: Requirements may be vague or incomplete.
+- Changing Requirements: Business or user needs may evolve during development.
+- Conflicting Requirements: For example, stronger security may increase latency or complexity.
+- Unclear Non-Functional Targets: Terms like “fast” or “scalable” should be replaced with measurable targets.

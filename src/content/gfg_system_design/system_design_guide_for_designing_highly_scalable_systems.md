@@ -1,0 +1,68 @@
+# Guide for Designing Highly Scalable Systems
+
+Source: https://www.geeksforgeeks.org/system-design/guide-for-designing-highly-scalable-systems/
+
+Scalable systems are essential for handling increasing users, data, and workload efficiently. Designing such systems requires proper architectural planning and an understanding of scalability principles. It helps ensure that applications remain reliable and perform well as demand grows.
+- Handles increasing users and traffic efficiently without major redesign, ensuring smooth system growth.
+- Maintains fast response times and keeps the system stable and available even during heavy workloads or demand spikes.
+Example: A streaming platform like Netflix scales its infrastructure by adding more servers and using load balancing to support millions of users watching videos simultaneously, though overall performance also depends on factors like database efficiency, system design, and bottlenecks.
+
+## Real-world Examples of Highly Scalable Systems
+Some real-world examples of highly scalable systems are:
+- Amazon Web Services (AWS): AWS provides scalable cloud infrastructure, including computing, storage, databases, and networking services. Its global infrastructure across multiple Regions and Availability Zones supports highly available and scalable applications.
+- Google Search: Google Search operates at massive scale, using distributed infrastructure and techniques such as caching and distributed data processing to serve search requests efficiently.
+- Netflix: Netflix operates a large-scale streaming platform using distributed services and cloud infrastructure. Its service-oriented architecture allows different components to scale independently based on demand.
+
+## Importance of Scalability in Systems
+Scalability enables systems to handle increasing user traffic, data, and workloads while maintaining acceptable performance. Its importance includes:
+- Handling Growth: Supports increasing user demand and workloads without significant performance degradation.
+- Flexible Resource Expansion: Allows systems to scale vertically by upgrading resources or horizontally by adding servers.
+- Efficient Resource Utilization: Helps maintain performance and manage infrastructure capacity as demand grows.
+
+## Factors Affecting Scalability
+Some factors that affect scalability:
+- Architecture: The system's design and structure play a critical role in its ability to scale efficiently.
+- Resource Allocation: Proper allocation of resources such as CPU, memory, and storage is essential for accommodating increased workload.
+- Load Balancing: Distributing incoming requests or workload evenly across multiple servers or resources prevents overload on any single component.
+- Data Management: Efficient management and storage of data through techniques like sharding and replication prevent data bottlenecks as the system grows.
+- Parallelism: Utilizing parallel processing and concurrency techniques allows systems to handle multiple tasks simultaneously, improving performance and scalability
+
+## Design Principles for Scalable Systems
+Some design principles that help to build scalable systems are:
+- Decomposition: Break down the system into smaller components or services to enable easier scaling without impacting the entire system.
+- Loose Coupling: Design components with minimal dependencies to allow independent scaling and improve flexibility.
+- Service-Oriented Architecture (SOA): Organize functionality into services with well-defined interfaces for independent development and scaling.
+- Horizontal Scalability: Scale by adding more instances instead of upgrading resources, improving flexibility and resource utilization.
+- Statelessness: Reduce server-side state so requests can be distributed easily across multiple instances.
+- Cache: Use caching to reduce repeated computations and improve performance by lowering backend load.
+- Fault Tolerance: Design systems to handle failures using redundancy, replication, and failover to maintain availability.
+
+## Architectural Patterns and Techniques for Scalability
+Scalable systems use a combination of architectural patterns and infrastructure techniques to distribute workloads, reduce bottlenecks, and increase capacity.
+- Microservices Architecture: Divides an application into independently deployable services that can often be scaled according to their individual workloads.
+- Event-Driven Architecture: Uses events and asynchronous communication to reduce direct runtime dependencies and help absorb workload spikes.
+- Distributed Systems: Distribute computation and data across multiple machines to increase capacity and reduce dependence on a single node.
+- CQRS: Separates read and write responsibilities so they can be optimized or scaled independently when workloads differ.
+- Database Sharding: Distributes portions of a dataset across multiple database instances to spread storage and query load.
+- Load Balancing: Distributes requests across available instances according to a balancing strategy such as round-robin or least connections.
+- Caching: Stores frequently accessed data closer to consumers or applications to reduce repeated backend processing.
+- Asynchronous Processing: Uses queues or streaming platforms to move suitable work out of the synchronous request path and absorb temporary traffic spikes.
+- Auto-scaling: Adds or removes compute resources based on workload metrics or configured policies, subject to infrastructure and platform limits.
+
+## Operational Best Practices for Designing Highly Scalable Systems
+Building scalable production systems also requires effective operational practices.
+- Automation: Automate provisioning, deployment, configuration, and repetitive infrastructure tasks.
+- Monitoring and Alerting: Track latency, throughput, error rates, resource utilization, saturation, and other relevant metrics.
+- Scalability Testing: Test the system under expected and peak workloads to identify bottlenecks before production traffic exposes them.
+- Capacity Planning: Monitor current usage and estimate future resource needs.
+- Fault Tolerance and Resilience: Use redundancy, failover, retries, and recovery mechanisms to reduce the impact of failures.
+- Security and Compliance: Apply appropriate security controls while ensuring scaling mechanisms do not bypass access or compliance requirements.
+- Disaster Recovery: Maintain backups and recovery procedures to restore critical services and data after major failures.
+
+## Challenges in Achieving High Scalability
+Building highly scalable systems requires addressing several challenges related to concurrency, data distribution, performance, consistency, and resource management.
+- Concurrency and Synchronization: Managing concurrent access to shared resources while maintaining data integrity can lead to issues such as race conditions and deadlocks.
+- Data Partitioning and Sharding: Distributing data across multiple nodes requires careful planning to ensure balanced data distribution, minimize hotspots, and maintain performance.
+- Consistency, Availability, and Partition Tolerance: In a distributed system, a network partition can prevent nodes from communicating reliably. During such a partition, a system may need to make a trade-off between consistency and availability, depending on its requirements.
+- Scalability Testing and Optimization: Testing systems under realistic workloads and identifying performance bottlenecks requires appropriate testing methodologies and monitoring tools.
+- Cost and Resource Management: Scaling infrastructure increases resource consumption and costs, making efficient resource allocation and capacity planning important.

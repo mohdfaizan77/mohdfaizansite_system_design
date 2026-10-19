@@ -1,0 +1,97 @@
+# Database Sharding - System Design
+
+Source: https://www.geeksforgeeks.org/system-design/database-sharding-a-system-design-concept/
+
+Database sharding is a technique used to scale databases by distributing data across multiple servers. It helps improve performance and handle large datasets efficiently.
+- Data is split into smaller parts called shards, each stored on a different database instance to distribute load.
+- It reduces pressure on a single database, improving query performance and scalability.
+It is basically a database architecture pattern in which we split a large dataset into smaller chunks (logical shards) and we store/distribute these chunks in different machines/database nodes (physical shards).
+- Each chunk/partition is known as a "shard" and each shard has the same database schema as the original database.
+- We distribute the data in such a way that each row appears in exactly one shard.
+- It's a good mechanism to improve the scalability of an application.
+
+## Methods of Sharding
+Sharding can be done using Range-based, Hash-based, Directory-based, or Geographic-based partitioning to distribute data across multiple servers.
+
+### 1. Key Based Sharding
+Key Based Sharding is a technique, also known as hash-based sharding. Here, we take the value of an entity such as customer ID, customer email, IP address of a client, zip code, etc and we use this value as an input of the hash function. This process generates a hash value which is used to determine which shard we need to use to store the data.
+- The hash function should consistently use the selected shard key or shard-key fields to determine the target shard.
+- A shard key is a field or combination of fields used to determine which shard stores a record. It does not necessarily have to be a primary key or unique identifier.
+Example: You have 3 database servers and each request has an application id which is incremented by 1 every time a new application is registered.
+To determine which server should store the data, we can perform application_id % 3. The remainder is then mapped to a specific shard.
+
+### Advantages
+Key-based sharding helps distribute data across shards using a hashing mechanism.
+- Key Assignment: Assigns each key to a specific shard, ensuring uniform and consistent data distribution.
+- Even Distribution: Hash-based sharding can distribute data relatively evenly across shards when the shard key has a suitable distribution.
+
+### Disadvantages
+Despite its efficiency, improper shard key selection can cause performance issues.
+- Uneven Data Distribution: Can occur if the sharding key isn’t well-distributed.
+- Hotspots: Poor shard-key selection can cause some shards to receive disproportionately high traffic or data, creating hotspots and uneven workloads.
+
+### 2. Range-Based Sharding
+Range-based sharding is a form of horizontal sharding in which rows are distributed across shards according to ranges of the shard key.
+- In one shard you can keep the info of customers whose first name starts with A-P.
+- In another shard, keep the information of the rest of the customers.
+Example: In a customer database, one shard may store records with customer IDs 1–1000, while another stores IDs 1001–2000.
+
+### Advantages
+Horizontal or range-based sharding distributes data across multiple shards based on specific value ranges.
+- Scalability: Horizontal or range-based sharding allows for seamless scalability by distributing data across multiple shards, accommodating growing datasets.
+- Improved Performance: Data distribution among shards enhances query performance through parallelization, ensuring faster operations with smaller subsets of data handled by each shard.
+
+### Disadvantages
+Managing and querying data across multiple shards can introduce additional complexity.
+- Complex Querying Across Shards: Coordinating queries involving multiple shards can be challenging.
+- Uneven Data Distribution: Poorly managed data distribution may lead to uneven workloads among shards.
+
+### 3. Vertical Partitioning
+Vertical partitioning divides a table by separating columns into different groups based on functionality or access patterns.
+- Each shard contains a subset of columns while rows remain logically related to the same entity.
+- Different groups of columns can be stored separately to improve performance and manageability. If these partitions are distributed across different database nodes, this can be considered a form of vertical sharding.
+Example: For example, a user table may contain profile information, contact information, and other attributes. These columns can be divided into separate groups based on access patterns.
+
+### Advantages
+Vertical sharding divides a database by separating columns into different shards based on functionality.
+- Query Performance: Vertical sharding can improve query performance by allowing each shard to focus on a specific subset of columns. This specialization enhances the efficiency of queries that involve only a subset of the available columns.
+- Simplified Queries: Queries that require a specific set of columns can be simplified, as they only need to interact with the shard containing the relevant columns.
+
+### Disadvantages
+Splitting columns across shards can introduce operational and workload challenges.
+- Potential for Hotspots: Certain shards may become hotspots if they contain highly accessed columns, leading to uneven distribution of workloads.
+- Challenges in Schema Changes: Making changes to the schema, such as adding or removing columns, may be more challenging in a vertically sharded system. Changes can impact multiple shards and require careful coordination.
+
+### 4. Directory-Based Sharding
+In Directory-Based Sharding, we create and maintain a lookup service or lookup table for the original database. Basically we use a shard key for lookup table and we do mapping for each entity that exists in the database. This way we keep track of which database shards hold which data.
+Example: A user database may use a lookup table that maps each user ID to the specific shard where that user’s data is stored. When a request is made, the system first checks the lookup table and then routes the query to the correct shard.
+The directory maintains mappings that identify which shard contains specific data. These mappings may be updated as data is moved or shards are added or removed.
+In the above image, you can see that we have used the delivery zone as a shard key:
+- Firstly the client application queries the lookup service to find out the shard (database partition) on which the data is placed.
+- When the lookup service returns the shard it queries/updates that shard.
+
+### Advantages
+Directory-based sharding uses a central lookup service that keeps track of where each piece of data is stored.
+- Flexible Data Distribution: Directory-based sharding allows for flexible data distribution, where the central directory can dynamically manage and update the mapping of data to shard locations.
+- Efficient Query Routing: Queries can be efficiently routed to the appropriate shard using the information stored in the directory. This results in improved query performance.
+- Dynamic Scalability: The system can dynamically scale by adding or removing shards without requiring changes to the application logic.
+
+### Disadvantages
+While flexible, this approach introduces dependency on the central directory.
+- Centralized Point of Failure: A centralized directory can become a single point of failure if it is not replicated or otherwise made highly available.
+- Increased Latency: Query routing through a central directory introduces an additional layer, potentially leading to increased latency compared to other sharding strategies.
+- Ways to optimize database sharding for even data distribution
+Here are some simple ways to optimize database sharding for even data distribution:
+- Use Consistent Hashing: This helps distribute data more evenly across all shards by using a hashing function that assigns records to different shards based on their key values.
+- Choose a Good Sharding Key: Picking a well-balanced sharding key is crucial. A key that doesn’t create hotspots ensures that data spreads out evenly across all servers.
+- Range-Based Sharding with Caution: If using range-based sharding, make sure the ranges are properly defined so that one shard doesn’t get overloaded with more data than others.
+- Regularly Monitor and Rebalance: Keep an eye on data distribution and rebalance shards when necessary to avoid uneven loads as data grows.
+- Automate Sharding Logic: Implement automation tools or built-in database features that automatically distribute data and handle sharding to maintain balance across shards.
+
+## Alternatives to database sharding
+Below are some of the alternatives to database sharding:
+- Vertical Scaling: Upgrading a single database server by adding more CPU, RAM, or storage to handle increased load. However, it has hardware limits and cannot scale indefinitely.
+- Replication: Maintaining copies of a database on multiple servers to improve availability and distribute read workloads. However, replicas may experience replication lag or synchronization issues.
+- Partitioning: Dividing data into smaller logical parts based on a chosen criterion, such as a range or key. Partitioning can be performed within a single database server, while distributing partitions across multiple servers is commonly used as part of sharding.
+- Caching: Storing frequently accessed data in a caching system such as Redis or Memcached to reduce database load and improve response times.
+- CDNs: Caching and delivering static or cacheable content from servers closer to users, which reduces requests reaching the origin server. CDNs are not a direct replacement for database sharding, but they can reduce the overall load on a system.

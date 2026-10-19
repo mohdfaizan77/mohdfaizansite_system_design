@@ -1,0 +1,93 @@
+# Pub/Sub Architecture
+
+Source: https://www.geeksforgeeks.org/system-design/what-is-pub-sub/
+
+The Publish/Subscribe (Pub/Sub) model is a messaging pattern that enables components to communicate without directly depending on each other. Publishers send messages to topics, while subscribers receive messages from the topics they subscribe to.
+- Reduces direct dependency between communicating components.
+- Supports asynchronous and scalable message distribution.
+- A messaging broker manages message routing between publishers and subscribers.
+Example: In a news notification system, when a publisher posts a new article to a news topic, subscribers interested in that topic can receive the update
+
+## Components
+In the Pub/Sub (Publish/Subscribe) model, there are several key components that work together to enable communication between publishers and subscribers. These components include:
+- Publisher: Creates and sends messages to topics without knowing subscribers.
+- Subscriber: Receives messages from subscribed topics without knowing publishers.
+- Topic: A named channel that categorizes messages. Publishers send messages to topics, and subscribers subscribe to them.
+- Message Broker: Routes messages from publishers to subscribers based on subscriptions. Features like delivery guarantees, persistence, and scalability depend on the specific system and configuration (e.g., Kafka, RabbitMQ).
+- Message: The data unit exchanged, which can be text, JSON, or binary.
+- Subscription: Links subscribers to topics, defining which messages are received and delivery guarantees (e.g., at-most-once, at-least-once).
+
+## Working
+The Publish/Subscribe model works by separating message producers from message consumers through topics and subscriptions.
+- Step 1: Publish Message: A publisher creates a message or event and sends it to a topic.
+- Step 2: Topic Classification: The topic groups messages based on a particular category or event type.
+- Step 3: Create Subscription: Subscribers register interest in one or more topics through subscriptions.
+- Step 4: Broker Routing: The messaging system determines which subscriptions should receive the published message.
+- Step 5: Message Delivery: The message is delivered or made available to subscribers according to the platform's delivery model.
+- Step 6: Subscriber Processing: Subscribers process the message independently according to their responsibilities.
+
+## Real-World Example
+While this resembles Pub/Sub, real systems like Twitter use a hybrid approach involving caching, fan-out strategies, and ranking systems rather than a pure Pub/Sub model.
+- Publishers: Users post tweets, which are published to the Twitter platform.
+- Subscribers: Followers of a user subscribe to their tweets to receive updates.
+- Topics: Each user's tweets can be considered a topic, and subscribers receive updates for the topics they are interested in.
+- Message Broker: Twitter's backend infrastructure acts as the message broker, routing tweets from publishers to subscribers.
+- Message: Each tweet is a message that is published by the user and received by their followers.
+In this example, the Pub/Sub architecture allows for scalable and efficient distribution of tweets to followers. Publishers (users) can publish tweets without knowing who will receive them, and subscribers (followers) receive updates in real-time without the need for direct communication with the publishers.
+
+## Use Cases
+Pub/Sub is useful when multiple independent consumers need to react to the same message or event.
+- Event-Driven Systems: Services can publish events that trigger actions in multiple independent consumers.
+- Notifications and Alerts: A single event can notify multiple interested subscribers.
+- Streaming and IoT Systems: Sensor or application events can be distributed to analytics, monitoring, and processing services.
+- Microservices Communication: Services can exchange events without requiring publishers to directly call each consumer.
+- Real-Time and Near-Real-Time Updates: Useful for live dashboards, feeds, collaboration tools, and application updates.
+- Analytics Pipelines: Business events can be delivered to reporting, monitoring, and analytics consumers simultaneously.
+
+## Types of Pub/Sub Services
+Pub/Sub systems can be implemented using different messaging platforms and deployment models.
+- Managed Cloud Pub/Sub Services: Fully managed services such as Google Cloud Pub/Sub and Amazon SNS provide scalable messaging without requiring organizations to manage the underlying infrastructure.
+- Message Brokers: Messaging platforms such as RabbitMQ and Apache Kafka provide message routing and event-distribution capabilities and can support Pub/Sub patterns.
+- Self-Managed Pub/Sub Systems: Organizations can deploy and manage their own messaging infrastructure on their servers or infrastructure, providing greater control over configuration, data, and deployment.
+
+## When to Use Pub/Sub Architecture
+Use Pub/Sub when:
+- Multiple consumers need to react to the same event or message.
+- Publishers and subscribers should remain loosely coupled.
+- Consumers need to process messages independently.
+- New subscribers may be added without changing existing publishers.
+- Asynchronous communication fits the application workflow.
+- Event distribution needs to scale across multiple services or systems.
+
+## When Not to Use Pub/Sub Architecture
+Pub/Sub may not be the best choice when:
+- A simple synchronous request-response interaction is sufficient.
+- Each message must be processed by exactly one consumer and a queue model is more appropriate.
+- Strong global ordering requirements cannot be supported by the selected platform or configuration.
+- The application is small and introducing brokers, topics, subscriptions, retries, and monitoring would add unnecessary complexity.
+- The workflow requires an immediate response from a specific downstream component.
+
+## Benefits
+The benefits of Pub/Sub Architecture are:
+- Scalability: Can support large numbers of publishers, subscribers, and messages when the messaging infrastructure is designed appropriately.
+- Decoupling: Publishers do not need direct knowledge of subscribers.
+- Asynchronous Communication: Producers can publish messages without waiting for every consumer to complete processing.
+- Extensibility: New subscribers can often be added without modifying publishers.
+- Resilience Support: Features such as retries, acknowledgments, persistence, and dead-letter handling can improve failure handling depending on the platform.
+
+## Challenges
+The Pub/Sub architecture also introduces several challenges:
+- Message Ordering: Messages may not always be delivered in the order they were produced. Some systems provide ordering guarantees only under specific conditions or configurations.
+- Duplicate Messages: At-least-once delivery can result in the same message being delivered more than once, so consumers may need to be idempotent.
+- Exactly-Once Delivery: Providing exactly-once processing can be complex and depends on the messaging system and application design.
+- Latency: Message brokers and additional processing layers can introduce some latency.
+- Operational Complexity: Managing topics, subscriptions, retries, failures, monitoring, and message retention can increase system complexity.
+
+## Pub/Sub Vs Point to Point Messaging
+The differences between Pub/Sub and Point to Point Messaging are:
+Aspect	Pub/Sub Messaging	Point-to-Point Messaging
+Delivery	A message can reach multiple subscribers	Each queued message is typically processed by one consumer
+Communication	Publishers do not directly know subscribers	Producers do not directly know the specific consumer
+Use Case	Broadcasting events to multiple consumers	Distributing work to one consumer
+Coupling	Supports loose coupling	Can also support loose coupling through a queue
+Examples	Google Cloud Pub/Sub, Amazon SNS, Kafka-style topics	JMS queues, AMQP queues, RabbitMQ queues

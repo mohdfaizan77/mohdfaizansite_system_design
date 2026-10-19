@@ -1,0 +1,217 @@
+# Database Design - System Design
+
+Source: https://www.geeksforgeeks.org/system-design/complete-reference-to-databases-in-designing-systems/
+
+Database design is the process of organizing and structuring data so it can be stored, accessed, and managed efficiently. It plays a key role in building fast and reliable systems by improving performance, ensuring data consistency, and supporting scalability. A well-designed database meets application requirements while maintaining efficiency and reliability.
+- Helps organize data efficiently, enabling fast data retrieval and improving overall system performance and responsiveness.
+- Maintains data consistency and reliability, while ensuring the system can scale effectively as data and user demand grow.
+Example: An e-commerce website designs its database with separate tables for users, products, and orders so that product searches, user data, and order processing can be handled efficiently.
+
+## Database
+A database is an organized collection of data that is stored and managed so that it can be easily accessed, updated, and retrieved when needed.
+- A database helps store large amounts of data in a structured and efficient way. It’s used in various applications, from websites and mobile apps to enterprise systems.
+- Think of it as a digital filing cabinet where information is systematically arranged to make it easy to find and use.
+
+### Terminologies used in the Database
+These are some basic terms commonly used in database systems to understand how data is stored and managed.
+- Data: Any statistics which is raw and unprocessed are referred as Data.
+- Information: When data is processed, it is known as Information. This is because information gives an idea about what the data is about and how to use it further
+- Database Management System(DBMS): A system developed to add, edit, and manage various databases in a collection is known as DBMS.
+- Transactions: A transaction is a sequence of one or more database operations (like CRUD) executed as a single unit of work.
+
+## Types of Databases
+Databases are categorized based on their data models, structure, and use cases in system design.
+
+### 1. Relational Databases(SQL)
+Relational databases store structured data in a well-organized tabular format.
+- Organize data into tables (rows and columns), where each table has a predefined structure.
+- Tables can have relationships with one another using keys (e.g., primary and foreign keys).
+- Example: MySQL, PostgreSQL, and Oracle Database.
+- Best for structured data like financial systems or inventory management.
+
+### 2. Non-Relational Databases(NoSQL)
+Non-relational databases store data in flexible formats and are designed for scalability.
+- Do not use tables. Instead, they store data in flexible formats like documents, key-value pairs, graphs, or columns.
+- Designed to handle unstructured or semi-structured data, such as social media posts or IoT data.
+- Example: MongoDB, Cassandra, and DynamoDB.
+- Ideal for applications that require high scalability and flexibility.
+
+## Importance
+Good database design is important in system design because it ensures that the system can handle data efficiently, reliably, and at scale. Let us see its importance:
+- Performance: A well-designed database processes data quickly, which means faster responses for users and smoother system operations.
+- Scalability: As the system grows, a good database design can handle more users and data without slowing down or failing.
+- Data Integrity: Proper design prevents duplicate, inconsistent, or incorrect data, ensuring the system works accurately.
+- Ease of Maintenance: A clean, logical database structure is easier to understand and update, saving time and effort when making changes or fixing issues.
+- Cost-Efficiency: Optimized database designs use resources efficiently, reducing server costs and improving overall system performance.
+
+## Relational(SQL) Vs Non-Relational Databases(NoSQL)
+Relational Database (SQL)	Non-Relational Database (NoSQL)
+Uses tables with rows and columns to store structured data.	Uses flexible data models such as documents, key-value pairs, graphs, or wide-column structures.
+Typically uses a predefined schema, although some relational databases support flexible or semi-structured data.	Often supports flexible schemas, allowing data structures to evolve more easily.
+Supports relationships between data using keys, joins, and other relational features.	Relationship and join capabilities vary by database; some NoSQL databases also support relationships or transactions.
+Can scale vertically and can also scale horizontally using techniques such as replication, partitioning, or sharding.	Many NoSQL databases are designed to scale horizontally, although the specific approach depends on the database.
+Suitable for applications requiring structured data, complex queries, and transactional guarantees.	Suitable for applications that benefit from flexible data models, distributed workloads, or specific scalability requirements.
+
+## CAP Theorem In Database Designing
+The CAP Theorem describes a trade-off in distributed systems when a network partition occurs. A distributed system cannot guarantee both Consistency and Availability during the same partition while also tolerating that partition.
+- Consistency: Every read receives the most recent write or an appropriate error.
+- Availability: Every request receives a response, even if it may not contain the most recent data.
+- Partition Tolerance: The system continues operating despite a network partition between distributed components.
+When a network partition occurs, a system must choose whether to prioritize consistency or availability.
+
+### 1. CP database
+A CP database prioritizes Consistency and Partition Tolerance from the CAP theorem. This means:
+- Consistency: Every read receives the most recent write or an appropriate error. During normal operation, all nodes provide consistent data according to the system's consistency guarantees.
+- Partition Tolerance: The database continues operating despite a network partition between distributed components.
+However, during a network partition, it may sacrifice Availability, meaning some requests may be rejected or delayed to prevent inconsistent results.
+Example: Systems that require strongly consistent data, such as applications managing financial transactions, may prioritize consistency during network partitions rather than continuing to serve potentially stale data.
+
+### 2. AP database
+An AP database prioritizes Availability and Partition Tolerance from the CAP theorem.
+- Availability: The system continues responding to requests during a network partition, according to its availability guarantees.
+- Partition Tolerance: The database continues operating despite a network partition between distributed components.
+During a network partition, Consistency may be temporarily reduced, meaning different nodes may return different values until the system synchronizes.
+Example: Apache Cassandra is designed for high availability and partition tolerance. Depending on its configuration and consistency level, different replicas may temporarily contain different values before they become consistent.
+
+### 3. CA Database
+A CA system provides Consistency and Availability when there is no network partition between distributed components.
+- Consistency: Every read receives the most recent write or an appropriate error, according to the system's consistency guarantees.
+- Availability: Every request receives a response, according to the system's availability guarantees.
+However, a CA system does not provide Partition Tolerance. If a network partition occurs, it cannot guarantee both consistency and availability while continuing to operate across the partition.
+Example: A single-node database can provide consistency and availability while the node is operational, but it does not provide partition tolerance across distributed nodes.
+
+## Choosing the Right Database for Your Application
+Choosing the right database depends on the needs of your application. Here are a few key factors to consider when making this decision:
+
+### 1. Data Structure
+Defines how data is organized, stored, and managed within the database system.
+- Relational Databases (SQL): Best for structured data with clearly defined tables and relationships.
+- Non-Relational Databases (NoSQL): Suitable for unstructured or semi-structured data with flexible formats.
+
+### 2. Scalability Needs
+Determines how well a database can handle growing data and increasing user traffic.
+- Relational Databases: Usually scale vertically by increasing the resources of a single server.
+- Non-Relational Databases: Commonly scale horizontally by adding more servers to distribute workload.
+
+### 3. Consistency and Availability
+Consistency and availability requirements depend on the specific database, configuration, and application workload.
+- Relational Databases: Many relational databases provide strong transactional and consistency guarantees, but their exact behavior depends on the database and configuration.
+- Non-Relational Databases: NoSQL databases can support different consistency models, ranging from strong consistency to eventual consistency, depending on the database and configuration.
+
+### 4. Transaction Support
+Refers to how reliably a database processes and maintains data during operations.
+- Relational Databases: Support ACID properties ensuring reliable and consistent transactions.
+- Non-Relational Databases: Often prioritize speed and flexibility over strict transactional guarantees.
+
+### 5. Development Speed & Flexibility
+Indicates how easily the database can adapt to changing application requirements.
+- Relational Databases: Suitable when the data structure is stable and well-defined.
+- Non-Relational Databases: Ideal for rapidly evolving applications with frequently changing data structures.
+
+## Database Patterns
+Database patterns are established solutions or best practices to address common challenges in managing databases. They help improve performance, scalability, reliability, and maintainability in large or complex systems. Here are some important database patterns:
+
+### 1. Data Sharding
+Sharding is a form of horizontal data partitioning in which data is divided into smaller pieces called shards and distributed across multiple database nodes or servers. Each shard stores a portion of the overall dataset.
+- Improves scalability: Data and workload can be distributed across multiple nodes.
+- Improves performance: Each node handles a smaller portion of the total data and workload.
+
+### 2. Data Partitioning
+Partitioning divides a dataset into smaller logical or physical parts called partitions based on a chosen partitioning strategy.
+Partitions may be stored within the same database system or distributed across multiple nodes, depending on the database architecture. Sharding is generally a form of horizontal partitioning in which partitions are distributed across nodes.
+- Improves query performance: Queries can access only the relevant partition when partition pruning is supported.
+- Simplifies data management: Large datasets can be divided into smaller, more manageable parts.
+
+### 3. Master-Slave Replication
+Master-slave replication is a database replication technique where the master database handles write operations, while slave databases replicate the data and handle read operations. This helps distribute workload and improve database performance.
+- Improves read performance: Read queries are handled by slave databases, reducing load on the master.
+- Provides redundancy: If the master fails, a slave database can be promoted to become the new master.
+
+### 4. CQRS (Command Query Responsibility Segregation)
+CQRS is a design pattern that separates write operations (commands) and read operations (queries) into different models. This allows each part to be optimized for its specific workload.
+- Optimizes performance: Read and write operations are handled by separate models designed for their specific tasks.
+- Improves scalability: Systems can scale reads and writes independently based on workload demands.
+
+### 5. Database Normalization
+Normalization is the process of organizing data into multiple related tables to reduce redundancy and maintain data integrity. Each table represents a specific entity to avoid duplication and inconsistencies.
+- Reduces data redundancy: Prevents duplicate data by storing information in separate related tables.
+- Improves data consistency: Ensures accurate and reliable data across the database.
+
+### 6. Data Consistency Patterns
+Data consistency patterns are techniques used to ensure that data remains consistent across multiple databases or servers in distributed systems. They help maintain reliability and accuracy even when systems are distributed across different locations.
+- Maintains data reliability: Ensures all systems have correct and consistent data.
+- Handles distributed failures: Helps maintain consistency even during network or system failures.
+
+## Challenges in Database Design
+Designing a database is not always easy. It involves balancing many factors to ensure the database works efficiently, scales well, and meets the needs of your application. Here are some common challenges in database design:
+
+### 1. Data Redundancy
+Occurs when the same data is stored in multiple places, making updates and deletions difficult to manage.
+- Challenge: Maintaining consistent data across different tables or locations becomes complex.
+- Solution: Use normalization techniques to reduce redundancy and avoid duplicate data storage.
+
+### 2. Scalability
+Refers to designing a database that can handle increasing data, users, and traffic efficiently.
+- Challenge: As the system grows, the database may struggle to manage large volumes of data and requests.
+- Solution: Use sharding, partitioning, and indexing to distribute and optimize data storage.
+
+### 3. Performance
+Poor database design can lead to slow queries and reduced application performance.
+- Challenge: Inefficient queries and lack of indexing can slow down data retrieval.
+- Solution: Optimize queries, add indexes, and use denormalization when necessary to improve speed.
+
+### 4. Security
+Protecting sensitive data from cyber threats and unauthorized access is a major challenge.
+- Challenge: Databases may become targets for hacking or data breaches.
+- Solution: Implement encryption, access control mechanisms, and regular security audits.
+
+### 5. Evolving Requirements
+Applications often change over time, requiring the database design to adapt to new needs.
+- Challenge: Rigid database structures make it difficult to implement new features.
+- Solution: Use flexible design approaches like schema evolution and versioning.
+
+### 6. Handling Complex Relationships
+Managing relationships between multiple data entities can become complicated in large systems.
+- Challenge: Complex relationships can lead to inefficient queries or confusing database structures.
+- Solution: Apply proper normalization and use techniques like join tables for many-to-many relationships.
+
+## Best Practices for Database Design
+Designing a good database is essential for the performance, scalability, and maintainability of your application. Here are some best practices to follow:
+
+### 1. Plan Before You Design
+Understanding application requirements is essential before starting database design.
+- Best Practice: Identify key entities, relationships, and how data will be stored and accessed.
+- Benefit: Proper planning helps create a clear and efficient database structure.
+
+### 2. Use Normalization
+Normalization organizes data into smaller related tables to reduce redundancy.
+- Best Practice: Break large tables into smaller tables based on entities.
+- Benefit: Improves data integrity and avoids duplicate data storage.
+
+### 3. Use Proper Indexing
+Indexes improve database performance by speeding up data retrieval.
+- Best Practice: Create indexes on columns that are frequently searched or queried.
+- Benefit: Allows faster query execution and better database performance.
+
+### 4. Define Clear Primary and Foreign Keys
+Primary and foreign keys help maintain relationships and data integrity between tables.
+- Best Practice: Assign a primary key for each table and use foreign keys to link related tables.
+- Benefit: Ensures accurate relationships and prevents invalid data references.
+
+### 5. Optimize for Performance
+Efficient database operations are necessary for maintaining fast application performance.
+- Best Practice: Write optimized queries, reduce unnecessary joins, and use caching when possible.
+- Benefit: Improves response time and overall system efficiency.
+
+### 6. Consider Data Security
+Protecting sensitive data is an important part of database design.
+- Best Practice: Use encryption, strong access controls, and regular security checks.
+- Benefit: Prevents unauthorized access and protects confidential information.
+
+### 7. Plan for Scalability
+Database systems should be designed to handle future growth in data and users.
+- Best Practice: Implement techniques like sharding, partitioning, and replication.
+- Benefit: Ensures the database can scale efficiently as system demand increases.
+
+## Roadmap to learn Database Design
+This roadmap will guide you through the key concepts and steps needed to master database design from basics to advanced topics. It covers everything from understanding data modeling to designing scalable and efficient database systems. Follow the resources below in order to build a strong foundation and progress confidently.

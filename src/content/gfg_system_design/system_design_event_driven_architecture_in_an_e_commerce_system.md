@@ -1,0 +1,618 @@
+# Event-Driven Architecture in an E-commerce System
+
+Source: https://www.geeksforgeeks.org/system-design/event-driven-architecture-in-an-e-commerce-system/
+
+Event-Driven Architecture (EDA) is an architectural approach in which components communicate by producing and reacting to events, such as user actions, transactions, or changes in system state. Producers do not need to directly invoke every consumer that reacts to an event.
+- Events can be processed asynchronously, helping reduce direct runtime dependencies between components.
+- Producers and consumers can often evolve and scale independently when suitable interfaces and messaging infrastructure are used.
+Example: In an e-commerce system, placing an order may generate an OrderPlaced event. Inventory, notification, analytics, and fulfillment components can consume that event according to their responsibilities.
+
+## Event-Driven Architecture in an E-commerce System
+In an e-commerce application, event producers generate events that are delivered through messaging infrastructure to interested consumers.
+- Event Producers: Components such as websites, mobile applications, or order services generate events such as OrderPlaced, PaymentCompleted, or OrderReturned.
+- Event Broker or Messaging Platform: Receives events and makes them available to relevant consumers. Technologies such as Apache Kafka or RabbitMQ can be used depending on messaging requirements.
+- Event Consumers: Components such as inventory, finance, notification, fulfillment, and analytics services process events relevant to their responsibilities.
+
+## Implementation of Event-Driven Architecture
+Implementing Event-Driven Architecture involves event producers, a messaging or event-routing mechanism, and event consumers.
+Note: The following examples use an in-memory Event Bus to demonstrate how publishers and subscribers interact. Production systems commonly use external messaging platforms such as Kafka, RabbitMQ, or cloud messaging services for distributed and durable event delivery.
+
+```
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+
+// Event Bus
+class EventBus {
+public:
+    static std::map<std::string,
+        std::vector<void (*)(const std::string&, const std::string&)>>
+        subscribers;
+
+    static void subscribe(
+        const std::string& eventType,
+        void (*subscriber)(const std::string&, const std::string&)) {
+
+        subscribers[eventType].push_back(subscriber);
+    }
+
+    static void publish(
+        const std::string& eventType,
+        const std::string& data = "") {
+
+        if (subscribers.find(eventType) != subscribers.end()) {
+            for (auto& subscriber : subscribers[eventType]) {
+                subscriber(eventType, data);
+            }
+        }
+    }
+};
+
+std::map<std::string,
+    std::vector<void (*)(const std::string&, const std::string&)>>
+    EventBus::subscribers;
+
+// Event Subscriber
+class OrderNotificationSubscriber {
+public:
+    static void handleEvent(
+        const std::string& eventType,
+        const std::string& data) {
+
+        if (eventType == "OrderPlaced") {
+            std::cout
+                << "Notification: Your order with ID "
+                << data
+                << " has been placed!"
+                << std::endl;
+        }
+    }
+};
+
+// Event Publisher
+class OrderService {
+public:
+    void placeOrder(const std::string& orderId) {
+
+        // Order placement logic
+
+        EventBus::publish("OrderPlaced", orderId);
+    }
+};
+
+int main() {
+
+    EventBus::subscribe(
+        "OrderPlaced",
+        OrderNotificationSubscriber::handleEvent
+    );
+
+    OrderService orderService;
+
+    orderService.placeOrder("123");
+
+    return 0;
+}
+
+```
+
+```
+#include <iostream>
+```
+
+```
+#include <map>
+```
+
+```
+#include <vector>
+```
+
+```
+#include <string>
+```
+
+```
+​
+```
+
+```
+// Event Bus
+```
+
+```
+class EventBus {
+```
+
+```
+public:
+```
+
+```
+    static std::map<std::string,
+```
+
+```
+        std::vector<void (*)(const std::string&, const std::string&)>>
+```
+
+```
+        subscribers;
+```
+
+```
+​
+```
+
+```
+    static void subscribe(
+```
+
+```
+        const std::string& eventType,
+```
+
+```
+        void (*subscriber)(const std::string&, const std::string&)) {
+```
+
+```
+​
+```
+
+```
+        subscribers[eventType].push_back(subscriber);
+```
+
+```
+    }
+```
+
+```
+​
+```
+
+```
+    static void publish(
+```
+
+```
+        const std::string& eventType,
+```
+
+```
+        const std::string& data = "") {
+```
+
+```
+​
+```
+
+```
+        if (subscribers.find(eventType) != subscribers.end()) {
+```
+
+```
+            for (auto& subscriber : subscribers[eventType]) {
+```
+
+```
+                subscriber(eventType, data);
+```
+
+```
+            }
+```
+
+```
+        }
+```
+
+```
+    }
+```
+
+```
+};
+```
+
+```
+​
+```
+
+```
+std::map<std::string,
+```
+
+```
+    std::vector<void (*)(const std::string&, const std::string&)>>
+```
+
+```
+    EventBus::subscribers;
+```
+
+```
+​
+```
+
+```
+// Event Subscriber
+```
+
+```
+class OrderNotificationSubscriber {
+```
+
+```
+public:
+```
+
+```
+    static void handleEvent(
+```
+
+```
+        const std::string& eventType,
+```
+
+```
+        const std::string& data) {
+```
+
+```
+​
+```
+
+```
+        if (eventType == "OrderPlaced") {
+```
+
+```
+            std::cout
+```
+
+```
+                << "Notification: Your order with ID "
+```
+
+```
+                << data
+```
+
+```
+                << " has been placed!"
+```
+
+```
+                << std::endl;
+```
+
+```
+        }
+```
+
+```
+    }
+```
+
+```
+};
+```
+
+```
+​
+```
+
+```
+// Event Publisher
+```
+
+```
+class OrderService {
+```
+
+```
+public:
+```
+
+```
+    void placeOrder(const std::string& orderId) {
+```
+
+```
+​
+```
+
+```
+        // Order placement logic
+```
+
+```
+​
+```
+
+```
+        EventBus::publish("OrderPlaced", orderId);
+```
+
+```
+    }
+```
+
+```
+};
+```
+
+```
+​
+```
+
+```
+int main() {
+```
+
+```
+​
+```
+
+```
+    EventBus::subscribe(
+```
+
+```
+        "OrderPlaced",
+```
+
+```
+        OrderNotificationSubscriber::handleEvent
+```
+
+```
+    );
+```
+
+```
+​
+```
+
+```
+    OrderService orderService;
+```
+
+```
+​
+```
+
+```
+    orderService.placeOrder("123");
+```
+
+```
+​
+```
+
+```
+    return 0;
+```
+
+```
+}
+```
+
+```
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// Event Bus
+class EventBus {
+
+    private static final Map<String, List<Subscriber>> subscribers =
+            new HashMap<>();
+
+    public static void subscribe(
+            String eventType,
+            Subscriber subscriber) {
+
+        subscribers
+                .computeIfAbsent(eventType, k -> new ArrayList<>())
+                .add(subscriber);
+    }
+
+    public static void publish(
+            String eventType,
+            Map<String, Object> data) {
+
+        if (subscribers.containsKey(eventType)) {
+            for (Subscriber subscriber : subscribers.get(eventType)) {
+                subscriber.handleEvent(eventType, data);
+            }
+        }
+    }
+}
+
+// Event Subscriber
+interface Subscriber {
+
+    void handleEvent(
+            String eventType,
+            Map<String, Object> data);
+}
+
+class OrderNotificationSubscriber implements Subscriber {
+
+    @Override
+    public void handleEvent(
+            String eventType,
+            Map<String, Object> data) {
+
+        if ("OrderPlaced".equals(eventType)) {
+
+            System.out.println(
+                    "Notification: Your order with ID "
+                    + data.get("order_id")
+                    + " has been placed!"
+            );
+        }
+    }
+}
+
+// Event Publisher
+class OrderService {
+
+    public void placeOrder(int orderId) {
+
+        // Order placement logic
+
+        EventBus.publish(
+                "OrderPlaced",
+                Map.of("order_id", orderId)
+        );
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        OrderNotificationSubscriber subscriber =
+                new OrderNotificationSubscriber();
+
+        OrderService orderService =
+                new OrderService();
+
+        EventBus.subscribe(
+                "OrderPlaced",
+                subscriber
+        );
+
+        orderService.placeOrder(123);
+    }
+}
+
+```
+
+```
+            for (Subscriber subscriber : subscribers.get(eventType)) {
+```
+
+```
+# Event Bus
+class EventBus:
+    subscribers = {}
+
+    @classmethod
+    def subscribe(cls, event_type, subscriber):
+        if event_type not in cls.subscribers:
+            cls.subscribers[event_type] = []
+
+        cls.subscribers[event_type].append(subscriber)
+
+    @classmethod
+    def publish(cls, event_type, data=None):
+        if event_type in cls.subscribers:
+            for subscriber in cls.subscribers[event_type]:
+                subscriber.handle_event(event_type, data)
+
+
+# Event Subscriber
+class OrderNotificationSubscriber:
+    def handle_event(self, event_type, data=None):
+        if event_type == "OrderPlaced":
+            print(
+                "Notification: Your order with ID {} has been placed!"
+                .format(data["order_id"])
+            )
+
+
+# Event Publisher
+class OrderService:
+    def place_order(self, order_id):
+
+        # Order placement logic
+
+        EventBus.publish(
+            "OrderPlaced",
+            {"order_id": order_id}
+        )
+
+
+if __name__ == "__main__":
+
+    subscriber = OrderNotificationSubscriber()
+    order_service = OrderService()
+
+    EventBus.subscribe(
+        "OrderPlaced",
+        subscriber
+    )
+
+    order_service.place_order(123)
+
+```
+
+```
+                "Notification: Your order with ID {} has been placed!"
+```
+
+```
+Notification: Your order with ID 123 has been placed!
+
+```
+- Event Bus: Maintains event subscriptions and routes published events to registered subscribers.
+- Event Publisher: Publishes an event after a relevant action occurs, such as placing an order.
+- Event Subscriber: Listens for specific events and performs the required action.
+- Flow: Subscribers register for an event type. When the publisher emits that event, the Event Bus invokes the registered subscribers.
+In these examples, event handling occurs within the same application process. A distributed production system would typically use an external messaging platform instead.
+
+### Multiple Subscribers for a Single Event
+In Event-Driven Architecture, a single event can be delivered to multiple subscribers, allowing different services to perform their own tasks.
+Example: When an OrderPlaced event is published:
+- Inventory Service: Updates or reserves product stock.
+- Notification Service: Sends an order confirmation.
+- Analytics Service: Records order information for reporting.
+Each subscriber can process the event independently. Failure isolation and flow control depend on broker configuration, acknowledgments, retries, consumer design, and backpressure mechanisms.
+
+### Event Payload in E-commerce Systems
+An event payload carries the information consumers need to understand and process an event. The amount of data included depends on the event design and consumer requirements.
+For an OrderPlaced event:
+
+```
+{
+  "eventId": "evt-1001",
+  "eventType": "OrderPlaced",
+  "orderId": "ORD-123",
+  "userId": "USR-45",
+  "totalAmount": 2499.00,
+  "timestamp": "2026-10-15T10:30:00Z",
+  "schemaVersion": "1.0"
+}
+```
+Event Payload Design Considerations
+Proper event payload design helps maintain compatibility and consistent processing between producers and consumers.
+- Schema Versioning: Manages changes to event structures as the system evolves.
+- Backward Compatibility: Helps existing consumers continue processing compatible event versions.
+- Serialization Format: Uses formats such as JSON, Avro, or Protobuf based on interoperability and performance requirements.
+- Idempotency: Helps consumers safely handle duplicate event delivery without repeating unintended business operations.
+- Event Metadata: Includes event IDs, timestamps, correlation IDs, and schema versions for tracking and debugging.
+
+## Advantages of Using EDA in E-commerce
+EDA can improve scalability, flexibility, and asynchronous processing when designed appropriately.
+- Independent Processing: Inventory, notification, and analytics services can process events separately.
+- Scalability: Consumers can often scale independently based on workload.
+- Asynchronous Processing: Background tasks can run without delaying the main request.
+- Extensibility: New consumers can subscribe to existing events without requiring producer changes.
+- Improved Resilience: Durable messaging, retries, and acknowledgments can help handle temporary failures.
+
+## Challenges of Event-Driven Architecture
+EDA introduces additional design and operational complexity.
+- Event Ordering: Events may arrive or be processed out of sequence.
+- Duplicate Events: Consumers may need idempotency to handle repeated delivery.
+- Eventual Consistency: Services may temporarily reflect different states.
+- Schema Evolution: Event formats must be changed carefully to avoid breaking consumers.
+- Debugging and Monitoring: Distributed event flows can be harder to trace.
+- Failure Handling: Retries, dead-letter queues, and recovery mechanisms require careful design.
+- Operational Complexity: Brokers, schemas, and consumer workloads require additional management.

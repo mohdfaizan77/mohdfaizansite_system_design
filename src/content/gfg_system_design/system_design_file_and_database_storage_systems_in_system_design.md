@@ -1,0 +1,84 @@
+# File and Database Storage Systems in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/file-and-database-storage-systems-in-system-design/
+
+In system design, data can be stored using file systems or database systems, where file systems store data as files in directories and databases provide a structured way to manage data efficiently. Understanding these differences helps in selecting the right solution based on application requirements, scalability, and performance needs.
+- File systems store and manage data in files and folders and can handle both structured and unstructured data.
+- Database systems organize and manage data using different data models, such as relational tables, documents, key-value pairs, wide-column records, or graphs. They provide features such as querying, indexing, and data management, depending on the database system.
+Example: A photo storage application may store images in a file system, while user information and metadata are stored in a database.
+
+## File-based storage system
+On a computer or server, a file-based storage system stores data as separate files organized in directories and subdirectories with unique names. It is simple and effective for structured and unstructured data like logs and images, but generally lacks DBMS-style querying and indexing capabilities.
+
+### Pros
+File-based storage systems are simple storage solutions where data is stored and managed as files in directories.
+- Simplicity: Easy to implement and manage without requiring complex configuration.
+- Compatibility: Works with most operating systems and standard file management tools.
+- Cost-Effective: Suitable for applications that primarily require simple file storage and retrieval without advanced database features.
+
+### Cons
+Despite being simple, file-based storage systems have limitations when handling large or complex datasets.
+- Scalability: Managing very large datasets can become complex, although distributed and cloud-based file systems can scale to large workloads.
+- Limited Querying Support: File systems generally do not provide DBMS-style query capabilities, although metadata search, indexing, and application-level querying can be implemented.
+- Data Integrity Issues: Managing duplicates, relationships, and consistency across files can be difficult.
+
+### Working
+A file system is a simple storage mechanism where data is stored in files and organized using folders and directories. It does not use a query engine or structured schema.
+- Data is stored as individual files on disk.
+- Files are organized inside directories and subdirectories.
+- Each file has a unique path used to access it.
+- Applications directly read from or write to these files using file handling operations.
+Example: A photo storage app saves images in folders like: /users/images/profile.jpg. The application directly accesses this file path to retrieve or store images.
+
+## Database Storage Systems
+A database storage system is a structured way to store, manage, and retrieve data efficiently. Depending on the database type, data may be organized into tables, documents, key-value pairs, wide-column records, or graphs. These systems are commonly used in applications requiring data relationships, transactions, querying, and data management.
+
+### Pros
+Database storage systems are designed to manage structured data efficiently with advanced data management capabilities.
+- Efficient Querying: Supports advanced searches and operations using query languages such as SQL.
+- Data Integrity: Maintains consistency and relationships between data using constraints and keys.
+- Scalability: Many database systems can handle increasing workloads using techniques such as replication, partitioning, or sharding, depending on the database architecture and configuration.
+
+### Cons
+Although powerful, database systems can introduce complexity and additional costs.
+- Complex Setup: Requires proper schema design, configuration, and maintenance.
+- Higher Cost: May involve licensing costs, infrastructure, and management overhead.
+- Performance Overhead: For very simple storage needs, databases can be slower compared to file-based storage.
+
+### Working
+A database system is a structured way of storing data where a DBMS (Database Management System) manages all operations like storage, retrieval, and updates.
+- Data is stored according to the database's data model, such as tables, documents, key-value pairs, wide-column records, or graphs.
+- Users or applications interact with the database using queries or database APIs.
+- The DBMS processes queries and retrieves optimized results.
+- Indexes are used to speed up search and access operations.
+
+### Example
+In an e-commerce system:
+- Users table stores customer details
+- Orders table stores purchase history
+
+## Differences between File and Database Storage Systems
+Below are the differences between File and Database Storage Systems:
+File Storage System	Database Storage System
+Data is stored as individual files within folders or directories.	Data is managed according to the database's data model, such as tables, documents, key-value pairs, wide-column records, or graphs.
+Does not provide built-in relational features such as database keys and joins.	Can provide relationships, constraints, and transactions depending on the database type and configuration.
+Generally does not provide DBMS-style querying; applications typically access files through file system operations.	Provides querying or database APIs for searching and manipulating data.
+Can scale to large workloads when supported by distributed or cloud-based file systems.	Scalability depends on the database architecture, technology, and configuration; techniques such as replication, partitioning, and sharding may be used.
+Simple to implement for applications requiring direct file storage and retrieval.	Requires data modeling, configuration, and database management.
+Commonly used for documents, images, videos, backups, and log files.	Commonly used for applications requiring structured data management, querying, transactions, or complex data access patterns.
+
+## When to Use File System
+File systems are suitable when the application primarily requires direct storage and retrieval of files and does not need extensive database features.
+- You need to store unstructured data like images, videos, PDFs, logs
+- The application primarily performs simple file read/write operations.
+- Data access is simple (read/write operations only)
+- There is no requirement for complex queries
+- Example: Media storage apps (photos, videos)
+
+## When to Use Database System
+Database systems are ideal when applications require structured data, relationships, and efficient querying.
+- You need to perform complex queries and filtering
+- Data integrity and consistency are important
+- The system needs to manage growing workloads or datasets.
+- Multiple users need to access and update data simultaneously
+- Example: E-commerce platforms (users, orders, payments)

@@ -1,0 +1,97 @@
+# Introduction to Database Normalization
+
+Source: https://www.geeksforgeeks.org/dbms/introduction-of-database-normalization/
+
+Database normalization is the process of organizing data into well-structured tables to reduce data redundancy and prevent data anomalies.
+- It divides large tables into smaller related tables and establishes relationships between them.
+- It helps maintain data consistency and reduces insertion, update, and deletion anomalies.
+- Before Normalization: The table may contain redundant data and suffer from insertion, update, and deletion anomalies.
+- After Normalization: The data is divided into logical, related tables to reduce redundancy, prevent anomalies, and improve data consistency.
+
+## Need of Normalization
+Normalization is used to reduce problems that occur when the same data is stored repeatedly in a database.
+- Insertion Anomaly: Occurs when poor table design prevents a new fact from being added without also requiring unrelated or unnecessary data.
+- Update Anomaly: Occurs when the same data is stored in multiple rows and must be updated in several places.
+- Deletion Anomaly: Occurs when deleting data unintentionally removes other important information.
+
+## Features of Database Normalization
+- Reduces Data Redundancy: Minimizes unnecessary repetition of the same data.
+- Improves Data Consistency: Helps ensure that the same information remains consistent across the database.
+- Reduces Data Anomalies: Prevents insertion, update, and deletion problems.
+- Improves Database Structure: Organizes data into related tables, making the database easier to maintain.
+- Maintains Data Integrity: Helps ensure that relationships and dependencies between data are properly maintained.
+
+## Normal Forms in DBMS
+Normal Forms
+
+	
+
+Description of Normal Forms
+
+
+
+
+First Normal Form (1NF)
+
+	
+
+Each attribute contains atomic (single) values, and there are no repeating groups.
+
+
+
+
+Second Normal Form (2NF)
+
+	
+
+The relation is in 1NF and every non-prime attribute is fully functionally dependent on the whole candidate key, with no partial dependency.
+
+
+
+
+Third Normal Form (3NF)
+
+	
+
+The relation is in 2NF and has no transitive dependency of a non-prime attribute on a candidate key.
+
+
+
+
+Boyce-Codd Normal Form (BCNF)
+
+	
+
+For every non-trivial functional dependency X → Y, X must be a superkey.
+
+
+
+
+Fourth Normal Form (4NF)
+
+	
+
+The relation is in BCNF and has no non-trivial multivalued dependency unless its determinant is a superkey.
+
+
+
+
+Fifth Normal Form (5NF)
+
+	
+
+ The relation is in 4NF and has no non-trivial join dependencies that require further lossless decomposition.
+Normal Forms
+Description of Normal Forms
+First Normal Form (1NF)
+Each attribute contains atomic (single) values, and there are no repeating groups.
+Second Normal Form (2NF)
+The relation is in 1NF and every non-prime attribute is fully functionally dependent on the whole candidate key, with no partial dependency.
+Third Normal Form (3NF)
+The relation is in 2NF and has no transitive dependency of a non-prime attribute on a candidate key.
+Boyce-Codd Normal Form (BCNF)
+For every non-trivial functional dependency X → Y, X must be a superkey.
+Fourth Normal Form (4NF)
+The relation is in BCNF and has no non-trivial multivalued dependency unless its determinant is a superkey.
+Fifth Normal Form (5NF)
+The relation is in 4NF and has no non-trivial join dependencies that require further lossless decomposition.

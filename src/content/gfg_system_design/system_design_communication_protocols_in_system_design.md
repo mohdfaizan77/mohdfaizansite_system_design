@@ -1,0 +1,71 @@
+# Communication Protocols in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/communication-protocols-in-system-design/
+
+Communication protocols define the rules for how different components in a distributed system exchange messages. They ensure smooth coordination and reliable interaction between services. Choosing the right protocol helps build scalable and efficient systems.
+- Enables seamless communication and coordination between services.
+- Improves system reliability, scalability, and performance.
+
+## Synchronous Communication
+Synchronous communication is a pattern where one service sends a request to another service and waits for a response before continuing. This follows a request-response model and is commonly used in microservices.
+- HTTP Request-Response: Services communicate using HTTP (REST APIs) or SOAP, and wait for a response.
+- RPC (Remote Procedure Call): Services use frameworks like gRPC to call remote functions and wait for results.
+- Synchronous Messaging: Some brokers support request-response messaging where the sender waits for a reply.
+Example: A user service sends a request to a payment service and waits for confirmation before completing the transaction.
+Microservices development and debugging can be made easier using synchronous communication since its request-response structure makes it simpler to understand and control.
+
+## Applications
+Synchronous communication is commonly used when a system needs an immediate response from another service before proceeding with an operation.
+- Database Operations: Used when applications need to wait for query results or confirmation of a database transaction before continuing.
+- Payment Authorization: Allows applications to receive immediate authorization or rejection responses from payment gateways. Final payment settlement may still occur asynchronously.
+- Authentication Services: Used when applications must verify user credentials or validate access tokens before granting access to protected resources.
+- Search APIs: Suitable for requests where users expect immediate search results before proceeding.
+- Remote Procedure Calls (RPCs): Used in distributed systems and microservices when one service calls another and waits for a response.
+
+## Challenges
+The challenges of Synchronous Communication are:
+- Increased Latency: The caller must wait for a response, which can increase overall response time when dependent services are slow.
+- Blocking and Resource Usage: Waiting for responses can occupy threads or connections in blocking implementations, reducing resource efficiency under heavy traffic.
+- Service Dependencies: If a dependent service becomes slow or unavailable, it can affect the performance and availability of the calling service.
+- Error Handling: Requires proper handling of timeouts, network failures, retries, and partial failures to prevent cascading failures.
+- Scalability Limitations: Handling many concurrent requests and service dependencies can increase resource consumption and make scaling more challenging.
+
+## Asynchronous Communication
+Asynchronous communication is a pattern where services send messages without waiting for an immediate response. This allows services to work independently and improves scalability and flexibility in distributed systems.
+- Services communicate asynchronously using message queues and event-driven/pub-sub systems (e.g., RabbitMQ, Kafka), where messages are processed later by consumers.
+- Asynchronous communication can use queues, topics, or event streams. Depending on the messaging model, a message may be processed by one consumer or delivered to multiple subscribers.
+Example: An order service sends a message to a queue after placing an order, and payment and notification services process it later without blocking the user.
+
+### Purpose
+The purposes of Asynchronous Communication are:
+- Scalability: permits microservices to manage several requests at once without being blocked, which promotes scalability.
+- Fault Isolation: Asynchronous communication reduces direct runtime dependency between services, so temporary failure of a consumer does not necessarily stop the producer.
+- Resilience: Improves resilience by allowing services to buffer and retry messages in case of transient failures.
+
+### Challenges
+The challenges of Asynchronous Communication are:
+- Complexity: Asynchronous communication increases complexity by requiring extra error-handling, retrying, and message buffering techniques.
+- Eventual Consistency: Asynchronous communication may eventually cause consistency problems because services may use data that is out-of-date or stale.
+- Debugging and Monitoring: Because the message flow may not always be obvious, debugging and monitoring asynchronous systems might be more difficult than synchronous systems.
+- Message Ordering: In asynchronous systems, it can be difficult to guarantee proper message ordering, particularly when dealing with distributed systems and eventual consistency.
+
+## Synchronous Vs Asynchronous Communication
+Below are the differences between Synchronous and Asynchronous Communication:
+Feature	Synchronous Communication	Asynchronous Communication
+Interaction	Caller waits for a response before completing the dependent operation	Sender continues without waiting for immediate processing
+Dependency	Higher temporal dependency between services	Lower temporal dependency
+Availability	Downstream service is usually required during the request	Consumer may process the message later
+Common Technologies	HTTP/REST, synchronous RPC/gRPC	Message queues, topics, event streams
+Response	Immediate result or failure	Result may be delayed or delivered separately
+Scalability	Can require more concurrent resources under high latency	Can buffer workloads and scale consumers independently
+Error Handling	Errors can often be returned directly to the caller	Failures may require retries, DLQs, idempotency, or monitoring
+Best For	Interactive request-response operations	Background processing, events, workflows, traffic buffering
+
+## Factors to consider for choosing right communication protocol
+Choosing between synchronous and asynchronous communication depends on response requirements, service dependencies, scalability, reliability, and resource usage.
+- Response Time Requirements: Use synchronous communication when an immediate result is required and asynchronous communication when processing can happen later.
+- Service Coupling: Synchronous communication creates runtime dependencies, while asynchronous communication reduces them through messages or events.
+- Scalability Requirements: Synchronous communication may face latency under heavy load, while asynchronous communication can buffer requests and distribute workloads.
+- Reliability and Fault Tolerance: Synchronous communication relies on timeouts and retries, while asynchronous communication can use durable queues and retries to handle temporary failures.
+- Processing Requirements: Synchronous communication suits operations requiring an immediate response, while asynchronous communication suits background tasks and event processing.
+- Resource Utilization: Blocking synchronous communication may occupy threads while waiting, whereas asynchronous communication can reduce waiting-related overhead but may require additional infrastructure.

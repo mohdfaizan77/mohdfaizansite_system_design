@@ -1,0 +1,74 @@
+# SQL Vs NoSQL Databases in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/which-database-to-choose-while-designing-a-system-sql-or-nosql/
+
+When designing a system, one of the most critical decisions is choosing between SQL and NoSQL databases. This choice can significantly impact the system’s performance, scalability, and overall success.
+- SQL databases: Use relational data models with structured schemas and are commonly used for applications requiring complex queries, relationships, and transactional guarantees.
+- NoSQL databases: Use non-relational data models such as document, key-value, wide-column, and graph models. They often provide flexible data models, while their scalability, consistency, and transaction capabilities depend on the specific database and configuration.
+
+## SQL Database
+SQL databases are relational systems that organize data into tables and use SQL for querying and data management. They commonly provide structured schemas, relationships, and transactional guarantees, although specific capabilities and consistency behavior depend on the database and configuration.
+
+### Characteristics
+SQL databases follow a structured approach to store and manage data efficiently.
+- Tabular Data Model: SQL databases organize records into tables with rows and columns.
+- Fixed Schema: SQL databases require a predefined schema, which means that you must define the structure of the records, specifying record types and relationships earlier than adding records to the database.
+- ACID Transactions: Many SQL databases support ACID transactions, providing Atomicity, Consistency, Isolation, and Durability for transactional operations.
+- Structured Schema: SQL databases generally use predefined schemas that define tables, columns, data types, and relationships. Some relational databases also support semi-structured data and schema flexibility.
+
+### Example
+Common SQL databases widely used in real-world applications.
+- MySQL: An open-source relational database widely used in various applications.
+- PostgreSQL: A powerful open-source relational database known for its extensibility and support for advanced features.
+
+### Applications
+SQL databases are commonly used in systems requiring structured data and strong consistency.
+- E-commerce / Financial Systems / CMS : Managing structured data, relationships, and ensuring transactional integrity and use SQL.
+- Banking & Inventory Management : Ensures accuracy when transferring funds or updating inventory.
+
+## NoSQL Database
+NoSQL databases are non-relational databases that support different data models, such as document, key-value, wide-column, and graph models. They often provide flexible data models and can support distributed workloads, but their scalability, consistency, transaction, and availability capabilities vary by database and configuration.
+
+### Characteristics
+NoSQL databases are designed to handle flexible, scalable, and distributed data efficiently.
+- Flexible Data Model: NoSQL databases support different types of data storage, such as key-value, document, column, and graph formats.
+- Flexible Schema: Many NoSQL databases support flexible schemas, allowing data structures to evolve without requiring a fixed relational schema. However, schema rules may still be enforced by the database or application.
+- Consistency and Transactions: NoSQL databases can support different consistency models and transaction guarantees. Some provide strong consistency and ACID transactions, while others may use eventual consistency or provide configurable consistency levels.
+- Proprietary Query Language: NoSQL databases typically have their own query languages tailored to their specific data models. These query languages are often simpler and better suited to the data structure.
+
+### Example
+Popular NoSQL databases used in modern applications.
+- MongoDB: A popular document store that offers flexibility and scalability.
+- Cassandra: A wide-column store designed to handle large amounts of data and support high write speeds.
+
+### Applications
+NoSQL databases are commonly used in systems requiring scalability and handling unstructured data.
+- Social Media & Big Data Platforms : Handling unstructured user-generated content at scale. Code submissions on GeeksforGeeks Practice.
+- Real-Time Analytics, IoT Applications : High write volume, schema flexibility, and the need for fast access.
+
+## Situations Where SQL Databases Are a Better Choice
+SQL databases are appropriate for situations such as:
+- Complex Queries: If your application requires advanced queries and complex reporting, SQL databases excel in this area because of their structured schema and SQL query language.
+- Data Integrity: When an application requires strong transactional guarantees and well-defined relationships, a relational database with appropriate consistency and transaction support can be a suitable choice.
+- Transactions: SQL databases are the go-to option for applications that require support for multi-step, ACID-compliant transactions, like e-commerce systems.
+
+## Situations Where NoSQL Databases Are a Better Choice
+NoSQL databases may be appropriate when their specific data model and capabilities match the application's requirements.
+- Flexible Data Model: Useful when the structure of data changes frequently or when a document, key-value, wide-column, or graph model fits the application better.
+- Distributed Workloads: Some NoSQL databases are designed to distribute data and workloads across multiple nodes, making them suitable for certain large-scale distributed applications.
+- High-Volume Workloads: Some NoSQL databases are optimized for specific high-throughput workloads, such as large numbers of writes or key-based reads.
+- Real-Time Applications: Some NoSQL databases can provide low-latency access for specific workloads, depending on the database design and configuration.
+
+## Differences between SQL and NoSQL
+Below are the important differences between SQL and NoSQL:
+SQL Databases	NoSQL Databases
+Use a relational data model with tables consisting of rows and columns.	Use non-relational models such as document, key-value, wide-column, or graph.
+Generally use structured schemas that define tables, columns, data types, and relationships.	Often provide flexible schemas, although schema rules may still be enforced by the database or application.
+Well suited for structured data and applications with defined relationships.	Suitable for workloads where document, key-value, wide-column, or graph models fit the data and access patterns.
+Use SQL for querying and managing relational data.	Use database-specific query languages, APIs, or query mechanisms depending on the database.
+Can scale vertically and can also scale horizontally depending on the database architecture and deployment.	Many NoSQL databases support horizontal scaling, but scalability depends on the database and architecture.
+Many SQL databases provide ACID transactions and strong transactional guarantees.	Transaction and consistency guarantees vary by database; some NoSQL databases support ACID transactions and strong consistency.
+Handle relationships using features such as keys, joins, and constraints.	Relationship handling depends on the data model; graph and document databases can model relationships directly, while other approaches may use application-level logic.
+Schema changes may require database migrations or other schema-management processes.	Flexible schemas can make evolving data structures easier, depending on the database.
+Commonly used for complex queries, relational data, and transactional workloads.	Commonly used for workloads where flexible data models, distributed processing, or specific access patterns are beneficial.
+Examples include MySQL, PostgreSQL, and Oracle.	Examples include MongoDB, Cassandra, and Redis.

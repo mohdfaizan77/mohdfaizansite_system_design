@@ -1,0 +1,98 @@
+# Proxies in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/network-protocols-and-proxies-in-system-design/
+
+A proxy server acts as an intermediary between a client and a server, forwarding requests and responses between them. Depending on its type and configuration, it can help manage traffic, improve performance, enforce access policies, and provide security or privacy-related capabilities.
+- Forwards requests and responses between clients and servers and may hide the client's IP address from the destination server.
+- Improves performance through caching and efficient traffic control mechanisms.
+Example: When a user accesses a website through a proxy server, the request first goes to the proxy, which forwards it to the website. The website responds to the   proxy, which then sends the data back to the user.
+
+## Purpose
+Proxy servers act as intermediaries between clients and servers to manage traffic, improve performance, and enforce access policies. Key purposes include:
+- Content Filtering: Blocks access to specific websites, URLs, or content categories based on organizational policies.
+- Client IP Masking: A forward proxy hides the client's IP address from destination servers, although it does not guarantee complete anonymity.
+- Access Control: Restricts access to resources using authentication, authorization, IP-based rules, and access-control lists.
+- Security: May provide traffic inspection, request filtering, rate limiting, TLS termination, and WAF integration, depending on the proxy configuration.
+- Load Balancing: Reverse proxies can distribute incoming requests across multiple backend servers to improve scalability and resource utilization.
+- Caching: Stores frequently requested content to reduce backend requests, lower latency, and optimize bandwidth usage.
+
+## Types of Proxies
+Proxy servers can be broadly categorized according to whether they act primarily on behalf of clients or servers.
+
+### 1. Forward Proxy
+A forward proxy sits between clients and external servers, forwarding requests on behalf of clients. It helps control outbound traffic and manage access to external resources.
+Example: An organization uses a forward proxy to restrict employee access to certain websites.
+When to Use a Forward Proxy
+- Access Control: Restricts access to specific websites or services.
+- Client IP Masking: Hides the client's IP address from destination servers but does not guarantee complete anonymity.
+- Content Filtering: Blocks restricted or unsafe websites based on configured policies.
+- Caching: Stores frequently accessed external content to reduce latency and bandwidth usage.
+- Monitoring: Logs outbound requests for auditing and policy enforcement.
+
+### 2. Reverse Proxy
+A reverse proxy sits in front of backend servers and forwards incoming client requests to appropriate servers. It helps manage inbound traffic, security, and application performance.
+Example: A web application uses a reverse proxy to distribute incoming requests across multiple application servers.
+When to Use a Reverse Proxy
+- Load Balancing: Distributes incoming requests across backend servers to improve scalability.
+- Backend Abstraction: Hides internal server addresses and infrastructure details from clients.
+- Caching: Stores suitable backend responses to reduce server load and improve performance.
+- TLS Termination: Handles HTTPS connections at the proxy, reducing encryption overhead on backend servers where appropriate.
+- Request Routing: Directs requests based on URL paths, hostnames, or routing rules.
+- Security Controls: May provide rate limiting, request filtering, WAF integration, and access restrictions.
+Reverse Proxy and DDoS Protection
+A reverse proxy can reduce direct exposure of backend servers, but it does not automatically prevent DDoS attacks.
+- Traffic Protection: Rate limiting, filtering, and WAF rules can help mitigate certain attacks.
+- Advanced Mitigation: Large-scale DDoS attacks may require Anycast networks, distributed infrastructure, or upstream DDoS protection services.
+
+## Common Proxy Tools
+Various tools are used to implement proxy servers based on different use cases like caching, load balancing, and security.
+- Nginx: Acts as a reverse proxy and load balancer
+- HAProxy: High-performance load balancing proxy
+- Squid: Forward proxy mainly used for caching and filtering
+- Varnish: HTTP caching proxy used to speed up web applications
+
+## Use of Proxies in System Design
+Proxies are widely used in modern system architectures to manage communication, improve security, and optimize traffic between clients and servers. Common use cases include:
+- API Gateways: Use reverse-proxy capabilities for request routing, authentication integration, rate limiting, and request transformation.
+- Content Delivery Networks (CDNs): Use reverse-proxy behavior to serve cached content from edge servers and forward cache misses to origin servers.
+- Microservices: Use reverse proxies or service proxies for request routing, traffic management, security, and inter-service communication.
+- Enterprise Networks: Use forward proxies to control internet access, monitor outbound traffic, filter URLs, and enforce organizational policies.
+
+## Proxy Server Implementation Strategy
+Implementing a proxy server involves selecting the appropriate proxy type, configuring request handling, and ensuring security, performance, and availability.
+- Choose the Proxy Type: Use a forward proxy to manage client requests and enforce access policies, or a reverse proxy to route incoming requests to backend servers.
+- Select Proxy Software: Choose tools such as NGINX, HAProxy, Squid, or Varnish based on requirements such as traffic routing, caching, and load balancing.
+- Plan Deployment Architecture: Deploy a single proxy for simpler systems or multiple proxy instances with appropriate traffic distribution and failover for scalability and high availability.
+- Configure Load Balancing: For reverse proxies, distribute requests across backend servers using suitable load-balancing algorithms and health checks.
+- Implement Access Control: Configure authentication, authorization, and access control lists (ACLs) to restrict access where required.
+- Secure Communication: Use TLS, appropriate request validation, and network security controls to protect communication between clients, proxies, and backend servers.
+- Enable Caching and Filtering: Configure caching policies to reduce repeated requests and apply content-filtering rules when needed.
+- Set Up Monitoring: Track request volume, response latency, error rates, and server health to identify performance issues and failures.
+
+## Advantages of Proxy Servers
+Proxy servers improve traffic management, performance, scalability, and security by acting as intermediaries between clients and servers. Key advantages include:
+- Traffic Control: Provides a central point for managing network traffic and enforcing access policies.
+- Improved Performance: Uses caching and request optimization to reduce repeated server requests and improve response times.
+- Backend Abstraction: Reverse proxies hide internal server addresses and infrastructure details from external clients.
+- Access Control: Forward proxies restrict outbound access to websites and services based on configured policies.
+- Scalability: Reverse proxies can distribute requests across multiple backend servers to handle increasing traffic.
+- Security Support: May provide TLS termination, authentication, rate limiting, request filtering, and WAF integration, depending on the configuration.
+
+## Disadvantages of Proxy Servers
+Although proxy servers improve traffic management and security, they introduce certain performance and operational challenges. Key disadvantages include:
+- Additional Latency: Introduces an extra network hop that may increase request processing time and network delays.
+- Potential Bottleneck: A proxy with limited capacity can slow down traffic and reduce overall system performance.
+- Single Point of Failure: A proxy without redundancy can disrupt communication if it becomes unavailable.
+- Configuration Complexity: Incorrect routing, caching, TLS, or security settings can cause performance issues and security risks.
+- Privacy Considerations: Forward proxies may access traffic metadata and, depending on encryption and configuration, request content, potentially raising privacy concerns.
+
+## Forward Proxy Vs Reverse Proxy
+These two types of proxies differ based on whether they act on behalf of the client or the server and how they handle request flow.
+Feature	Forward Proxy	Reverse Proxy
+Acts On Behalf Of	Clients	Backend servers
+Position	Between clients and external servers	Between clients and backend infrastructure
+Main Purpose	Access control, filtering, outbound traffic management	Routing, load balancing, caching, backend protection
+Client IP Handling	Can hide the client's IP address from the destination server	Backend connection usually comes from the proxy; the original client IP may be forwarded using trusted headers such as Forwarded or X-Forwarded-For
+Caching	May cache externally requested content	May cache backend responses
+Client Awareness	May be explicitly configured or transparently/interceptingly deployed	Client usually interacts with it as the service endpoint
+Common Environment	Enterprise/client-side networks	Web applications, APIs, backend systems

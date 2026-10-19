@@ -1,0 +1,111 @@
+# Web and Application Server in Designing Systems
+
+Source: https://www.geeksforgeeks.org/system-design/web-server-proxies-and-their-role-in-designing-systems/
+
+Web servers and application servers are essential components in system design that handle user requests and deliver responses efficiently. A web server manages client communication, while an application server processes business logic and dynamic operations.
+- Web Server: Handles client connections, serves static resources, and may route requests to backend applications.
+- Application Server: Runs application logic, processes dynamic requests, and coordinates access to databases and external services.
+
+## Web Server
+A web server is software that accepts HTTP or HTTPS requests and returns resources or responses to clients such as browsers, mobile applications, or other services. It may run on a physical machine, virtual machine, container, or cloud instance.
+
+### Common responsibilities include
+- Serving HTML, CSS, JavaScript, images, and other static files.
+- Handling HTTP/HTTPS connections.
+- Routing requests to backend applications.
+- Applying caching, TLS termination, or access policies when supported.
+- Logging requests and responses.
+Example: When a user opens a website, a web server may directly serve static files such as HTML, CSS, and images. Requests that require business logic may be forwarded to an application service.
+
+## Web Hosting Models
+Shared, dedicated, and custom environments are hosting or deployment models, not types of web servers.
+- Shared Hosting: Hosts multiple websites on shared server resources such as CPU, memory, and bandwidth. It is cost-effective and suitable for small websites with low-to-moderate traffic.
+- Dedicated Hosting: Provides dedicated server resources for a single organization or workload, offering greater control, predictable performance, and customization.
+- Custom or Managed Infrastructure: Uses virtual machines, containers, cloud platforms, Kubernetes, or hybrid environments to support applications requiring advanced scalability, security, and availability.
+
+### How a Web Server Works
+A web server receives client requests and returns suitable responses using HTTP or HTTPS.
+A typical flow is:
+- A client sends an HTTP/HTTPS request.
+- The web server receives and processes the request.
+- If the requested resource is static, the server may return it directly.
+- If application logic is required, the request may be forwarded to an application server, runtime, or backend service.
+- The backend processes the request and may interact with databases or external services.
+- The result is returned to the web server or directly to the client depending on the architecture.
+- The response is sent back to the client.
+Example: A product image may be served directly by the web server, while a product-search request may be processed by backend application code that queries a database.
+
+### Role of Web Servers
+Web servers play a crucial role in handling client requests and delivering web content efficiently and securely.
+- Handling Client Requests: Web servers receive and process incoming HTTP/HTTPS requests from clients (browsers) and route them to the appropriate resources or services.
+- Serving Static and Dynamic Content: They directly serve static content (HTML, CSS, images) and work with application servers to generate and deliver dynamic content.
+- Load Balancing: Some web-server and reverse-proxy software can distribute incoming traffic across multiple backend servers. Load balancing may also be handled by dedicated or cloud load balancers.
+- Content Delivery & Caching: Some web servers and reverse proxies can cache eligible content to reduce response time and backend load.
+- TLS Termination: Some web servers and reverse proxies can terminate TLS connections, centralizing certificate handling and reducing TLS processing on backend services.
+
+## Static and Dynamic Content Handling
+Web servers can serve both static and dynamic content depending on application requirements. These are content-handling approaches, not separate types of web servers.
+- Static Content: Includes HTML, CSS, JavaScript, images, and documents that are served largely as stored. It is generally faster to deliver and easier to cache.
+- Dynamic Content: Includes personalized dashboards, search results, account information, and social feeds generated or modified based on user input, database data, or application state.
+
+### Protocols Commonly Used by Web Servers
+Web servers use standard communication protocols to exchange data with clients over the internet.
+- HTTP: Transfers web requests and responses between clients and servers.
+- HTTPS: Uses TLS encryption to secure HTTP communication and protect data in transit.
+- HTTP/2 and HTTP/3: Modern HTTP versions that improve communication efficiency through features such as multiplexing and optimized transport.
+
+### Examples of Web Servers
+Some commonly used web servers and technologies for building web servers include:
+- Apache HTTP Server: An open-source web server used to serve static content, handle HTTP requests, and support features such as virtual hosting, TLS, and reverse proxying.
+- NGINX: A high-performance web server commonly used for serving static content, reverse proxying, load balancing, and managing concurrent connections.
+- Apache Tomcat: A Java servlet container with HTTP server capabilities, commonly used to run Java web applications built using Jakarta Servlet and related technologies.
+- Node.js: A JavaScript runtime that can create HTTP servers using the built-in http module or frameworks such as Express.js. It is commonly used for backend applications and APIs.
+
+## Application Server
+An application server provides an environment for executing application logic and processing dynamic operations.
+Its responsibilities may include:
+- Business logic execution
+- Authentication and authorization
+- Database access
+- Transaction processing
+- Integration with APIs and external services
+- Messaging
+- Session management
+- Application lifecycle management
+Example: In a banking application, the application layer may verify login credentials, retrieve account information, process transactions, and return results to the client.
+Note: An application server is useful when an application requires an execution environment for business logic, database interaction, transactions, messaging, security, or integration with other services.
+
+## How an Application Server Works
+A typical request flow is:
+- A client sends a request.
+- A web server, gateway, or proxy may receive the request first.
+- The request is forwarded to the application code.
+- The application executes the required business logic.
+- The application may communicate with databases, caches, message queues, external APIs, or other services.
+- A response is generated.
+- The response is returned to the client.
+Layers Involved:
+- Presentation Layer: Handles request/response formatting and presentation-related logic.
+- Application Layer: Contains business workflows and processing.
+- Data Access Layer: Handles interaction with databases and persistence systems.
+
+### Popular Application Servers
+Application servers provide an environment for deploying and running applications. Depending on the platform, they support features such as transaction management, security, database connectivity, and application lifecycle management.
+- WildFly (formerly JBoss AS): An open-source Jakarta EE application server used to develop and deploy enterprise Java applications.
+- IBM WebSphere Application Server: An enterprise application server designed for Java-based applications, providing security, transaction management, and enterprise integration capabilities.
+- Oracle WebLogic Server: An enterprise Java application server commonly used for large-scale applications requiring transaction management, security, and clustering.
+- Payara Server: A Jakarta EE application server used for deploying enterprise Java applications, supporting features such as dependency injection, persistence, and transaction management.
+- GlassFish: An open-source Jakarta EE application server that provides an environment for developing, testing, and deploying enterprise Java applications.
+
+## Web Server Vs Application Server
+These two servers differ based on their roles, where a web server handles client requests and content delivery, while an application server processes business logic and dynamic operations.
+Feature	Web Server	Application Server
+Primary Role	Handles HTTP/HTTPS connections and content delivery	Executes business logic and application workflows
+Static Content	Commonly serves directly	Can also serve it, but usually not its primary role
+Dynamic Content	May proxy, route, or sometimes generate dynamic responses	Commonly executes logic that generates dynamic responses
+Database Access	Possible through modules or application runtimes, but not usually the core web-server role	Commonly performed by application code
+Business Logic	Usually limited	Primary responsibility
+Protocols	Primarily HTTP/HTTPS	May support HTTP along with messaging protocols and other enterprise communication mechanisms
+Load Balancing	Available in some web-server/reverse-proxy products	May support clustering or work behind external load balancers
+Examples	Apache HTTP Server, NGINX, IIS	WildFly, WebLogic, WebSphere
+Overlap	Can host application runtimes or proxy application traffic	May also expose HTTP endpoints directly

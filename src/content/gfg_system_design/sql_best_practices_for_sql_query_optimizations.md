@@ -1,0 +1,137 @@
+# SQL Query Optimizations
+
+Source: https://www.geeksforgeeks.org/sql/best-practices-for-sql-query-optimizations/
+
+Poorly written SQL queries can slow down database operations, consume excessive resources, cause locking and blocking issues, and negatively impact application performance. Following SQL query optimization best practices helps improve database performance and ensures efficient use of system resources.
+- Reduces query execution time and improves overall performance.
+- Minimizes resource consumption and helps prevent locking and blocking issues.
+
+## SQL Query Optimization Techniques
+The following techniques can help improve SQL query performance by reducing unnecessary processing, improving index usage, and minimizing database resource consumption.
+
+### 1. Use Indexes Wisely
+Indexes help the database locate required rows faster instead of scanning every row in a table. They are especially useful for columns frequently used in WHERE, JOIN, ORDER BY, and sometimes GROUP BY clauses.
+For example, suppose the orders table is frequently searched using customer_id.
+SELECT * FROM orders WHERE customer_id = 123;
+Creating an index on customer_id can improve the performance of such queries:
+CREATE INDEX idx_orders_customer_id ON orders(customer_id);
+
+### Types of Indexes
+The above query will run much faster if customer_id is indexed.
+- Primary Index: An index created on a table's primary key. A primary key is typically indexed automatically, but whether the index is clustered depends on the database system.
+- Secondary Index: An index created on columns other than the primary key to improve query performance. Multiple secondary indexes can exist on a table.
+- Clustered Index: Determines the physical/logical order in which table data is stored according to the indexed column(s). A table can have only one clustered index.
+- Non-Clustered Index: Stores the indexed values separately from the table data and contains references to the corresponding rows. Multiple non-clustered indexes can exist on a table.
+Indexing Guidelines
+- Index columns used often in WHERE, JOIN, or ORDER BY clauses.
+- Avoid too many indexes—they slow down INSERT, UPDATE, and DELETE.
+- Check and monitor index usage regularly to keep queries fast.
+
+### 2. Avoid SELECT *
+Using SELECT * can make queries slow, especially on large tables or when joining multiple tables. This is because the database retrieves all columns, even the ones you don’t need. It uses more memory, takes longer to transfer data, and makes the query harder for the database to optimize.
+Avoid this:
+SELECT * FROM products;
+Use this instead:
+SELECT product_id, product_name, price FROM products;
+
+### Benefits
+- Uses less memory and runs faster.
+- Lets the database skip unneeded columns.
+- Makes queries simpler and easier to read.
+
+### 3. Limit the Number of Rows Returned
+Fetching too many rows can make your query slow. Even if your app needs only 10 rows, the database might return thousands. Use WHERE to filter data and LIMIT to get only the rows you need.
+Example:
+SELECT name FROM customers WHERE country = 'USA' ORDER BY signup_date DESC LIMIT 50;
+
+### Benefits
+- Makes queries faster and uses less CPU.
+- Sends only the data you need, avoiding overload.
+- Useful for testing and previewing results.
+
+### 4. Write Efficient WHERE Clauses
+The WHERE clause filters rows in a query, but how you write it affects performance. Using functions or calculations on columns can prevent efficient use of a conventional index, depending on the DBMS, query, and available indexes.
+Less Efficient
+SELECT * FROM employees WHERE YEAR(joining_date) = 2022;
+Here, YEAR() is applied to every value in joining_date. Depending on the DBMS and available indexes, this may prevent efficient use of a normal index.
+More Efficient:
+SELECT * FROM employees WHERE joining_date >= '2022-01-01' AND joining_date < '2023-01-01';
+
+### Performance Tips
+- Avoid unnecessary functions or calculations on indexed columns when they prevent efficient index usage.
+- Consider range conditions or function-based/expression indexes where supported.
+- Check the execution plan to verify whether the intended index is being used.
+
+### 5. Use Joins Smartly
+Join only the tables you need and filter data before joining. Use INNER JOIN instead of OUTER JOIN if you don’t need unmatched rows.
+Example:
+SELECT u.name, o.amount FROM users u JOIN orders o ON u.user_id = o.user_id  WHERE o.amount > 100;
+
+### Benefits:
+- Faster join processing.
+- INNER JOIN combines rows based on a matching condition using ON, ensuring only related records are returned.
+- Helps the database choose an efficient execution plan.
+
+### 6. Avoid N+1 Query Problems
+N+1 happens when you run one query to get a list, then run extra queries for each item. Fetch related data in a single query using JOINs instead.
+Poor Approach:
+SELECT * FROM users; For each user: SELECT * FROM orders WHERE user_id = ?
+Recommended Approach:
+SELECT u.user_id, u.name, o.order_id, o.amount FROM users u JOIN orders o ON u.user_id = o.user_id;
+
+### Benefits
+- Fewer database calls.
+- Faster response time.
+- Reduces load on the database.
+
+### 7. Use EXISTS Appropriately for Existence Checks
+Both IN and EXISTS can perform efficiently depending on the database optimizer, indexes, query structure, and data distribution. When the goal is simply to determine whether a matching record exists, EXISTS clearly expresses that intention.
+Poor Approach:
+SELECT name FROM customers WHERE customer_id IN (SELECT customer_id FROM orders);
+Recommended Approach:
+SELECT name FROM customers
+WHERE EXISTS (
+  SELECT 1 FROM orders WHERE orders.customer_id = customers.customer_id
+);
+
+### Benefits
+- Clearly expresses existence checks.
+- May allow the optimizer to use an efficient execution strategy.
+- Performance should be evaluated using the execution plan for the specific DBMS and query.
+
+### 8. Avoid Leading Wildcards in LIKE
+Avoid leading % wildcards when you need efficient prefix searches because they can prevent efficient use of conventional B-tree indexes and may require scanning many rows.
+Poor Approach:
+SELECT * FROM users WHERE name LIKE '%john';
+Recommended Approach:
+SELECT * FROM users WHERE name LIKE 'john%';
+
+### Benefits
+- Keeps searches fast and index-friendly.
+- Reduces scanning overhead.
+
+### 9. Use Query Execution Plan
+Use the execution-plan tools provided by your DBMS, such as EXPLAIN in MySQL and PostgreSQL, to understand how a query is executed and identify potential performance bottlenecks.
+Example:
+EXPLAIN SELECT * FROM orders WHERE user_id = 42;
+
+### Benefits
+- Helps identify full table scans
+- Reveals if indexes are used
+- Guides optimization decisions
+
+### 10. Use UNION ALL Instead of UNION (if possible)
+UNION removes duplicates, which adds sorting overhead. Use UNION ALL if duplicates don’t matter.
+Poor Approach:
+SELECT col FROM table1
+      UNION
+SELECT col FROM table2;
+Recommended Approach:
+SELECT col FROM table1
+           UNION ALL
+SELECT col FROM table2;
+
+### Benefits
+- Avoids unnecessary sorting.
+- Merges results faster.
+- Better for large datasets.

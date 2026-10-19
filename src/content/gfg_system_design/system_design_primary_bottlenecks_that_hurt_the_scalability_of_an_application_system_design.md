@@ -1,0 +1,56 @@
+# Primary Scalability Bottlenecks in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/primary-bottlenecks-that-hurt-the-scalability-of-an-application-system-design/
+
+A bottleneck in a system is a point where data flow or processing gets restricted, reducing overall performance. It occurs when one component becomes slower than others and cannot efficiently handle incoming requests. This leads to reduced throughput, scalability issues, and delays under increased workload.
+- Bottlenecks limit system performance and prevent efficient handling of high traffic, often becoming visible during peak load conditions.
+- They can occur in databases, networks, servers, or code, and resolving one bottleneck may sometimes expose another in the system.
+Example: If a web application has a fast server but a slow database, the database becomes the bottleneck because it cannot process queries quickly when many users access the system.
+
+## Types of Bottlenecks
+Bottlenecks can occur at different layers of a system, depending on its architecture and workload. Common sources include databases, networks, servers, application code, storage systems, authentication services, and third-party dependencies.
+
+### 1. Database Bottlenecks
+A database bottleneck occurs when database operations limit the performance of an application or system. It can result from inefficient queries, missing indexes, lock contention, high connection usage, or limited database resources.
+- Slow queries can increase response times and reduce the number of requests the database can process.
+- Poor indexing or inefficient query patterns can increase the amount of data the database needs to scan.
+- High CPU, memory, or connection usage can further limit database performance.
+Example: If an e-commerce website receives a large number of orders during a sale, inefficient queries for retrieving product or order information can slow down the database and delay request processing.
+
+### 2. Network Bottlenecks
+Network bottlenecks can significantly hinder scalability in a distributed system. It happen when a certain resource or component restricts a computer network's capacity or performance, which slows down or degrades the system's overall performance.
+- They can occur at various points in a network topology and can severely impact the efficiency and responsiveness of an application or system.
+- These bottlenecks occur due to bandwidth limitations, high latency, packet loss, congestion, or inefficient network topology.
+Example: A video streaming service may encounter network bottlenecks if it doesn't have adequate content delivery infrastructure. Users may experience buffering or low-quality video streams when too many requests strain the network.
+
+### 3. Server Bottlenecks
+When the application server is unable to manage more requests or concurrent connections, a server bottleneck occurs. Limitations in server resources, including CPU, RAM, or disk I/O, may be the cause of this.
+- Consider a social media site where an unexpectedly popular post causes a huge surge in users attempting to access it at once.
+- If the server lacks the necessary resources to handle this surge, it may become unresponsive, degrading the user experience.
+Example: You have a web application that allows users to upload and process images. As the user base grows, the server begins to experience performance issues. The server's CPU becomes a bottleneck because the image processing algorithm used by the application is computationally intensive, causing delays in image processing and overall sluggishness of the application.
+
+### 4. Authentication Bottlenecks
+Authentication is essential for securely verifying user identities and controlling access to system resources. An authentication bottleneck occurs when this process becomes slow or overloaded, affecting overall system performance and user experience.
+- Caused by high volumes of login requests or inefficient authentication mechanisms.
+- Can result from limited infrastructure or poorly optimized authentication workflows.
+Example: An e-banking application may experience authentication bottlenecks during peak usage times, causing login delays if the authentication system cannot keep up with the volume of incoming requests.
+
+### 5. Third-party Services Bottlenecks
+For many features, such as cloud storage, geolocation, and payment processing, modern apps frequently rely on third-party services, which limits a system's overall performance, dependability, and scalability.
+- A number of things, such as the third-party service's availability, response latency, rate limitations, or API modifications, might cause these bottlenecks.
+- Identifying and addressing third-party services bottlenecks is crucial for designing systems that can provide consistent and responsive user experiences.
+Example: If a ride-sharing app depends on an external mapping service and that service experiences downtime or slow response times, it can affect the app's performance and scalability.
+
+### 6. Code Execution Bottlenecks
+A code execution bottleneck occurs when inefficient algorithms, excessive CPU usage, runtime overhead, or inefficient synchronization limit application performance.
+- Inefficient algorithms can increase the amount of computation required as the workload grows.
+- Excessive CPU usage, unnecessary processing, locking, or synchronization can slow down request processing.
+- Optimizing algorithms and reducing unnecessary computation can help improve application performance and scalability.
+Example: An application that repeatedly processes a large dataset using an inefficient algorithm may consume excessive CPU resources, increasing response times as the workload grows.
+
+### 7. Data Storage Bottlenecks
+A data storage bottleneck occurs when the underlying storage system cannot provide sufficient capacity, throughput, or I/O performance for the workload.
+- High disk I/O or storage latency can slow down applications that frequently read or write data.
+- Insufficient storage throughput can limit the rate at which data can be processed.
+- Limited storage capacity can prevent a system from accommodating growing data volumes.
+Example: If a cloud-based file-sharing platform receives a large number of file uploads, insufficient storage throughput can slow down file uploads and retrievals, affecting the platform's performance.

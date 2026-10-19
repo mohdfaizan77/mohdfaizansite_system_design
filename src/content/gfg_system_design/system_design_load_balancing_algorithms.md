@@ -1,0 +1,101 @@
+# Load Balancing Algorithms
+
+Source: https://www.geeksforgeeks.org/system-design/load-balancing-algorithms/
+
+A load balancer distributes incoming traffic across multiple servers to improve resource utilization, performance, and availability.
+- Uses load-balancing algorithms to distribute traffic according to configured rules, server capacity, and current system conditions.
+- Helps prevent individual servers from becoming overloaded and improves overall application performance.
+Example: In a web application like an e-commerce site, a load balancer can distribute incoming user requests across multiple servers so that no single server becomes slow or crashes during peak traffic.
+
+## Types of Load Balancing Algorithm
+Load balancing algorithms can be broadly categorized into two types: Dynamic load balancing and Static load balancing.
+
+## 1. Static Load Balancing Algorithms
+Static load balancing assigns tasks to servers using predefined rules, without considering real-time system conditions.
+- Workloads are allocated in a fixed and predetermined manner.
+- Does not adapt to changes during runtime.
+
+### Types
+These algorithms distribute requests using fixed rules without considering real-time server conditions.
+1. Round Robin Load Balancing Algorithm: Round Robin is a simple static load balancing technique that distributes incoming requests to servers in a fixed sequential or rotational order. It is commonly used due to its ease of implementation.
+- Requests are assigned to servers one by one in a circular manner.
+- Does not consider current server load, which may cause some servers to become overloaded.
+For Example: Lets say you have a group of friends, and you want to share a bag of candies equally with all of them. You give one candy to each friend in a circle, and then you start over. This is like Round Robin – making sure everyone gets a fair share.
+Pros: Simple to implement and requires minimal configuration.
+Cons: Ignores server load, which can lead to uneven distribution under heavy traffic.
+2. Weighted Round Robin Load Balancing Algorithm: Weighted Round Robin is a static load balancing technique similar to Round Robin, but it distributes requests based on assigned weight values that represent each server’s capacity.
+- Servers with higher weights receive a larger share of requests.
+- Requests are distributed in a cyclic manner, proportional to each server’s weight.
+For Example: let's say your friends have different levels of candy cravings. You want to be fair, so you give more candies to the friend who loves them the most. Weighted Round Robin does something similar – it gives more tasks to the friends who can handle them better.
+Pros: Distributes traffic according to server capacity, preventing weaker servers from overload.
+Cons: Still static; cannot adapt to sudden runtime load changes.
+3. Source IP Hash Load Balancing Algorithm: Source IP Hash selects a backend server by computing a hash from the client's source IP address.
+- The client's IP address is used to determine the backend server.
+- Requests from the same IP will generally map to the same server while the server pool and hashing configuration remain unchanged.
+- Pros: Provides a form of session affinity without requiring a separate session cookie.
+- Cons: Affinity is not guaranteed if the backend pool or configuration changes, and multiple users behind the same public IP may be mapped to the same server.
+
+## 2. Dynamic Load Balancing Algorithms
+Dynamic load balancing makes real-time decisions to distribute incoming traffic or workloads across multiple servers based on current system conditions. It continuously adapts to changes such as server load, network traffic, and resource availability.
+- Adjusts request distribution dynamically to prevent server overload.
+- Improves performance and reliability by responding to real-time system changes.
+
+### Types
+These algorithms distribute requests based on real-time server performance and system conditions.
+1. Least Connection Method Load Balancing Algorithm: The Least Connections algorithm is a dynamic load balancing technique that routes new requests to the server with the fewest active connections. It focuses on balancing workload by considering the current load on each server.
+- Requires additional computation to track and identify the server with the least connections.
+- More resource-intensive than round-robin due to real-time load evaluation.
+For Example: Lets say you're at a playground, and some kids are playing on different swings. You want to join the swing with the fewest kids so that it's not too crowded. Least Connection is like choosing the swing with the least number of kids already on it.
+Pros: Balances load effectively by directing traffic to the least busy server.
+Cons: Requires continuous monitoring, increasing computational overhead.
+2. Least Response Time Load Balancing Algorithm: Least Response Time selects a backend based on observed response-time information and, depending on the implementation, may also consider metrics such as active connections.
+- Uses current or recent response-time measurements rather than relying only on historical data.
+- Continuously updates routing decisions as server performance changes.
+For Example: Picture yourself at a snack bar where you can order food from different servers. You notice that some servers are faster than others. You choose the server that seems to serve food the quickest each time you go. Least Response Time is like picking the server with the shortest line.
+Pros: Helps reduce latency by favoring faster-responding healthy servers.
+Cons: Requires continuous monitoring and additional runtime metrics.
+3. Resource-based Load Balancing Algorithm: Resource-Based Load Balancing assigns incoming requests to servers based on their current resource availability, such as CPU usage, memory, or bandwidth, ensuring efficient and balanced system performance.
+- Routes requests to the server with the most available resources at that moment.
+- Prevents server overload by continuously monitoring resource usage.
+For Example: Imagine it like assigning tasks in an office based on each employee’s workload at the moment—some are busy, while others are free. Resource-Based Load Balancing directs requests to the server with the most available resources
+Pros: Optimizes resource utilization by considering CPU, memory, and bandwidth in real time.
+Cons: More complex to implement and may require frequent resource checks.
+
+## Importance
+Load balancing plays a crucial role in maintaining the performance and reliability of distributed systems. It ensures efficient resource utilization while handling increasing user traffic smoothly.
+- Prevents any single server from becoming a performance bottleneck.
+- Improves application availability and fault tolerance.
+- Enhances scalability during high traffic.
+- Ensures better user experience with reduced latency.
+
+## Static Vs Dynamic Load Balancing
+Static Load Balancing	Dynamic Load Balancing
+Uses predefined rules to distribute requests.	Makes routing decisions using current system conditions.
+Does not dynamically adapt its routing rule to changing workload.	Continuously adapts to server load or performance metrics.
+May still use health checks to exclude unhealthy servers from the available pool.	Can consider metrics such as active connections, CPU usage, memory, or response time.
+Usually simpler to configure.	Requires additional monitoring and runtime information.
+Suitable for relatively predictable workloads.	Suitable for fluctuating and unpredictable workloads.
+Example: Round Robin, Weighted Round Robin.	Example: Least Connections, Least Response Time, Resource-Based.
+
+## Factors Affecting Load Balancing Algorithm Selection
+Selecting an appropriate load balancing algorithm depends on several system and application requirements. These factors help determine how efficiently traffic is distributed.
+- Traffic pattern
+- Server capacity and heterogeneity
+- Network latency
+- Fault tolerance requirements
+- Cost and complexity
+
+## Use Cases
+Load balancing is widely used in real-world applications to ensure smooth performance, even under high traffic:
+- E-commerce websites during sales: High user traffic during flash sales or promotions can overload servers. Load balancers distribute requests evenly to maintain fast response times.
+- Video streaming platforms: Streaming services like Netflix or YouTube rely on load balancing to serve millions of concurrent users without buffering.
+- Large SaaS applications: Enterprise applications with multiple clients use load balancers to maintain uptime and ensure all users have a seamless experience.
+
+## Selecting the Appropriate Load Balancing Algorithm for Your System
+Choose a load balancing algorithm based on traffic patterns, server capacity, session requirements, and performance needs.
+- Round Robin: Use when servers have similar capacity and traffic is relatively predictable.
+- Weighted Round Robin: Use when servers have different capacities and should receive traffic proportionally.
+- Source IP Hash: Use when the same client needs to consistently connect to the same server.
+- Least Connections: Use for variable workloads or applications with long-running connections.
+- Least Response Time: Use when reducing response latency is the main priority.
+- Resource-Based: Use when routing decisions should depend on changing CPU, memory, or bandwidth usage.

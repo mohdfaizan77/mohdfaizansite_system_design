@@ -1,0 +1,47 @@
+# Maintainability in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/maintainability-in-system-design/
+
+Maintainability refers to how easily a software system can be modified, updated, or improved over time. It ensures developers can fix issues, add features, and enhance components with minimal disruption to the system.
+- The system is structured into smaller modules so individual parts can be changed without affecting the entire application.
+- Clear, readable code along with version control and automated testing helps track changes and quickly detect issues.
+Example: In a large web application, developers organize the system into separate modules such as authentication, payment, and user management. This allows teams to update one module without impacting the rest of the application.
+
+## Measuring Maintainability
+While measuring maintainability is subjective, here are some metrics to measure it:
+- Maintainability Index: It provides a numerical score that indicates how easy the code is to maintain. A higher score generally represents better maintainability, while the exact calculation may vary depending on the tool.
+- Cyclomatic Complexity: It measures the number of independent execution paths in a program. Higher complexity usually means the code is harder to understand, test, and maintain.
+- Code Churn: It measures how frequently code is added, modified, or deleted over time. High code churn may indicate unstable or frequently changing areas that require additional review and testing.
+- Technical Debt: It represents the future maintenance cost created by quick fixes, poor design choices, or postponed improvements. Higher technical debt generally makes future changes more difficult and expensive.
+- Test Coverage: It measures how much of the codebase is executed by automated tests, usually expressed as a percentage. Higher coverage can help detect regressions and make code changes safer.
+- Code Duplication: It measures the amount of repeated or similar code in a codebase. High duplication increases maintenance effort because the same logic may need to be updated in multiple places.
+- Defect Density: It measures the number of defects relative to the size of the software, such as defects per thousand lines of code. A high defect density may indicate areas that are harder to maintain or more error-prone.
+- Mean Time to Change/Repair: It measures the average time required to modify, fix, or restore a system after an issue or requested change. A lower value generally indicates better maintainability and faster recovery.
+
+## Ways to Achieve High Maintainability
+Designing a highly maintainable system requires good architectural decisions, clean implementation practices, testing, and documentation throughout the development lifecycle.
+- Follow Design Principles and Patterns: Use principles such as SOLID and appropriate design patterns such as MVC, Strategy, Factory, or Observer to improve modularity, flexibility, and separation of concerns.
+- Maintain Code Consistency: Write clean and readable code using consistent naming conventions, formatting, coding standards, and meaningful comments where necessary.
+- Conduct Code Reviews: Peer reviews help identify design issues, code smells, duplication, and violations of coding standards before they become harder to fix.
+- Use Automated Testing: Unit, integration, and regression tests make changes safer and help detect defects early. TDD can also be used where appropriate, but it is not mandatory for maintainability.
+- Maintain Good Documentation: Document architecture, APIs, modules, dependencies, important design decisions, and operational procedures so developers can understand and modify the system easily.
+- Plan for Change: Design modules with low coupling and high cohesion so new features and requirement changes can be introduced with minimal impact on existing components.
+- Automate Testing and Deployment: CI/CD pipelines and automated tests reduce manual errors and make system changes more repeatable and reliable.
+- Refactor Regularly: Remove duplication, simplify complex code, and address technical debt before it makes future maintenance more difficult.
+
+## Hidden Costs of Poor Maintainability
+Poor maintainability makes systems harder to understand and modify, reducing efficiency and stability. It increases development time and complexity, slowing down the delivery of new features.
+- Increase in Technical Debt: Quick fixes and temporary solutions accumulate over time, making the codebase more complex and harder to manage.
+- Slower Bug Fixing: Developers may spend significant time understanding complicated code before resolving issues.
+- Difficult Test Maintenance: Automated tests may frequently break when the underlying code is poorly structured or tightly coupled.
+- Delayed Development Cycles: Poor maintainability can slow down feature development and make meeting project deadlines challenging.
+- Unreliable Testing: Poorly organized code makes it difficult to create stable and effective test cases.
+
+## Challenges in Maintainability
+Maintaining a large software system can become difficult as the system grows in size and complexity. Various technical and organizational factors can reduce maintainability and make updates or bug fixes more time-consuming.
+- Complex Code Structure: Highly complex or tightly coupled code makes it difficult for developers to understand and modify the system.
+- Poor Documentation: Lack of proper documentation makes it harder for new developers to understand system architecture and functionality.
+- Frequent Requirement Changes: Continuous changes in requirements can make the system harder to maintain if the design is not flexible.
+- Code Duplication: Repeated code across different modules increases maintenance effort because changes must be applied in multiple places.
+- Lack of Automated Testing: Without proper testing, even small changes may introduce new bugs, making maintenance risky.
+- Technical Debt: Quick fixes or temporary solutions added over time can make the system harder to manage and update.

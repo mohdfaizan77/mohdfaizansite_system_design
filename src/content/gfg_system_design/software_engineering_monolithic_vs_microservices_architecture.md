@@ -1,0 +1,42 @@
+# Monolithic Vs Microservices Architecture
+
+Source: https://www.geeksforgeeks.org/software-engineering/monolithic-vs-microservices-architecture/
+
+Modern applications can be built using different architectural styles, with Monolithic Architecture and Microservices Architecture being two widely used approaches. A monolithic application is packaged and deployed as a single application unit, while microservices architecture divides the application into multiple independently deployable services.
+- Monolithic Architecture: Combines major application components into a single deployable unit.
+- Microservices Architecture: Divides the application into smaller services that focus on specific business capabilities.
+
+## Monolithic Architecture
+Monolithic Architecture is a software design approach in which the major components of an application, such as the user interface, business logic, and data access layer, are packaged and deployed together as a single application.
+It is commonly used for small to medium-sized applications where simpler development, deployment, and operations are important.
+
+### Key Characteristics
+- Single Deployment Unit: The complete application is generally packaged and deployed together.
+- Shared Runtime: Most application modules usually run within the same process or runtime environment.
+- Direct Internal Communication: Modules can communicate through method or function calls without network-based service communication.
+- Unified Application Structure: Components are managed as part of the same application, although they may still be organized into separate internal modules.
+- Shared Data Access: Modules often use a common database or persistence layer.
+- Whole-Application Scaling: Scaling usually involves running additional instances of the entire application rather than scaling an individual module.
+
+## Microservices Architecture
+Microservices Architecture is a software design approach in which an application is divided into multiple small services, with each service typically responsible for a specific business capability.
+These services communicate through APIs, messaging systems, or events and can often be developed, deployed, and scaled independently.
+
+### Key Characteristics
+- Business-Capability Focus: Each service usually handles a specific domain or business function.
+- Independent Deployment: Services can often be deployed separately, provided their contracts and dependencies remain compatible.
+- Independent Scaling: Services can be scaled according to their individual workload requirements.
+- Network-Based Communication: Services generally communicate through REST APIs, gRPC, messaging, or events.
+- Technology Flexibility: Different services may use different programming languages, frameworks, or databases where appropriate.
+- Distributed Data Ownership: Service-owned data stores are common, although not mandatory in every microservices design.
+
+## Monolithic Vs Microservices Architecture
+Aspect	Monolithic Architecture	Microservices Architecture
+Structure	Single deployable application	Multiple independent services
+Deployment	Entire application is deployed together	Services can be deployed independently
+Scaling	Usually scales the whole application	Individual services can scale separately
+Communication	Mostly in-process communication	Uses APIs or messaging between services
+Complexity	Simpler to develop and operate initially	Higher operational and distributed-system complexity
+
+## Best Scenarios for Monolithic and Microservices Architecture
+The best scenarios where we can use Monolithic Architecture or Microservices Architecture are:

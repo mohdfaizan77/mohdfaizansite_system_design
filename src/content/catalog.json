@@ -1,0 +1,1218 @@
+[
+  {
+    "id": 1,
+    "title": "Foundations",
+    "level": "EASY",
+    "color": "#5eead4",
+    "topics": [
+      {
+        "id": "1.1",
+        "title": "System Design Tutorial",
+        "summary": "System Design is the process of designing the architecture, components, and interfaces of a system to meet user and business requirements. It...",
+        "url": "https://www.geeksforgeeks.org/system-design/system-design-tutorial/",
+        "file": "system_design_system_design_tutorial.md",
+        "minutes": 5
+      },
+      {
+        "id": "1.2",
+        "title": "System Design Introduction - LLD & HLD",
+        "summary": "System Design is the process of planning the architecture of a software system based on its requirements. It defines how different components...",
+        "url": "https://www.geeksforgeeks.org/system-design/getting-started-with-system-design/",
+        "file": "system_design_getting_started_with_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "1.3",
+        "title": "Complete Roadmap to Learn System Design for Beginners",
+        "summary": "This article is an important resource if you're new to system design and aiming for interviews at top tech companies. It breaks down system...",
+        "url": "https://www.geeksforgeeks.org/system-design/complete-roadmap-to-learn-system-design/",
+        "file": "system_design_complete_roadmap_to_learn_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "1.4",
+        "title": "Guide to System Design for Freshers",
+        "summary": "Starting your journey into the system design domain can be exciting and difficult, especially for freshers. In this article, we'll provide a...",
+        "url": "https://www.geeksforgeeks.org/system-design/guide-to-system-design-for-freshers/",
+        "file": "system_design_guide_to_system_design_for_freshers.md",
+        "minutes": 37
+      },
+      {
+        "id": "1.5",
+        "title": "Why is it Important to Learn System Design?",
+        "summary": "System design is an important skill in the tech industry, especially for freshers aiming to grow. Top MNCs like Google and Amazon emphasize...",
+        "url": "https://www.geeksforgeeks.org/system-design/why-is-it-important-to-learn-system-design/",
+        "file": "system_design_why_is_it_important_to_learn_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "1.6",
+        "title": "Advantages of System Design",
+        "summary": "System Design is the process of defining the architecture, components, interfaces, and data flow of a system to meet user and business...",
+        "url": "https://www.geeksforgeeks.org/system-design/advantages-of-system-design/",
+        "file": "system_design_advantages_of_system_design.md",
+        "minutes": 2
+      },
+      {
+        "id": "1.7",
+        "title": "Goals and Objectives of System Design",
+        "summary": "The objective of system design is to create a plan for a software or hardware system that meets the needs and requirements of a customer or...",
+        "url": "https://www.geeksforgeeks.org/system-design/goals-and-objectives-of-system-design/",
+        "file": "system_design_goals_and_objectives_of_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "1.8",
+        "title": "What are the components of System Design?",
+        "summary": "System Design involves looking at the system's requirements, determining its assumptions and limitations, and defining its high-level...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-are-the-components-of-system-design/",
+        "file": "system_design_what_are_the_components_of_system_design.md",
+        "minutes": 9
+      },
+      {
+        "id": "1.9",
+        "title": "Important Key Concepts and Terminologies \u2013 Learn System Design",
+        "summary": "System Design is the core concept behind the design of any distributed systems. System Design is defined as a process of creating an...",
+        "url": "https://www.geeksforgeeks.org/system-design/important-key-concepts-and-terminologies-learn-system-design/",
+        "file": "system_design_important_key_concepts_and_terminologies_learn_system_design.md",
+        "minutes": 8
+      },
+      {
+        "id": "1.10",
+        "title": "System Design Life Cycle (SDLC)",
+        "summary": "The System Design Life Cycle (SDLC) is a structured process used to plan, design, develop, test, deploy, and maintain software systems. It...",
+        "url": "https://www.geeksforgeeks.org/system-design/system-design-life-cycle-phases-models-and-use-cases/",
+        "file": "system_design_system_design_life_cycle_phases_models_and_use_cases.md",
+        "minutes": 6
+      },
+      {
+        "id": "1.11",
+        "title": "Differences between System Analysis and System Design",
+        "summary": "System Analysis and System Design are two stages of the software development life cycle. System Analysis is a process of collecting and...",
+        "url": "https://www.geeksforgeeks.org/system-design/system-analysis-vs-system-design/",
+        "file": "system_design_system_analysis_vs_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "1.12",
+        "title": "Requirements Gathering in System Design",
+        "summary": "Requirements Gathering is the process of gathering and recording what users and stakeholders want the system to do, so developers know...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-requirements-gathering-process/",
+        "file": "system_design_what_is_requirements_gathering_process.md",
+        "minutes": 5
+      },
+      {
+        "id": "1.13",
+        "title": "Functional and Non Functional Requirements",
+        "summary": "Requirements analysis identifies and documents what a system must do and the conditions under which it must operate. It provides the...",
+        "url": "https://www.geeksforgeeks.org/software-engineering/functional-vs-non-functional-requirements/",
+        "file": "software_engineering_functional_vs_non_functional_requirements.md",
+        "minutes": 2
+      },
+      {
+        "id": "1.14",
+        "title": "Introduction to High level Design",
+        "summary": "High-level design or HLD is an initial step in the development of applications where the overall structure of a system is planned. Mainly...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-high-level-design-learn-system-design/",
+        "file": "system_design_what_is_high_level_design_learn_system_design.md",
+        "minutes": 8
+      },
+      {
+        "id": "1.15",
+        "title": "Draw High Level Design Diagram",
+        "summary": "A High-Level Design (HLD) diagram provides a visual overview of a system's architecture, showing the major components and how they interact....",
+        "url": "https://www.geeksforgeeks.org/system-design/how-to-draw-high-level-design-diagram/",
+        "file": "system_design_how_to_draw_high_level_design_diagram.md",
+        "minutes": 7
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Architecture",
+    "level": "EASY TO INTERMEDIATE",
+    "color": "#7dd3fc",
+    "topics": [
+      {
+        "id": "2.1",
+        "title": "Monolithic Architecture",
+        "summary": "Monolithic architecture is a software design approach in which the major components of an application, such as the user interface, business...",
+        "url": "https://www.geeksforgeeks.org/system-design/monolithic-architecture-system-design/",
+        "file": "system_design_monolithic_architecture_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "2.2",
+        "title": "Microservices",
+        "summary": "Microservices is an architecture where an application is divided into small, independent services that communicate over a network. Each...",
+        "url": "https://www.geeksforgeeks.org/system-design/microservices/",
+        "file": "system_design_microservices.md",
+        "minutes": 5
+      },
+      {
+        "id": "2.3",
+        "title": "Monolithic Vs Microservices Architecture",
+        "summary": "Modern applications can be built using different architectural styles, with Monolithic Architecture and Microservices Architecture being two...",
+        "url": "https://www.geeksforgeeks.org/software-engineering/monolithic-vs-microservices-architecture/",
+        "file": "software_engineering_monolithic_vs_microservices_architecture.md",
+        "minutes": 2
+      },
+      {
+        "id": "2.4",
+        "title": "Analysis of Monolithic and Distributed Systems - Learn System Design",
+        "summary": "System Analysis and Design is the process of understanding business requirements and creating a structured solution to meet those needs....",
+        "url": "https://www.geeksforgeeks.org/system-design/analysis-of-monolithic-and-distributed-systems-learn-system-design/",
+        "file": "system_design_analysis_of_monolithic_and_distributed_systems_learn_system_design.md",
+        "minutes": 8
+      },
+      {
+        "id": "2.5",
+        "title": "Serverless Architecture",
+        "summary": "Serverless Architecture is a cloud computing model where the cloud provider manages the underlying infrastructure, including server...",
+        "url": "https://www.geeksforgeeks.org/system-design/serverless-architectures/",
+        "file": "system_design_serverless_architectures.md",
+        "minutes": 4
+      },
+      {
+        "id": "2.6",
+        "title": "Stateless and Stateful Systems in System Design",
+        "summary": "Stateless and stateful systems describe how an application manages and maintains user or session information between requests. Choosing...",
+        "url": "https://www.geeksforgeeks.org/system-design/stateless-and-stateful-systems-in-system-design/",
+        "file": "system_design_stateless_and_stateful_systems_in_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "2.7",
+        "title": "Stateful Vs Stateless Architecture",
+        "summary": "Stateful vs Stateless Architecture defines how a system manages client session or state data during interactions. This choice affects...",
+        "url": "https://www.geeksforgeeks.org/system-design/stateful-vs-stateless-architecture/",
+        "file": "system_design_stateful_vs_stateless_architecture.md",
+        "minutes": 3
+      },
+      {
+        "id": "2.8",
+        "title": "Containerization Architecture in System Design",
+        "summary": "In system design, containerization architecture describes the process of encapsulating an application and its dependencies into a portable,...",
+        "url": "https://www.geeksforgeeks.org/system-design/containerization-architecture-in-system-design/",
+        "file": "system_design_containerization_architecture_in_system_design.md",
+        "minutes": 12
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Scalability & Capacity",
+    "level": "INTERMEDIATE",
+    "color": "#b5b4ff",
+    "topics": [
+      {
+        "id": "3.1",
+        "title": "Scalability in System Design",
+        "summary": "Scalability refers to a system's ability to handle increasing workloads, users, or data by adding or adjusting resources while maintaining...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-scalability/",
+        "file": "system_design_what_is_scalability.md",
+        "minutes": 3
+      },
+      {
+        "id": "3.2",
+        "title": "Horizontal and Vertical Scaling | System Design",
+        "summary": "In system design, scaling is important for handling increased workloads. Horizontal scaling and vertical scaling are two approaches to...",
+        "url": "https://www.geeksforgeeks.org/system-design/system-design-horizontal-and-vertical-scaling/",
+        "file": "system_design_system_design_horizontal_and_vertical_scaling.md",
+        "minutes": 3
+      },
+      {
+        "id": "3.3",
+        "title": "Choosing the Right Scalability Approach",
+        "summary": "Choosing the right scalability approach depends on application architecture, workload, traffic patterns, cost, performance requirements, and...",
+        "url": "https://www.geeksforgeeks.org/system-design/which-scalability-approach-is-right-for-our-application-system-design/",
+        "file": "system_design_which_scalability_approach_is_right_for_our_application_system_design.md",
+        "minutes": 2
+      },
+      {
+        "id": "3.4",
+        "title": "Guide for Designing Highly Scalable Systems",
+        "summary": "Scalable systems are essential for handling increasing users, data, and workload efficiently. Designing such systems requires proper...",
+        "url": "https://www.geeksforgeeks.org/system-design/guide-for-designing-highly-scalable-systems/",
+        "file": "system_design_guide_for_designing_highly_scalable_systems.md",
+        "minutes": 4
+      },
+      {
+        "id": "3.5",
+        "title": "Primary Scalability Bottlenecks in System Design",
+        "summary": "A bottleneck in a system is a point where data flow or processing gets restricted, reducing overall performance. It occurs when one component...",
+        "url": "https://www.geeksforgeeks.org/system-design/primary-bottlenecks-that-hurt-the-scalability-of-an-application-system-design/",
+        "file": "system_design_primary_bottlenecks_that_hurt_the_scalability_of_an_application_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "3.6",
+        "title": "Capacity Estimation in Systems Design",
+        "summary": "Capacity estimation in systems design is the process of predicting or determining the maximum load or demand that a system can handle within...",
+        "url": "https://www.geeksforgeeks.org/system-design/capacity-estimation-in-systems-design/",
+        "file": "system_design_capacity_estimation_in_systems_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "3.7",
+        "title": "Software Cost Estimation",
+        "summary": "Software Cost Estimation is a systematic process used to forecast the amount of effort (person-hours or person-months), duration (calendar...",
+        "url": "https://www.geeksforgeeks.org/software-engineering/software-cost-estimation/",
+        "file": "software_engineering_software_cost_estimation.md",
+        "minutes": 3
+      },
+      {
+        "id": "3.8",
+        "title": "Performance Optimization Techniques for System Design",
+        "summary": "Designing systems that are efficient, scalable, and high-performing is crucial in modern applications. As systems handle more users and data,...",
+        "url": "https://www.geeksforgeeks.org/system-design/optimization-techniques-for-system-design/",
+        "file": "system_design_optimization_techniques_for_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "3.9",
+        "title": "Cost Vs Performance",
+        "summary": "Cost vs Performance in system design refers to the trade-off between system efficiency and the resources required to achieve it. Higher...",
+        "url": "https://www.geeksforgeeks.org/system-design/cost-vs-performance/",
+        "file": "system_design_cost_vs_performance.md",
+        "minutes": 9
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Databases & Storage",
+    "level": "INTERMEDIATE",
+    "color": "#5eead4",
+    "topics": [
+      {
+        "id": "4.1",
+        "title": "Database Design - System Design",
+        "summary": "Database design is the process of organizing and structuring data so it can be stored, accessed, and managed efficiently. It plays a key role...",
+        "url": "https://www.geeksforgeeks.org/system-design/complete-reference-to-databases-in-designing-systems/",
+        "file": "system_design_complete_reference_to_databases_in_designing_systems.md",
+        "minutes": 11
+      },
+      {
+        "id": "4.2",
+        "title": "Types of Databases in System Design",
+        "summary": "Databases are essential components of a system because they store, organize, and manage application data. The type of database chosen...",
+        "url": "https://www.geeksforgeeks.org/system-design/types-of-databases-in-system-design/",
+        "file": "system_design_types_of_databases_in_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "4.3",
+        "title": "SQL Vs NoSQL Databases in System Design",
+        "summary": "When designing a system, one of the most critical decisions is choosing between SQL and NoSQL databases. This choice can significantly impact...",
+        "url": "https://www.geeksforgeeks.org/system-design/which-database-to-choose-while-designing-a-system-sql-or-nosql/",
+        "file": "system_design_which_database_to_choose_while_designing_a_system_sql_or_nosql.md",
+        "minutes": 5
+      },
+      {
+        "id": "4.4",
+        "title": "File and Database Storage Systems in System Design",
+        "summary": "In system design, data can be stored using file systems or database systems, where file systems store data as files in directories and...",
+        "url": "https://www.geeksforgeeks.org/system-design/file-and-database-storage-systems-in-system-design/",
+        "file": "system_design_file_and_database_storage_systems_in_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "4.5",
+        "title": "Database Replication in System Design",
+        "summary": "Making and keeping copies of a database on other servers is known as database replication. It improves availability, provides redundancy, and...",
+        "url": "https://www.geeksforgeeks.org/system-design/database-replication-and-their-types-in-system-design/",
+        "file": "system_design_database_replication_and_their_types_in_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "4.6",
+        "title": "Types of Database Replication",
+        "summary": "Database replication is the process of copying and maintaining data across multiple database servers to ensure reliability and consistent...",
+        "url": "https://www.geeksforgeeks.org/system-design/types-of-database-replication-system-design/",
+        "file": "system_design_types_of_database_replication_system_design.md",
+        "minutes": 10
+      },
+      {
+        "id": "4.7",
+        "title": "Database Sharding - System Design",
+        "summary": "Database sharding is a technique used to scale databases by distributing data across multiple servers. It helps improve performance and...",
+        "url": "https://www.geeksforgeeks.org/system-design/database-sharding-a-system-design-concept/",
+        "file": "system_design_database_sharding_a_system_design_concept.md",
+        "minutes": 7
+      },
+      {
+        "id": "4.8",
+        "title": "Data Partitioning Techniques in System Design",
+        "summary": "The process of splitting a dataset into more manageable, smaller pieces in order to improve efficiency, scalability, and performance is known...",
+        "url": "https://www.geeksforgeeks.org/system-design/data-partitioning-techniques/",
+        "file": "system_design_data_partitioning_techniques.md",
+        "minutes": 6
+      },
+      {
+        "id": "4.9",
+        "title": "Block, Object, and File Storage in System Design",
+        "summary": "Storage is an important component of system design because it determines how data is stored, accessed, and managed. Different storage types...",
+        "url": "https://www.geeksforgeeks.org/system-design/block-object-and-file-storage-in-cloud-with-difference/",
+        "file": "system_design_block_object_and_file_storage_in_cloud_with_difference.md",
+        "minutes": 3
+      },
+      {
+        "id": "4.10",
+        "title": "Introduction to Database Normalization",
+        "summary": "Database normalization is the process of organizing data into well-structured tables to reduce data redundancy and prevent data anomalies.",
+        "url": "https://www.geeksforgeeks.org/dbms/introduction-of-database-normalization/",
+        "file": "dbms_introduction_of_database_normalization.md",
+        "minutes": 2
+      },
+      {
+        "id": "4.11",
+        "title": "SQL Query Optimizations",
+        "summary": "Poorly written SQL queries can slow down database operations, consume excessive resources, cause locking and blocking issues, and negatively...",
+        "url": "https://www.geeksforgeeks.org/sql/best-practices-for-sql-query-optimizations/",
+        "file": "sql_best_practices_for_sql_query_optimizations.md",
+        "minutes": 5
+      },
+      {
+        "id": "4.12",
+        "title": "Denormalization in Databases",
+        "summary": "Denormalization is a database optimization technique where redundant data is intentionally added to one or more tables to reduce the need for...",
+        "url": "https://www.geeksforgeeks.org/dbms/denormalization-in-databases/",
+        "file": "dbms_denormalization_in_databases.md",
+        "minutes": 3
+      },
+      {
+        "id": "4.13",
+        "title": "Redis Introduction",
+        "summary": "Redis (Remote Dictionary Server) is an in-memory data store that provides low-latency data access. It is commonly used for caching, sessions,...",
+        "url": "https://www.geeksforgeeks.org/system-design/introduction-to-redis-server/",
+        "file": "system_design_introduction_to_redis_server.md",
+        "minutes": 4
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Reliability & Consistency",
+    "level": "INTERMEDIATE",
+    "color": "#fdba74",
+    "topics": [
+      {
+        "id": "5.1",
+        "title": "Availability in System Design",
+        "summary": "Availability refers to how often a system or service is operational and accessible to users when required. It measures the ability of the...",
+        "url": "https://www.geeksforgeeks.org/system-design/availability-in-system-design/",
+        "file": "system_design_availability_in_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "5.2",
+        "title": "High Availability in System Design",
+        "summary": "High availability in system design refers to the ability of a system or service to remain accessible and provide its intended functionality...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-high-availability-in-system-design/",
+        "file": "system_design_what_is_high_availability_in_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "5.3",
+        "title": "Consistency in System Design",
+        "summary": "Consistency in system design refers to the guarantees about when and how updates to data become visible across different nodes or clients in...",
+        "url": "https://www.geeksforgeeks.org/system-design/consistency-in-system-design/",
+        "file": "system_design_consistency_in_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "5.4",
+        "title": "Consistency Patterns",
+        "summary": "Consistency patterns in system design are approaches used to manage data consistency across distributed systems where multiple users read and...",
+        "url": "https://www.geeksforgeeks.org/system-design/consistency-patterns/",
+        "file": "system_design_consistency_patterns.md",
+        "minutes": 6
+      },
+      {
+        "id": "5.5",
+        "title": "CAP Theorem in System Design",
+        "summary": "According to the CAP theorem, a distributed system cannot simultaneously guarantee Consistency, Availability, and Partition Tolerance when a...",
+        "url": "https://www.geeksforgeeks.org/system-design/cap-theorem-in-system-design/",
+        "file": "system_design_cap_theorem_in_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "5.6",
+        "title": "Reliability in System Design",
+        "summary": "Reliability in system design refers to the ability of a system to perform its intended functions consistently over a specified period under...",
+        "url": "https://www.geeksforgeeks.org/system-design/reliability-in-system-design/",
+        "file": "system_design_reliability_in_system_design.md",
+        "minutes": 3
+      },
+      {
+        "id": "5.7",
+        "title": "Fault Tolerance in System Design",
+        "summary": "Fault tolerance refers to a system's capacity to keep working even in the face of hardware or software issues. Redundancy, error detection,...",
+        "url": "https://www.geeksforgeeks.org/system-design/fault-tolerance-in-system-design/",
+        "file": "system_design_fault_tolerance_in_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "5.8",
+        "title": "Maintainability in System Design",
+        "summary": "Maintainability refers to how easily a software system can be modified, updated, or improved over time. It ensures developers can fix issues,...",
+        "url": "https://www.geeksforgeeks.org/system-design/maintainability-in-system-design/",
+        "file": "system_design_maintainability_in_system_design.md",
+        "minutes": 4
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Load Balancing & Caching",
+    "level": "INTERMEDIATE",
+    "color": "#7dd3fc",
+    "topics": [
+      {
+        "id": "6.1",
+        "title": "Load Balancer",
+        "summary": "A load balancer is a networking device or software application that distributes and balances the incoming traffic among the servers to...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-load-balancer-system-design/",
+        "file": "system_design_what_is_load_balancer_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "6.2",
+        "title": "Types of Load Balancer",
+        "summary": "Load Balancers distribute incoming network traffic across multiple servers to ensure optimal resource utilization, minimize response time,...",
+        "url": "https://www.geeksforgeeks.org/system-design/types-of-load-balancer/",
+        "file": "system_design_types_of_load_balancer.md",
+        "minutes": 3
+      },
+      {
+        "id": "6.3",
+        "title": "Load Balancing Algorithms",
+        "summary": "A load balancer distributes incoming traffic across multiple servers to improve resource utilization, performance, and availability.",
+        "url": "https://www.geeksforgeeks.org/system-design/load-balancing-algorithms/",
+        "file": "system_design_load_balancing_algorithms.md",
+        "minutes": 6
+      },
+      {
+        "id": "6.4",
+        "title": "Difference between Concurrency and Parallelism",
+        "summary": "Concurrency and Parallelism are foundational concepts in computer science, especially in multithreading and distributed systems. While they...",
+        "url": "https://www.geeksforgeeks.org/operating-systems/difference-between-concurrency-and-parallelism/",
+        "file": "operating_systems_difference_between_concurrency_and_parallelism.md",
+        "minutes": 2
+      },
+      {
+        "id": "6.5",
+        "title": "Stateless Vs Stateful Load Balancing",
+        "summary": "Load balancing distributes incoming traffic across multiple servers to improve application performance and prevent any single server from...",
+        "url": "https://www.geeksforgeeks.org/system-design/stateless-vs-stateful-load-balancing/",
+        "file": "system_design_stateless_vs_stateful_load_balancing.md",
+        "minutes": 3
+      },
+      {
+        "id": "6.6",
+        "title": "Load Balancing Vs Failover",
+        "summary": "Load balancing and failover ensure system reliability and smooth performance by managing traffic and handling failures. Load balancing...",
+        "url": "https://www.geeksforgeeks.org/system-design/load-balancing-vs-failover/",
+        "file": "system_design_load_balancing_vs_failover.md",
+        "minutes": 4
+      },
+      {
+        "id": "6.7",
+        "title": "Consistent Hashing - System Design",
+        "summary": "Consistent hashing is a technique used in distributed systems and load balancing to distribute data or requests across multiple servers...",
+        "url": "https://www.geeksforgeeks.org/system-design/consistent-hashing/",
+        "file": "system_design_consistent_hashing.md",
+        "minutes": 9
+      },
+      {
+        "id": "6.8",
+        "title": "Latency and Throughput",
+        "summary": "Latency and throughput are important concepts in system design that help measure how well a system performs. They are often used to evaluate...",
+        "url": "https://www.geeksforgeeks.org/system-design/latency-in-system-design/",
+        "file": "system_design_latency_in_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "6.9",
+        "title": "Caching - System Design Concept",
+        "summary": "Caching is a concept that involves storing frequently accessed data in a location that is easily and quickly accessible. The purpose of...",
+        "url": "https://www.geeksforgeeks.org/system-design/caching-system-design-concept-for-beginners/",
+        "file": "system_design_caching_system_design_concept_for_beginners.md",
+        "minutes": 7
+      },
+      {
+        "id": "6.10",
+        "title": "Distributed Cache",
+        "summary": "A distributed cache stores data across multiple servers (nodes) instead of a single machine, allowing faster access and better scalability....",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-a-distributed-cache/",
+        "file": "system_design_what_is_a_distributed_cache.md",
+        "minutes": 5
+      },
+      {
+        "id": "6.11",
+        "title": "Design Distributed Cache | System Design",
+        "summary": "Designing a Distributed Cache system involves building a fast, scalable, and reliable layer to store frequently accessed data. It helps...",
+        "url": "https://www.geeksforgeeks.org/system-design/design-distributed-cache-system-design/",
+        "file": "system_design_design_distributed_cache_system_design.md",
+        "minutes": 8
+      },
+      {
+        "id": "6.12",
+        "title": "Edge Caching - System Design",
+        "summary": "Edge caching stores frequently accessed data near users (e.g., CDN or edge servers) to reduce data travel distance. It delivers faster access...",
+        "url": "https://www.geeksforgeeks.org/system-design/edge-caching-system-design/",
+        "file": "system_design_edge_caching_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "6.13",
+        "title": "CDN Vs Edge Server - System Design",
+        "summary": "CDNs and edge servers both improve performance by bringing data closer to users. CDNs focus on fast content delivery, while edge servers also...",
+        "url": "https://www.geeksforgeeks.org/system-design/cdn-vs-edge-server-system-design/",
+        "file": "system_design_cdn_vs_edge_server_system_design.md",
+        "minutes": 3
+      },
+      {
+        "id": "6.14",
+        "title": "Cache Eviction Policies | System Design",
+        "summary": "Cache eviction is the process of removing data from a cache when it becomes full to make space for new or more relevant data. It ensures that...",
+        "url": "https://www.geeksforgeeks.org/system-design/cache-eviction-policies-system-design/",
+        "file": "system_design_cache_eviction_policies_system_design.md",
+        "minutes": 9
+      },
+      {
+        "id": "6.15",
+        "title": "Cold and Warm Cache in System Design",
+        "summary": "Caching is a technique that stores frequently accessed data in a temporary layer for faster retrieval and reduced latency. It improves...",
+        "url": "https://www.geeksforgeeks.org/system-design/cold-and-warm-cache-in-system-design/",
+        "file": "system_design_cold_and_warm_cache_in_system_design.md",
+        "minutes": 5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Networking & APIs",
+    "level": "INTERMEDIATE",
+    "color": "#b5b4ff",
+    "topics": [
+      {
+        "id": "7.1",
+        "title": "API Gateway",
+        "summary": "An API Gateway is a centralized entry point that manages client requests and directs them to the appropriate backend services. It simplifies...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-api-gateway-system-design/",
+        "file": "system_design_what_is_api_gateway_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "7.2",
+        "title": "Rate Limiting in System Design",
+        "summary": "Rate Limiting is a technique used in system architecture to regulate how quickly a system processes or serves incoming requests or actions....",
+        "url": "https://www.geeksforgeeks.org/system-design/rate-limiting-in-system-design/",
+        "file": "system_design_rate_limiting_in_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "7.3",
+        "title": "Rate Limiting Algorithms - System Design",
+        "summary": "Rate Limiting Algorithms are mechanisms designed to control the rate at which requests are processed or served by a system. These algorithms...",
+        "url": "https://www.geeksforgeeks.org/system-design/rate-limiting-algorithms-system-design/",
+        "file": "system_design_rate_limiting_algorithms_system_design.md",
+        "minutes": 9
+      },
+      {
+        "id": "7.4",
+        "title": "Communication Protocols in System Design",
+        "summary": "Communication protocols define the rules for how different components in a distributed system exchange messages. They ensure smooth...",
+        "url": "https://www.geeksforgeeks.org/system-design/communication-protocols-in-system-design/",
+        "file": "system_design_communication_protocols_in_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "7.5",
+        "title": "Domain Name System (DNS)",
+        "summary": "Translation of human-readable domain names into IP addresses enables computers to communicate over the internet, a function performed by the...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/domain-name-system-dns-in-application-layer/",
+        "file": "computer_networks_domain_name_system_dns_in_application_layer.md",
+        "minutes": 5
+      },
+      {
+        "id": "7.6",
+        "title": "DNS Caching",
+        "summary": "DNS caching is a temporary storage system that stores recent domain-to-IP mappings to speed up future lookups. Instead of querying DNS...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/what-is-dns-caching/",
+        "file": "computer_networks_what_is_dns_caching.md",
+        "minutes": 5
+      },
+      {
+        "id": "7.7",
+        "title": "DNS Cache Flushing",
+        "summary": "DNS caches temporarily store previously resolved DNS records to speed up domain resolution. However, cached information may become outdated...",
+        "url": "https://www.geeksforgeeks.org/blogs/how-to-flush-dns-cache/",
+        "file": "blogs_how_to_flush_dns_cache.md",
+        "minutes": 5
+      },
+      {
+        "id": "7.8",
+        "title": "Time-To-Live (TTL)",
+        "summary": "Time-To-Live (TTL) defines how long data remains usable or how far a network packet may travel before it expires. Its exact meaning depends...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/what-is-time-to-live-ttl/",
+        "file": "computer_networks_what_is_time_to_live_ttl.md",
+        "minutes": 5
+      },
+      {
+        "id": "7.9",
+        "title": "Content Delivery Network(CDN) in System Design",
+        "summary": "A CDN (Content Delivery Network) is a distributed network of servers designed to improve the speed, availability, scalability, and...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-content-delivery-networkcdn-in-system-design/",
+        "file": "system_design_what_is_content_delivery_networkcdn_in_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "7.10",
+        "title": "Proxies in System Design",
+        "summary": "A proxy server acts as an intermediary between a client and a server, forwarding requests and responses between them. Depending on its type...",
+        "url": "https://www.geeksforgeeks.org/system-design/network-protocols-and-proxies-in-system-design/",
+        "file": "system_design_network_protocols_and_proxies_in_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "7.11",
+        "title": "Difference between Forward Proxy and Reverse Proxy",
+        "summary": "Proxies act as intermediaries between clients and servers and help manage how requests and responses flow through a network. Forward proxies...",
+        "url": "https://www.geeksforgeeks.org/system-design/difference-between-forward-proxy-and-reverse-proxy/",
+        "file": "system_design_difference_between_forward_proxy_and_reverse_proxy.md",
+        "minutes": 3
+      },
+      {
+        "id": "7.12",
+        "title": "Web and Application Server in Designing Systems",
+        "summary": "Web servers and application servers are essential components in system design that handle user requests and deliver responses efficiently. A...",
+        "url": "https://www.geeksforgeeks.org/system-design/web-server-proxies-and-their-role-in-designing-systems/",
+        "file": "system_design_web_server_proxies_and_their_role_in_designing_systems.md",
+        "minutes": 6
+      },
+      {
+        "id": "7.13",
+        "title": "Long Polling and Short Polling",
+        "summary": "Polling is a communication technique in which a client repeatedly contacts a server to check whether new data is available. It is commonly...",
+        "url": "https://www.geeksforgeeks.org/javascript/what-is-long-polling-and-short-polling/",
+        "file": "javascript_what_is_long_polling_and_short_polling.md",
+        "minutes": 7
+      },
+      {
+        "id": "7.14",
+        "title": "WebSocket and Its Difference from HTTP",
+        "summary": "Web applications handle data in two main ways: non-real-time, where updates occur only when the client requests them, and real-time, where...",
+        "url": "https://www.geeksforgeeks.org/web-tech/what-is-web-socket-and-how-it-is-different-from-the-http/",
+        "file": "web_tech_what_is_web_socket_and_how_it_is_different_from_the_http.md",
+        "minutes": 3
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Messaging & Events",
+    "level": "INTERMEDIATE TO ADVANCED",
+    "color": "#f9a8d4",
+    "topics": [
+      {
+        "id": "8.1",
+        "title": "Message Queues - System Design",
+        "summary": "Message queues enable asynchronous communication between system components by acting as a buffer between producers and consumers. They...",
+        "url": "https://www.geeksforgeeks.org/system-design/message-queues-system-design/",
+        "file": "system_design_message_queues_system_design.md",
+        "minutes": 13
+      },
+      {
+        "id": "8.2",
+        "title": "Pub/Sub Architecture",
+        "summary": "The Publish/Subscribe (Pub/Sub) model is a messaging pattern that enables components to communicate without directly depending on each other....",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-pub-sub/",
+        "file": "system_design_what_is_pub_sub.md",
+        "minutes": 5
+      },
+      {
+        "id": "8.3",
+        "title": "Event-Driven Architecture (EDA)",
+        "summary": "Event-Driven Architecture (EDA) is a software design approach where system components communicate by producing and responding to events, such...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/",
+        "file": "system_design_event_driven_architecture_system_design.md",
+        "minutes": 5
+      },
+      {
+        "id": "8.4",
+        "title": "Event-Driven Architecture in an E-commerce System",
+        "summary": "Event-Driven Architecture (EDA) is an architectural approach in which components communicate by producing and reacting to events, such as...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-driven-architecture-in-an-e-commerce-system/",
+        "file": "system_design_event_driven_architecture_in_an_e_commerce_system.md",
+        "minutes": 7
+      },
+      {
+        "id": "8.5",
+        "title": "Event Sourcing Pattern",
+        "summary": "Event Sourcing records every change as an event instead of just storing the current state, creating a complete history of data changes. The...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-sourcing-pattern/",
+        "file": "system_design_event_sourcing_pattern.md",
+        "minutes": 8
+      },
+      {
+        "id": "8.6",
+        "title": "Event Sourcing Vs Event Streaming in System Design",
+        "summary": "Event Sourcing and Event Streaming are related concepts used in modern system design, but they solve different problems. Event Sourcing...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-sourcing-vs-event-streaming-in-system-design/",
+        "file": "system_design_event_sourcing_vs_event_streaming_in_system_design.md",
+        "minutes": 2
+      },
+      {
+        "id": "8.7",
+        "title": "Event-Driven APIs in Microservice Architectures",
+        "summary": "Event-Driven APIs in Microservice Architectures enable microservices to communicate through events rather than direct calls. When something...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-driven-apis-in-microservice-architectures/",
+        "file": "system_design_event_driven_apis_in_microservice_architectures.md",
+        "minutes": 9
+      },
+      {
+        "id": "8.8",
+        "title": "Error Handling in Event-Driven Architecture",
+        "summary": "Error handling in event-driven architecture ensures the system remains stable despite failures in asynchronous event communication. Since...",
+        "url": "https://www.geeksforgeeks.org/system-design/error-handling-in-event-driven-architecture/",
+        "file": "system_design_error_handling_in_event_driven_architecture.md",
+        "minutes": 9
+      },
+      {
+        "id": "8.9",
+        "title": "Restore State in an Event-Based, Message-Driven Microservice Architecture on Failure Scenario",
+        "summary": "In microservice architectures, ensuring state consistency during failures is crucial. This article explores effective strategies to restore...",
+        "url": "https://www.geeksforgeeks.org/system-design/how-to-restore-state-in-an-event-based-message-driven-microservice-architecture-on-failure-scenario/",
+        "file": "system_design_how_to_restore_state_in_an_event_based_message_driven_microservice_architecture_on_failure_scenario.md",
+        "minutes": 4
+      },
+      {
+        "id": "8.10",
+        "title": "Event-Driven Architecture Patterns in Cloud Native Applications",
+        "summary": "Event-driven architecture (EDA) enables cloud applications to respond to events in real time, making them more scalable and responsive....",
+        "url": "https://www.geeksforgeeks.org/system-design/event-driven-architecture-patterns-in-cloud-native-applications/",
+        "file": "system_design_event_driven_architecture_patterns_in_cloud_native_applications.md",
+        "minutes": 7
+      },
+      {
+        "id": "8.11",
+        "title": "Request-driven Vs Event-driven Microservices",
+        "summary": "Microservices architecture breaks an application into small, independent services, each focused on a specific business function. These...",
+        "url": "https://www.geeksforgeeks.org/system-design/request-driven-vs-event-driven-microservices/",
+        "file": "system_design_request_driven_vs_event_driven_microservices.md",
+        "minutes": 3
+      },
+      {
+        "id": "8.12",
+        "title": "Event-Driven Architecture vs. Microservices Architecture",
+        "summary": "In system design, Event-Driven Architecture (EDA) and Microservices Architecture address different architectural concerns. EDA focuses on...",
+        "url": "https://www.geeksforgeeks.org/system-design/event-driven-architecture-vs-microservices-architecture/",
+        "file": "system_design_event_driven_architecture_vs_microservices_architecture.md",
+        "minutes": 3
+      },
+      {
+        "id": "8.13",
+        "title": "Message-Driven Architecture Vs Event-Driven Architecture",
+        "summary": "Message-Driven Architecture (MDA) and Event-Driven Architecture (EDA) are communication approaches used to build distributed and loosely...",
+        "url": "https://www.geeksforgeeks.org/system-design/message-driven-architecture-vs-event-driven-architecture/",
+        "file": "system_design_message_driven_architecture_vs_event_driven_architecture.md",
+        "minutes": 3
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Testing & Security",
+    "level": "INTERMEDIATE",
+    "color": "#5eead4",
+    "topics": [
+      {
+        "id": "9.1",
+        "title": "Unit Testing",
+        "summary": "Unit Testing is a software testing method in which individual units or components of a software application (such as functions, methods, or...",
+        "url": "https://www.geeksforgeeks.org/software-testing/unit-testing-software-testing/",
+        "file": "software_testing_unit_testing_software_testing.md",
+        "minutes": 6
+      },
+      {
+        "id": "9.2",
+        "title": "Integration Testing",
+        "summary": "Integration Testing is a Software Testing technique used to verify the interaction, communication, and data flow between different modules or...",
+        "url": "https://www.geeksforgeeks.org/software-testing/software-engineering-integration-testing/",
+        "file": "software_testing_software_engineering_integration_testing.md",
+        "minutes": 4
+      },
+      {
+        "id": "9.3",
+        "title": "Load Testing - Software Testing",
+        "summary": "Load Testing is a type of performance testing that evaluates how a system performs under expected user load. It helps ensure the application...",
+        "url": "https://www.geeksforgeeks.org/software-testing/software-testing-load-testing/",
+        "file": "software_testing_software_testing_load_testing.md",
+        "minutes": 6
+      },
+      {
+        "id": "9.4",
+        "title": "Stress Testing",
+        "summary": "Stress Testing is a type of performance testing used to determine how a system behaves when subjected to workloads beyond its expected...",
+        "url": "https://www.geeksforgeeks.org/software-testing/stress-testing-software-testing/",
+        "file": "software_testing_stress_testing_software_testing.md",
+        "minutes": 3
+      },
+      {
+        "id": "9.5",
+        "title": "CI/CD Pipeline - System Design",
+        "summary": "CI/CD stands for Continuous Integration and Continuous Delivery/Deployment. It automates building, testing, and deploying code, making...",
+        "url": "https://www.geeksforgeeks.org/system-design/cicd-pipeline-system-design/",
+        "file": "system_design_cicd_pipeline_system_design.md",
+        "minutes": 17
+      },
+      {
+        "id": "9.6",
+        "title": "Security Measures in System Design",
+        "summary": "As cyberattacks and digital risks grow, companies need strong system security to protect important data, follow rules, and keep their...",
+        "url": "https://www.geeksforgeeks.org/system-design/essential-security-measures-in-system-design/",
+        "file": "system_design_essential_security_measures_in_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "9.7",
+        "title": "Authentication Vs Authorization",
+        "summary": "Authentication and Authorization are key security steps that ensure only the right users access a system and can perform permitted actions....",
+        "url": "https://www.geeksforgeeks.org/computer-networks/difference-between-authentication-and-authorization/",
+        "file": "computer_networks_difference_between_authentication_and_authorization.md",
+        "minutes": 1
+      },
+      {
+        "id": "9.8",
+        "title": "Secure Socket Layer (SSL) vs. Transport Layer Security (TLS)",
+        "summary": "SSL (Secure Socket Layer) and TLS (Transport Layer Security) are protocols that secure communication between web browsers and servers. TLS is...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/difference-between-secure-socket-layer-ssl-and-transport-layer-security-tls/",
+        "file": "computer_networks_difference_between_secure_socket_layer_ssl_and_transport_layer_security_tls.md",
+        "minutes": 3
+      },
+      {
+        "id": "9.9",
+        "title": "What is Secure Software Development Life Cycle (SSDLC)",
+        "summary": "Secure Software Development Life Cycle is a structured approach to software development that integrates security practices into every phase...",
+        "url": "https://www.geeksforgeeks.org/ethical-hacking/what-is-secure-software-development-life-cycle-ssdlc/",
+        "file": "ethical_hacking_what_is_secure_software_development_life_cycle_ssdlc.md",
+        "minutes": 5
+      },
+      {
+        "id": "9.10",
+        "title": "Data Backup and Disaster Recovery",
+        "summary": "Data Backup involves creating secure copies of critical data, while Disaster Recovery ensures quick restoration and business continuity after...",
+        "url": "https://www.geeksforgeeks.org/cloud-computing/what-is-data-backup-and-disaster-recovery/",
+        "file": "cloud_computing_what_is_data_backup_and_disaster_recovery.md",
+        "minutes": 5
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Distributed Systems",
+    "level": "ADVANCED",
+    "color": "#fdba74",
+    "topics": [
+      {
+        "id": "10.1",
+        "title": "Introduction to Distributed System",
+        "summary": "A distributed system is a group of independent computers, called nodes, that work together as a single system. These nodes communicate over a...",
+        "url": "https://www.geeksforgeeks.org/computer-networks/what-is-a-distributed-system/",
+        "file": "computer_networks_what_is_a_distributed_system.md",
+        "minutes": 3
+      },
+      {
+        "id": "10.2",
+        "title": "Consensus Algorithms in Distributed System",
+        "summary": "Consensus Algorithms in Distributed Systems explain how multiple computers in a distributed network agree on a single data value or decision.",
+        "url": "https://www.geeksforgeeks.org/operating-systems/consensus-algorithms-in-distributed-system/",
+        "file": "operating_systems_consensus_algorithms_in_distributed_system.md",
+        "minutes": 10
+      },
+      {
+        "id": "10.3",
+        "title": "Distributed Tracing - System Design",
+        "summary": "Distributed Tracing is a powerful monitoring technique that provides visibility into how requests flow through complex distributed systems,...",
+        "url": "https://www.geeksforgeeks.org/system-design/distributed-tracing-system-design/",
+        "file": "system_design_distributed_tracing_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "10.4",
+        "title": "Secure Communication in Distributed System",
+        "summary": "Secure communication is the process of protecting data during transmission to ensure confidentiality, integrity, authentication, and...",
+        "url": "https://www.geeksforgeeks.org/operating-systems/secure-communication-in-distributed-system/",
+        "file": "operating_systems_secure_communication_in_distributed_system.md",
+        "minutes": 4
+      },
+      {
+        "id": "10.5",
+        "title": "Design Issues of Distributed System",
+        "summary": "A distributed system consists of multiple independent computers that work together over a network to perform tasks or provide services as a...",
+        "url": "https://www.geeksforgeeks.org/system-design/design-issues-of-distributed-system/",
+        "file": "system_design_design_issues_of_distributed_system.md",
+        "minutes": 4
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Low-Level Design",
+    "level": "INTERMEDIATE TO ADVANCED",
+    "color": "#b5b4ff",
+    "topics": [
+      {
+        "id": "11.1",
+        "title": "Low Level Design or LLD",
+        "summary": "Low-Level Design (LLD) plays a crucial role in software development, transforming high-level abstract concepts into detailed, actionable...",
+        "url": "https://www.geeksforgeeks.org/system-design/what-is-low-level-design-or-lld-learn-system-design/",
+        "file": "system_design_what_is_low_level_design_or_lld_learn_system_design.md",
+        "minutes": 6
+      },
+      {
+        "id": "11.2",
+        "title": "Difference between High Level Design(HLD) and Low Level Design(LLD)",
+        "summary": "System design involves creating both a High-Level Design (HLD), which is like a roadmap showing the overall plan, and a Low-Level Design...",
+        "url": "https://www.geeksforgeeks.org/system-design/difference-between-high-level-design-and-low-level-design/",
+        "file": "system_design_difference_between_high_level_design_and_low_level_design.md",
+        "minutes": 2
+      },
+      {
+        "id": "11.3",
+        "title": "OOP Concepts for System Design",
+        "summary": "Object-Oriented Programming (OOP) is a way of writing code by organizing it into objects and classes. It helps in making code more modular,...",
+        "url": "https://www.geeksforgeeks.org/system-design/object-oriented-programingoop-concepts-for-designing-sytems/",
+        "file": "system_design_object_oriented_programingoop_concepts_for_designing_sytems.md",
+        "minutes": 18
+      },
+      {
+        "id": "11.4",
+        "title": "Modularity and Interfaces In System Design",
+        "summary": "Modularity and interfaces help design systems that are scalable, maintainable, and easy to manage. Modularity divides systems into...",
+        "url": "https://www.geeksforgeeks.org/system-design/inroduction-to-modularity-and-interfaces-in-system-design/",
+        "file": "system_design_inroduction_to_modularity_and_interfaces_in_system_design.md",
+        "minutes": 7
+      },
+      {
+        "id": "11.5",
+        "title": "Data Structures and Algorithms for System Design",
+        "summary": "DSA forms the foundation of system design by enabling efficient data organization, storage, and processing. It helps build scalable,...",
+        "url": "https://www.geeksforgeeks.org/system-design/data-structures-and-algorithms-for-system-design/",
+        "file": "system_design_data_structures_and_algorithms_for_system_design.md",
+        "minutes": 4
+      },
+      {
+        "id": "11.6",
+        "title": "SOLID Principles with Real Life Examples",
+        "summary": "The SOLID principles are five essential guidelines that enhance software design, making code more maintainable and scalable.",
+        "url": "https://www.geeksforgeeks.org/system-design/solid-principle-in-programming-understand-with-real-life-examples/",
+        "file": "system_design_solid_principle_in_programming_understand_with_real_life_examples.md",
+        "minutes": 24
+      },
+      {
+        "id": "11.7",
+        "title": "DRY Principle in Software Development",
+        "summary": "DRY (Don\u2019t Repeat Yourself) is a software development principle that avoids duplication of logic by promoting reusable components and code....",
+        "url": "https://www.geeksforgeeks.org/software-engineering/dont-repeat-yourselfdry-in-software-development/",
+        "file": "software_engineering_dont_repeat_yourselfdry_in_software_development.md",
+        "minutes": 6
+      },
+      {
+        "id": "11.8",
+        "title": "KISS Principle in Software Development",
+        "summary": "The KISS principle, which stands for \"Keep It Simple, Stupid\" (some variations use \"Keep It Short and Simple\" or \"Keep It Super Simple\"), is...",
+        "url": "https://www.geeksforgeeks.org/software-engineering/kiss-principle-in-software-development/",
+        "file": "software_engineering_kiss_principle_in_software_development.md",
+        "minutes": 5
+      },
+      {
+        "id": "11.9",
+        "title": "YAGNI Principle in Software Development",
+        "summary": "\"YAGNI\" stands for \"You Aren't Gonna Need It\". It is a principle in software development that suggests developers should implement only the...",
+        "url": "https://www.geeksforgeeks.org/software-engineering/what-is-yagni-principle-you-arent-gonna-need-it/",
+        "file": "software_engineering_what_is_yagni_principle_you_arent_gonna_need_it.md",
+        "minutes": 3
+      },
+      {
+        "id": "11.10",
+        "title": "Unified Modeling Language (UML) Diagrams",
+        "summary": "Unified Modeling Language (UML) is a standardized visual modeling language used to visualize, design, and communicate the structure and...",
+        "url": "https://www.geeksforgeeks.org/system-design/unified-modeling-language-uml-introduction/",
+        "file": "system_design_unified_modeling_language_uml_introduction.md",
+        "minutes": 6
+      },
+      {
+        "id": "11.11",
+        "title": "Activity Diagrams - Unified Modeling Language (UML)",
+        "summary": "An Activity Diagram is a behavioral UML diagram used to represent workflows, processes, and the sequence of activities within a system. It...",
+        "url": "https://www.geeksforgeeks.org/system-design/unified-modeling-language-uml-activity-diagrams/",
+        "file": "system_design_unified_modeling_language_uml_activity_diagrams.md",
+        "minutes": 4
+      },
+      {
+        "id": "11.12",
+        "title": "Design Patterns Tutorial",
+        "summary": "Design patterns are reusable solutions to common software design problems that help developers build cleaner and more maintainable systems....",
+        "url": "https://www.geeksforgeeks.org/system-design/software-design-patterns/",
+        "file": "system_design_software_design_patterns.md",
+        "minutes": 3
+      },
+      {
+        "id": "11.13",
+        "title": "Creational Design Patterns",
+        "summary": "Creational Design Patterns focus on the process of object creation or problems related to object creation. They help in making a system...",
+        "url": "https://www.geeksforgeeks.org/system-design/creational-design-pattern/",
+        "file": "system_design_creational_design_pattern.md",
+        "minutes": 4
+      },
+      {
+        "id": "11.14",
+        "title": "Structural Design Patterns",
+        "summary": "Structural Design Patterns focus on organizing classes and objects to build larger, efficient, and maintainable software structures. They...",
+        "url": "https://www.geeksforgeeks.org/system-design/structural-design-patterns/",
+        "file": "system_design_structural_design_patterns.md",
+        "minutes": 6
+      },
+      {
+        "id": "11.15",
+        "title": "Behavioral Design Patterns",
+        "summary": "Behavioral design patterns focus on how objects communicate and collaborate to manage responsibilities effectively. They improve flexibility...",
+        "url": "https://www.geeksforgeeks.org/system-design/behavioral-design-patterns/",
+        "file": "system_design_behavioral_design_patterns.md",
+        "minutes": 6
+      },
+      {
+        "id": "11.16",
+        "title": "Design Patterns Cheat Sheet - Selecting the Appropriate Design Pattern",
+        "summary": "In system design, selecting the right design pattern is related to choosing the right tool for the job. It's essential for crafting scalable,...",
+        "url": "https://www.geeksforgeeks.org/system-design/design-patterns-cheat-sheet-when-to-use-which-design-pattern/",
+        "file": "system_design_design_patterns_cheat_sheet_when_to_use_which_design_pattern.md",
+        "minutes": 4
+      },
+      {
+        "id": "11.17",
+        "title": "Authentication vs Authorization in LLD - System Design",
+        "summary": "Two fundamental ideas in system design, particularly in low-level design (LLD), are authentication and authorization.",
+        "url": "https://www.geeksforgeeks.org/system-design/difference-between-authentication-and-authorization-in-lld-system-design/",
+        "file": "system_design_difference_between_authentication_and_authorization_in_lld_system_design.md",
+        "minutes": 4
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Case Studies & Interviews",
+    "level": "ADVANCED",
+    "color": "#f9a8d4",
+    "topics": [
+      {
+        "id": "12.1",
+        "title": "Design Dropbox - A System Design Interview Question",
+        "summary": "Most of us use file hosting services in our daily life to store, access, and share files like documents, images, and videos from anywhere....",
+        "url": "https://www.geeksforgeeks.org/system-design/design-dropbox-a-system-design-interview-question/",
+        "file": "system_design_design_dropbox_a_system_design_interview_question.md",
+        "minutes": 14
+      },
+      {
+        "id": "12.2",
+        "title": "System Design Netflix",
+        "summary": "Designing Netflix involves building a scalable and highly available video streaming platform that delivers movies and TV shows to millions of...",
+        "url": "https://www.geeksforgeeks.org/system-design/system-design-netflix-a-complete-architecture/",
+        "file": "system_design_system_design_netflix_a_complete_architecture.md",
+        "minutes": 12
+      },
+      {
+        "id": "12.3",
+        "title": "System Design of Uber App | Uber System Architecture",
+        "summary": "Getting hassle-free transportation services like Uber or Ola is easy for users, but building such large-scale applications is highly complex....",
+        "url": "https://www.geeksforgeeks.org/system-design/system-design-of-uber-app-uber-system-architecture/",
+        "file": "system_design_system_design_of_uber_app_uber_system_architecture.md",
+        "minutes": 14
+      },
+      {
+        "id": "12.4",
+        "title": "Design BookMyShow - A System Design Interview Question",
+        "summary": "Designing BookMyShow is a popular system design interview question that tests your ability to build scalable, high-performance systems. It...",
+        "url": "https://www.geeksforgeeks.org/system-design/design-bookmyshow-a-system-design-interview-question/",
+        "file": "system_design_design_bookmyshow_a_system_design_interview_question.md",
+        "minutes": 10
+      },
+      {
+        "id": "12.5",
+        "title": "Designing Facebook | System Design Interview",
+        "summary": "Designing Facebook involves building a scalable and highly available social networking platform that enables billions of users to connect,...",
+        "url": "https://www.geeksforgeeks.org/system-design/desiging-facebook-messenger-system-design-interview/",
+        "file": "system_design_desiging_facebook_messenger_system_design_interview.md",
+        "minutes": 14
+      },
+      {
+        "id": "12.6",
+        "title": "Steps to Solve a System Design Interview Problem",
+        "summary": "System design interviews evaluate your ability to design scalable, reliable, and efficient systems. Unlike coding interviews, they focus on...",
+        "url": "https://www.geeksforgeeks.org/system-design/how-to-answer-a-system-design-interview-problem/",
+        "file": "system_design_how_to_answer_a_system_design_interview_problem.md",
+        "minutes": 5
+      },
+      {
+        "id": "12.7",
+        "title": "Most Commonly Asked System Design Interview Questions",
+        "summary": "This System Design Interview Guide will provide the most commonly asked system design interview questions and equip you with the knowledge...",
+        "url": "https://www.geeksforgeeks.org/system-design/most-commonly-asked-system-design-interview-problems-questions/",
+        "file": "system_design_most_commonly_asked_system_design_interview_problems_questions.md",
+        "minutes": 3
+      },
+      {
+        "id": "12.8",
+        "title": "Cracking the System Design Interview Round",
+        "summary": "A System Design Interview evaluates your ability to design scalable and reliable systems while clearly explaining your approach. It focuses...",
+        "url": "https://www.geeksforgeeks.org/system-design/how-to-crack-system-design-round-in-interviews/",
+        "file": "system_design_how_to_crack_system_design_round_in_interviews.md",
+        "minutes": 6
+      },
+      {
+        "id": "12.9",
+        "title": "Crack Low-Level System Design Interviews",
+        "summary": "Cracking low-level system design interviews can be challenging, but the right approach makes it manageable. This article shares five key tips...",
+        "url": "https://www.geeksforgeeks.org/system-design/5-tips-to-crack-low-level-system-design-interviews/",
+        "file": "system_design_5_tips_to_crack_low_level_system_design_interviews.md",
+        "minutes": 4
+      },
+      {
+        "id": "12.10",
+        "title": "System Design Concepts for Interview Preparation",
+        "summary": "System design interviews evaluate your ability to design scalable and complex systems, focusing more on architecture and decision-making than...",
+        "url": "https://www.geeksforgeeks.org/system-design/5-common-system-design-concepts-for-interview-preparation/",
+        "file": "system_design_5_common_system_design_concepts_for_interview_preparation.md",
+        "minutes": 5
+      },
+      {
+        "id": "12.11",
+        "title": "Approach Object-Oriented Design Questions in Interview",
+        "summary": "Object-Oriented Design (OOD) is an important interview topic at companies like Google, Microsoft, Amazon, and Facebook. Candidates are asked...",
+        "url": "https://www.geeksforgeeks.org/interview-experiences/steps-to-approach-object-oriented-design-questions-in-interview/",
+        "file": "interview_experiences_steps_to_approach_object_oriented_design_questions_in_interview.md",
+        "minutes": 4
+      },
+      {
+        "id": "12.12",
+        "title": "System Design Interview Questions and Answers",
+        "summary": "System Design is a key part of technical interviews at top tech companies, testing a candidate\u2019s ability to build scalable, reliable, and...",
+        "url": "https://www.geeksforgeeks.org/system-design/how-to-prepare-for-low-level-design-interviews/",
+        "file": "system_design_how_to_prepare_for_low_level_design_interviews.md",
+        "minutes": 48
+      },
+      {
+        "id": "12.13",
+        "title": "System Design Interview Questions and Answers",
+        "summary": "System Design is a key part of technical interviews at top tech companies, testing a candidate\u2019s ability to build scalable, reliable, and...",
+        "url": "https://www.geeksforgeeks.org/system-design/top-10-system-design-interview-questions-and-answers/",
+        "file": "system_design_top_10_system_design_interview_questions_and_answers.md",
+        "minutes": 48
+      }
+    ]
+  }
+]

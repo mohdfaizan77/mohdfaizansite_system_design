@@ -1,0 +1,72 @@
+# High Availability in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/what-is-high-availability-in-system-design/
+
+High availability in system design refers to the ability of a system or service to remain accessible and provide its intended functionality with minimal downtime, including during certain component failures. It is commonly expressed as a percentage of availability, such as 99%, 99.9%, or 99.99%.
+- Systems are designed to reduce service interruptions and keep applications running continuously.
+- Uses techniques like redundancy, load balancing, and failover to maintain service availability.
+Example: Large platforms like e-commerce websites use multiple servers and load balancers, so if one server fails, another server immediately takes over and users can continue using the service without interruption.
+
+## Importance
+High availability is important for a system for several reasons:
+- Minimize Downtime: High availability reduces service interruptions and keeps the system accessible for longer periods, ensuring smooth business operations.
+- Improve Resilience: High availability helps systems continue providing service during component failures and reduces the impact of disruptions.
+- Meet Service Level Agreements (SLAs): High availability helps organizations achieve SLA commitments by maintaining required uptime and avoiding penalties.
+- Enhance User Experience: Continuous system availability ensures users can access services anytime, improving satisfaction and trust.
+- Support Critical Functions: High availability helps keep critical services, such as healthcare and emergency systems, accessible with minimal interruption.
+- Support Disaster Recovery: Disaster recovery provides mechanisms to restore services after major failures or disasters, helping reduce prolonged downtime and support overall availability.
+
+## Methods to Measure High Availability
+High availability is typically measured as the percentage of time a system can provide its intended service. Metrics such as MTBF and MTTR provide additional information about failure frequency and recovery time and can be used to analyze factors that affect availability.
+
+### 1. Mean Time Between Failures (MTBF)
+MTBF (Mean Time Between Failures) measures the average time a system runs without failure and is used to estimate reliability trends in repairable systems.
+- It is calculated as total operational time divided by the number of failures, helping track system performance over time.
+- A higher MTBF indicates fewer failures and better system reliability, but it does not guarantee failure-free operation.
+Example: If a server runs for 1,000 hours and fails 5 times, the MTBF would be 200 hours, meaning the system runs on average for 200 hours before a failure occurs.
+
+### 2. Mean Time To Repair (MTTR)
+MTTR (Mean Time To Repair) measures the average time needed to fix a system after a failure and restore it to normal operation.
+- It includes diagnosing the issue, repairing it, testing the system, and confirming everything works correctly.
+- A lower MTTR means faster recovery, which can improve system availability by reducing downtime.
+Example: If a server failure takes 2 hours to fix and restore service, the MTTR for that incident is 2 hours.
+
+### Other Related Metrics
+There are a few additional metrics often used when analyzing system availability:
+- MTTD (Mean Time to Detect): The average time required to detect that a failure or incident has occurred.
+- MTTF (Mean Time To Failure): The average time a system or component operates before it fails, usually used for non-repairable components.
+Together, these metrics help organizations understand failure frequency, detection time, and recovery time, which can inform efforts to improve system availability and reliability.
+
+## Availability Levels
+This section shows how different availability percentages translate into actual downtime in real systems.
+
+## Ways to Achieve High Availability
+High availability ensures systems remain operational with minimal downtime, preventing financial loss and other risks. It is crucial for critical domains like banking and healthcare, and is achieved using techniques such as redundancy, load balancing, and failover.
+- Redundancy: Employ redundant components or servers to ensure that another can take over seamlessly if one fails. This can include redundancy at different levels, such as hardware, networking, and data centers.
+- Load Balancing: Distributing incoming requests across multiple servers or resources to prevent overload and improve performance and availability.
+- Failover Mechanisms: Implementing automated processes to detect failures and switch to redundant systems without manual intervention.
+- Disaster Recovery (DR): Having a comprehensive plan in place to recover the system in case of a catastrophic event that affects the primary infrastructure.
+- Monitoring and Alerting: Implementing robust monitoring systems that can detect issues in real-time and notify administrators to take appropriate action promptly.
+- Performance Optimization: Ensuring that the system is designed and tuned to handle the expected load efficiently, reducing the risk of bottlenecks and failures.
+- Scalability: Designing the system to scale easily by adding more resources when needed to accommodate increased demand.
+
+## Redundancy Architectures for High Availability
+Redundancy ensures high availability by running multiple system instances so that if one fails, another can continue serving users. It is often combined with data replication to keep data copies across multiple servers for reliability.
+
+### 1. Active-Passive (Primary-Standby) Architecture
+In this architecture, one server acts as the primary while another server remains as a backup to take over if the primary fails.
+- One primary server handles all requests, while a backup server remains idle and receives replicated data.
+- If the primary server fails, the backup server is manually activated to take over operations.
+Example: A banking system where the main database handles all operations while a standby database is kept as a backup.
+
+### 2. Warm Standby Architecture
+This architecture allows the secondary server to handle some workload, usually read operations, to utilize resources better.
+- The primary server handles both read and write operations, while the secondary server assists by handling read requests.
+- If the primary fails, the secondary server can partially take over and serve traffic.
+Example: News websites where users mostly read content and the secondary server helps serve read traffic.
+
+### 3. Active-Active Architecture
+In this setup, multiple servers work as active nodes and can handle requests simultaneously.
+- Multiple servers act as active primary nodes, and all nodes can handle both read and write operations.
+- Requires careful data synchronization between nodes to avoid conflicts.
+Example: Session management systems where multiple servers store temporary session data.

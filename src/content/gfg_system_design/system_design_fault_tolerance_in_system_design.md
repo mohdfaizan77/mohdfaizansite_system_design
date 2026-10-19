@@ -1,0 +1,68 @@
+# Fault Tolerance in System Design
+
+Source: https://www.geeksforgeeks.org/system-design/fault-tolerance-in-system-design/
+
+Fault tolerance refers to a system's capacity to keep working even in the face of hardware or software issues. Redundancy, error detection, and error recovery techniques must be used to avoid a costly failure. This will allow the system to continue operating or deteriorate in performance at a slower rate.
+- Prevents complete system failure by allowing the system to continue working even if some components stop functioning.
+- Improves system reliability by detecting errors and switching to backup components when needed.
+
+## Techniques Used to Achieve Fault Tolerance
+Fault tolerance is achieved using multiple architectural and infrastructure techniques. These techniques reduce the impact of individual component failures and help the system continue operating.
+- RAID (Redundant Array of Independent Disks): Certain RAID configurations distribute or replicate data across multiple disks so that storage can continue operating after specific disk failures.
+- Load Balancing: Load balancers distribute traffic across multiple healthy servers. When combined with health checks and redundant server instances, they can redirect traffic away from failed servers.
+- Clustering: Multiple servers or nodes work together as a cluster. If one node fails, another healthy node can take over its workload through failover mechanisms.
+- Virtualization with High Availability: Virtualization can support fault tolerance when combined with clustering, monitoring, shared storage, or orchestration. If a physical host fails, virtual machines may be restarted or migrated to another healthy host.
+- Microservices with Resilience Mechanisms: Microservices can limit the impact of failures because services are independently deployed, but microservices alone do not provide fault tolerance. Mechanisms such as retries, timeouts, circuit breakers, redundancy, replication, service isolation, and failover are also required.
+- Distributed Cloud Architecture: Deploying applications across multiple availability zones or regions can reduce the impact of localized infrastructure failures when proper replication, routing, and failover mechanisms are configured.
+
+## Replication Strategies for Enhancing Fault Tolerance
+Replication is a common technique used to improve fault tolerance by maintaining multiple copies of data or services across different nodes. If one node fails, another replica can continue serving requests without interrupting the system.
+
+### 1. Full Replication
+Full replication means creating a complete copy of a dataset or service across multiple nodes. Each replica maintains the required data so that another replica can serve requests when one node becomes unavailable.
+- Advantages: Provides multiple copies of critical data or services and reduces dependence on a single node.
+- Challenges: Requires additional storage, synchronization, consistency management, and communication between replicas.
+Implementation: Each replica maintains a complete copy of the required dataset or service. A separate failure detection and failover mechanism is needed to determine when traffic should be redirected to another replica.
+
+### 2. Partial Replication
+Partial replication means only duplicating important or frequently used components instead of the entire system.
+- Advantages: Partial replication enhances resource efficiency by focusing on replicating only key components, which necessitates a careful selection process to determine which components are most critical for replication.
+- Challenges: Determining which parts are critical introduces complexity, and selectively replicated components present synchronization challenges.
+Implementation: Replicates only essential elements for system functionality, optimizing resource usage.
+
+### 3. Shadowing or Passive Replication
+Shadowing, also known as passive replication, maintains backup replicas that remain inactive during normal operation and become active only when the primary system fails.
+- Advantages: Shadowing or passive replication offers resource efficiency during normal operation and ensures a quick response in case of a failure.
+- Challenges: Ensuring synchronization during the transition from passive to active state is essential, and having effective fault detection mechanisms is crucial for maintaining system reliability.
+Implementation: Inactive replicas become active when the primary system encounters a fault.
+
+### 4. Active Replication
+Active replication involves multiple replicas actively processing the same sequence of requests. The replicas are kept consistent so that another replica can continue operation if one replica fails.
+- Advantages: Provides strong fault tolerance because multiple replicas are already active and maintaining the required state.
+- Challenges: Requires coordination, deterministic request processing, ordering of operations, and consistency management across replicas.
+Implementation: The same requests are delivered to multiple active replicas in a consistent order so that they maintain equivalent state.
+
+## Fault Detection and Recovery
+Fault detection and recovery are important parts of fault-tolerant systems. Fault detection helps identify when a component or service fails, while recovery mechanisms restore the system to a normal working state. Together, these processes ensure that the system can quickly respond to failures and continue operating with minimal disruption.
+- Fault Detection: Systems use monitoring tools, health checks, and heartbeat signals to detect failures in servers, databases, or network components.
+- Automatic Recovery: Once a fault is detected, recovery mechanisms such as service restarts, failover to backup systems, or switching to replicated nodes help restore normal operations.
+Example
+• In a distributed application, monitoring systems detect when a server stops responding and automatically redirect traffic to another healthy server.
+• In cloud environments, if a virtual machine crashes, the orchestration system automatically restarts it or launches a new instance to maintain service availability.
+
+## Fault Tolerance vs High Availability
+Fault Tolerance ensures a system continues working even when components fail, while High Availability focuses on keeping the system accessible with minimal downtime using techniques like load balancing.
+Fault Tolerance	High Availability Load Balancing
+Ensures the system continues operating despite certain component failures.	Ensures the system remains accessible with minimal downtime.
+Goal: Continue operation during failures with little or no interruption.	Goal: Maximize uptime and restore service quickly when failures occur.
+Uses redundancy, replication, failover, fault isolation, and recovery mechanisms.	Uses redundancy, failover, clustering, monitoring, and load balancing.
+Often requires duplicate or redundant components that can take over immediately.	May allow a short recovery or failover period depending on the availability target.
+Focuses on tolerating failures while maintaining system functionality.	Focuses on minimizing the total amount of service downtime.
+Example: An actively replicated database continues processing requests after one replica fails.	Example: A web application automatically switches traffic to healthy servers after one instance fails.
+Can require greater infrastructure and coordination overhead.	Can often be achieved with less redundancy depending on the required SLA.
+
+## Challenges in Implementing Fault Tolerance
+Fault tolerance helps systems continue operating during failures, but implementing it introduces several practical challenges that must be carefully managed.
+- Scalability Issues: Scalability refers to the ability of a system to handle increasing workload or data size gracefully without sacrificing performance or availability. Scalability challenges in fault tolerance involve ensuring that fault-tolerant mechanisms can scale alongside the system's growth.
+- Performance Impacts: Fault tolerance mechanisms, such as redundancy and error correction, can impact system performance. This challenge involves minimizing performance degradation while maintaining high fault tolerance.
+- Cost Considerations: Implementing robust fault tolerance strategies often incurs additional costs due to the need for redundant hardware, software licenses, maintenance, and monitoring systems.

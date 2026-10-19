@@ -1,0 +1,115 @@
+# Draw High Level Design Diagram
+
+Source: https://www.geeksforgeeks.org/system-design/how-to-draw-high-level-design-diagram/
+
+A High-Level Design (HLD) diagram provides a visual overview of a system's architecture, showing the major components and how they interact. It focuses on the overall structure rather than implementation details.
+- Shows the major system components and the flow of data between them.
+- Illustrates how the system integrates with external services and its overall environment.
+
+## Example of High-Level Design Diagram of an Online Food Delivery System
+A High-Level Design (HLD) of an Online Food Delivery System shows the major components of the system and how they communicate with each other. It provides an architectural overview without focusing on implementation-level details.
+In above example, the HLD includes the main elements commonly found in high-level system design:
+- User Interface: Allows users to browse restaurants and menus, place orders, make payments, and track deliveries.
+- Modules/Subsystems: Services such as Authentication, Order Management, Restaurant Management, Notification, and Delivery Management handle specific system functions.
+- Interfaces/APIs: Enable communication between the user interface, application services, external systems, and data storage.
+- Data Flow: Shows how requests and information, such as orders, payments, and delivery updates, move between components.
+- Data Storage: Stores user information, restaurant data, orders, payment records, and other application data.
+- External Systems: Services such as payment gateways, maps/location APIs, and SMS or email providers integrate with the application.
+- Deployment/Infrastructure: Components such as load balancers, servers, containers, and cloud services provide the infrastructure required to run and scale the system.
+
+## Importance
+High-Level Design (HLD) diagrams provide a clear overview of the system architecture, making it easier to design, communicate, and manage complex systems.
+- Improve communication by helping stakeholders and developers understand the overall system architecture.
+- Support project planning by simplifying resource allocation, task distribution, and implementation planning.
+- Make complex systems easier to understand by showing how major components interact.
+- Serve as valuable documentation and help identify potential design issues early in the development process.
+
+## Preparation Required Before Drawing a High-Level Design Diagram
+First of all, a number of preparatory steps have to be taken before drawing an HLD diagram in order to avoid mistakes and omissions and produce a truly helpful and informative diagram.
+
+### 1. Requirements Analysis
+Requirements analysis helps identify the overall requirements, scope, and constraints of the project.
+- Gather Requirements: Collect business goals, functional requirements, non-functional requirements, and project constraints from stakeholders.
+- Analyze Requirements: Review and categorize the collected requirements to understand the system's expected functionality.
+- Prioritize Requirements: Rank requirements based on business importance and implementation priority.
+- Document Requirements: Record all requirements clearly using requirement specifications or user stories.
+
+### 2. Stakeholder Input
+Stakeholder input helps ensure that the system design addresses the needs, expectations, and concerns of all relevant stakeholders.
+- Identify Stakeholders: Identify all individuals, teams, or organizations that are affected by or involved in the system.
+- Gather Stakeholder Input: Collect their requirements, expectations, concerns, and feedback through meetings, interviews, surveys, or workshops.
+- Resolve Conflicts: Identify and resolve conflicting requirements or priorities between different stakeholders.
+- Validate Requirements: Review the proposed requirements with stakeholders and ensure that they are accurate, complete, and aligned with business objectives.
+- Obtain Approval: Get confirmation or approval from the relevant stakeholders before moving forward with the system design.
+
+### 3. System Context
+System context defines the environment in which the system operates. It helps identify the system boundaries, external entities, and interactions with other systems.
+- Context Diagram: Show the system's interactions with users, external applications, and third-party services.
+- Define Boundaries: Clearly specify what is inside and outside the system scope.
+- External Interactions: Identify APIs, integrations, and data exchange points with external systems.
+- Assumptions & Dependencies: Document key assumptions and dependencies that may impact the system design.
+
+### 4. Technology Stack
+Technology stack selection helps ensure that the system can meet its functional and non-functional requirements while considering scalability, security, maintainability, compatibility, cost, and project constraints.
+- Research Technologies: Explore suitable programming languages, frameworks, databases, cloud services, and other technologies based on the system requirements.
+- Evaluate Options: Compare different technologies based on performance, scalability, security, compatibility, maintainability, cost, and project constraints.
+- Select Technologies: Choose the technologies that best fit the system requirements, technical constraints, and project goals.
+- Document Decisions: Record the selected technology stack and the reasons, trade-offs, and constraints considered when making each technology decision.
+
+### 5. Standards and Conventions
+Following standard design practices ensures the HLD diagram is consistent, easy to understand, and maintainable.
+- UML Standards: Use standard UML notations to create clear and consistent diagrams.
+- Naming Conventions: Follow consistent naming rules for modules, components, and interfaces.
+- Design Patterns: Apply proven design patterns where appropriate to improve system design.
+- Documentation Standards: Maintain consistent documentation so the design is easy for the entire team to understand.
+
+## Tools for Creating High-Level Design Diagrams
+The right diagramming tool helps create clear, professional, and easy-to-maintain HLD diagrams.
+- Microsoft Visio: Microsoft Visio is a professional diagramming tool commonly used for enterprise system design. It supports UML, flowcharts, network diagrams, and other technical diagrams, and integrates with Microsoft Office tools.
+- Lucidchart: Lucidchart is a cloud-based diagramming platform designed for real-time collaboration. It allows multiple users to create and edit diagrams simultaneously and integrates with tools like Google Drive, Slack, and Confluence.
+- Draw.io (Diagrams.net): Draw.io is a free online diagramming tool suitable for creating system design diagrams. It offers a wide range of templates and diagramming shapes and integrates with cloud storage.
+
+## Techniques for Creating High-Level Design Diagrams
+Below are some techniques for creating high-level design:
+
+### 1. Unified Modeling Language (UML)
+A standardized modeling language used to specify, visualize, construct, and document different aspects of software systems.
+- Diagrams: Includes various types of diagrams such as class diagrams, sequence diagrams, use case diagrams, activity diagrams, and component diagrams, each using standardized notation to represent different aspects of a system.
+- Use Case: Used to model and communicate the structure, behavior, interactions, and relationships within a software system in a standardized and widely understood way.
+
+### 2. Block Diagrams
+Diagrams that use blocks to represent system components and lines to show relationships between them.
+- Components: Typically include blocks (modules) and connectors (interactions or data flows).
+- Use Case: Useful for high-level representations that focus on the main components and their interactions.
+
+### 3. Entity-Relationship Diagrams (ERD)
+Entity-Relationship Diagrams (ERDs) are primarily used for database and data modeling, illustrating entities, attributes, and relationships between them. An ERD can support HLD by helping represent the system's data model, but it does not represent the complete high-level system architecture.
+- Components: Includes entities (tables), attributes (columns), and relationships between entities.
+- Use Case: Useful for designing and visualizing database schemas and understanding how data is structured within the system.
+
+### 4. Flowcharts
+Diagrams that represent the flow of processes or systems using symbols.
+- Components: Includes start/end points, processes, decisions, and arrows indicating flow direction.
+- Use Case: Suitable for visualizing specific process flows and decision-making logic within a system. Flowcharts complement HLD by representing process-level behavior rather than the complete system architecture.
+
+### 5. Data Flow Diagrams (DFD)
+Diagrams that depict the flow of data within a system.
+- Components: Includes processes, data stores, data flows, and external entities.
+- Use Case: Useful for understanding and documenting how data moves between processes, data stores, and external entities. DFDs complement HLD by focusing on data movement rather than the complete system architecture.
+
+## Step-by-Step Guide to Drawing High-Level Design Diagrams
+Follow these steps to create a clear and well-structured High-Level Design (HLD) diagram.
+- Identify Major Components: Determine the main modules or services of the system.
+- Define Relationships: Specify how the components communicate and interact with each other.
+- Create a Preliminary Layout: Sketch the overall architecture to visualize the system structure.
+- Use a Diagramming Tool: Create the diagram using tools like Lucidchart, Visio, or Draw.io.
+- Add Details: Include data flow, external systems, and key interactions between components.
+- Review and Revise: Validate the diagram with stakeholders and update it based on feedback.
+- Finalize the Diagram: Add labels, annotations, legends, and other finishing touches for clarity.
+
+## Common Mistakes to Avoid While Drawing High-Level Design Diagram
+Below are some common mistakes while drawing high-level design diagram:
+- Too Much Detail: Adding too much information to an HLD diagram can make it complex and difficult to understand. Focus on major components and their relationships, while keeping detailed logic in other design documents.
+- Ignoring Stakeholders: Not involving stakeholders during the design phase can lead to misunderstandings and poor design decisions. Include architects, developers, and stakeholders during design reviews to ensure the system meets business and technical needs.
+- Lack of Consistency: Using inconsistent symbols or notations can confuse people who read the diagram. Follow standard notations such as UML and maintain consistent labels, shapes, and structures.
+- Neglecting Updates: System architecture may change as the project evolves. Regularly update the HLD diagram to reflect the latest design and keep the documentation accurate.

@@ -1,0 +1,60 @@
+# Event-Driven Architecture vs. Microservices Architecture
+
+Source: https://www.geeksforgeeks.org/system-design/event-driven-architecture-vs-microservices-architecture/
+
+In system design, Event-Driven Architecture (EDA) and Microservices Architecture address different architectural concerns. EDA focuses on communication and coordination through events, while Microservices Architecture focuses on decomposing an application into independently deployable services.
+- Event-Driven Architecture: Organizes interactions around events representing actions or state changes.
+- Microservices Architecture: Organizes an application into small services focused on specific business capabilities.
+
+## Event-Driven Architecture
+Event-Driven Architecture is an architectural approach in which components produce and react to events representing meaningful actions or state changes.
+Example: In a ride-sharing app, when a user books a ride, an event is generated. Services like driver matching, notifications, and billing react to this event independently without direct communication.
+
+### Key Characteristics
+- Event-Based Communication: Components communicate by producing and consuming events.
+- Loose Runtime Coupling: Producers often do not need direct knowledge of all consumers.
+- Independent Processing: Consumers can process relevant events according to their responsibilities.
+- Flexible Integration: New consumers can often react to existing events without changing producers.
+- Variable Processing Latency: Processing may be near-real-time, delayed, queued, or retried depending on system conditions.
+
+### Use Cases
+- Analytics and Monitoring: Processes event streams for near-real-time insights.
+- IoT Systems: Reacts to sensor readings and device state changes.
+- Financial Systems: Processes transaction and market-related events.
+- E-Commerce: Handles order, inventory, payment, and notification events.
+- Notification Systems: Triggers emails, messages, or alerts from application events.
+- Workflow Automation: Coordinates downstream processing using events.
+
+## Microservices Architecture
+Microservices Architecture structures an application as a collection of small, independently deployable services. Each service typically focuses on a specific business capability and exposes well-defined interfaces for communication.
+Example: In the same app, separate services handle users, rides, payments, and notifications. Each service runs independently and can be developed, deployed, and scaled without affecting others.
+
+### Key Characteristics
+- Business-Capability Focus: Each service is organized around a specific responsibility.
+- Independent Deployment: Services are designed so they can be deployed independently.
+- Independent Scaling: Individual services can often be scaled according to workload.
+- Technology Flexibility: Different services may use different technologies when appropriate.
+- Service Contracts: Services interact through APIs, messages, or event contracts.
+
+### Use Cases
+- E-Commerce Platforms: Separate services for catalog, orders, payments, and inventory.
+- Banking Applications: Services for accounts, transactions, fraud detection, and notifications.
+- Travel Platforms: Independent services for flights, hotels, payments, and reservations.
+- Healthcare Systems: Services for appointments, patient records, billing, and notifications.
+- Gaming Platforms: Separate matchmaking, player-profile, game-session, and leaderboard services.
+- Large SaaS Applications: Independent teams can own and deploy separate business capabilities.
+
+## Event-Driven Architecture Vs Microservices Architecture
+Aspect	Event-Driven Architecture	Microservices Architecture
+Primary Focus	Communication and reaction through events	Decomposition into independently deployable services
+Main Building Blocks	Producers, events, brokers, consumers	Services organized around business capabilities
+Communication	Commonly asynchronous, but not necessarily always	Can be synchronous, asynchronous, or both
+Coupling	Often reduces direct runtime coupling between producers and consumers	Depends on service contracts and runtime dependencies
+Deployment	Does not inherently define deployment boundaries	Services are designed for independent deployment
+Scaling	Event consumers and processing infrastructure can scale according to workload	Individual services can often scale independently
+Data Management	Depends on implementation; may use different persistence patterns	Database-per-service is common but not mandatory
+Event Sourcing	Optional and separate pattern	Can also be used within microservices
+Consistency	Depends on implementation; eventual consistency is common in asynchronous workflows	Depends on service and data architecture
+Failure Handling	Requires retries, idempotency, DLQs, monitoring, and other resilience mechanisms where needed	Requires timeouts, retries, circuit breakers, failover, and other resilience mechanisms
+Typical Uses	Notifications, analytics, IoT, asynchronous workflows	Large modular applications with independently deployable business services
+Relationship	Can be used inside a microservices system	Can use event-driven communication between services
